@@ -6,13 +6,15 @@ export const Hero3 = () => {
     <section className="box-border text-white bg-black grid grid-cols-1 gap-5 p-5 mt-[80px] md:px-20">
       <div className="grid grid-cols-1 gap-3 justify-items-center">
         <div className="max-w-[520px] flex flex-col gap-7 md:min-w-full">
-          <h1 className="text-3xl font-extrabold lg:text-5xl">Building a Tech Community</h1>
+          <h1 className="text-3xl font-extrabold lg:text-5xl">Industry We Serve</h1>
+          <h2 className="text-xl font-bold lg:text-3xl">
+            Future-ready digital solutions for every sector.
+          </h2>
           <p className="">
-            I founded Design & Code which is a global community with a mission to connect designers
-            and developers to create a happy community eager to learn, innovate and grow together.
-            We welcome all designers and developers: beginners, intermediates, and experts willing
-            to learn together. We encourage sharing resources and learning experiences, organizing
-            events, and providing feedback for our members to grow as they learn.
+            At Codified Web, we empower businesses across diverse sectors with intelligent,
+            scalable, and user-first digital solutions. By combining full-stack development, AI/ML
+            capabilities, and seamless UI/UX design, we solve real-world challenges through
+            technology that adapts, automates, and innovates.
           </p>
         </div>
       </div>

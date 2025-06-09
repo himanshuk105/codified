@@ -68,7 +68,7 @@ export const Hero4 = () => {
       <div className="grid grid-cols-1 justify-items-center gap-2">
         <div className="max-w-[520px] flex flex-col gap-4 w-full">
           <ul
-            className={`${!showMore ? 'h-42 overflow-y-clip ' : 'h-80 overflow-y-scroll'} box-border w-full  md:gap-5 tohide`}
+            className={`${!showMore ? 'h-42 overflow-y-clip ' : 'h-80 overflow-y-scroll'} box-border w-full  md:gap-5 tohide transition-all`}
           >
             {data.map((d, index) => {
               return <CardList key={index} />

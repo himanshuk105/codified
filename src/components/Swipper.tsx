@@ -9,29 +9,44 @@ import 'swiper/css/pagination'
 export const Swipper = () => {
   const data = [
     {
-      l: 'L',
-      h: 'Mentoring',
-      p: 'Get Connected with a mentor that will help you pave your career path',
+      industry: 'Tour & Travel',
+      description:
+        'Modern travel platforms with real-time booking, trip planning, and smart recommendations.',
     },
     {
-      l: 'D',
-      h: 'Design',
-      p: 'Learn visual design with modern tools and best practices.',
+      industry: 'Food & Restaurant',
+      description:
+        'Delivery apps, QR menus, POS systems, and kitchen management tools for modern dining.',
     },
     {
-      l: 'C',
-      h: 'Coding',
-      p: 'Master frontend and backend skills to build real apps.',
+      industry: 'Healthcare & Fitness',
+      description:
+        'HIPAA-compliant apps, telemedicine, virtual coaching, and health tracking solutions.',
     },
     {
-      l: 'T',
-      h: 'Teamwork',
-      p: 'Collaborate in projects and grow your network.',
+      industry: 'Education & E-Learning',
+      description:
+        'Interactive learning platforms, live classes, LMS, and AI-based adaptive learning.',
     },
     {
-      l: 'S',
-      h: 'Support',
-      p: 'Get help and mentoring whenever you’re stuck.',
+      industry: 'Gaming & Sports',
+      description:
+        'Game development, fantasy leagues, real-time stats, and immersive AR/VR features.',
+    },
+    {
+      industry: 'Social Networking',
+      description:
+        'Scalable social platforms with messaging, communities, and AI-driven content feeds.',
+    },
+    {
+      industry: 'Finance & Insurance',
+      description:
+        'Secure fintech solutions including wallets, analytics, KYC, and digital claim systems.',
+    },
+    {
+      industry: 'Ecommerce',
+      description:
+        'B2B/B2C stores, multi-vendor platforms, smart checkout, and CRM-integrated systems.',
     },
   ]
 
@@ -58,10 +73,10 @@ export const Swipper = () => {
           <SwiperSlide key={index}>
             <div className="h-full w-full flex flex-col gap-3 p-6 rounded-xl border border-gray-700 bg-[#111111]">
               <span className="size-14 text-xl font-bold rounded-full flex items-center justify-center border-2 border-gray-500">
-                {d.l}
+                H
               </span>
-              <h3 className="text-xl font-semibold">{d.h}</h3>
-              <p className="text-sm text-gray-300">{d.p}</p>
+              <h3 className="text-xl font-semibold">{d.industry}</h3>
+              <p className="text-sm text-gray-300 h-18">{d.description}</p>
             </div>
           </SwiperSlide>
         ))}

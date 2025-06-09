@@ -8,6 +8,7 @@ import { LandingHero } from '@/components/Hero'
 import { Hero2 } from '@/components/Hero2'
 import { Hero3 } from '@/components/Hero3'
 import { Hero4 } from '@/components/Hero4'
+import { Testimonial } from '@/components/Testimonial'
 
 export async function generateMetadata() {
   const headers = await getHeaders()
@@ -46,6 +47,7 @@ export default async function HomePage() {
       <Hero2 />
       <Hero3 />
       <Hero4 />
+      <Testimonial />
     </>
   )
 }
