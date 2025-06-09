@@ -43,8 +43,8 @@ const TestimonialCard = () => {
       </div>
 
       <p className="text-sm italic text-gray-300">
-        "This AI has boosted my productivity tenfold. The predictive features are spot-on and so
-        helpful."
+        This AI has boosted my productivity tenfold. The predictive features are spot-on and so
+        helpful.
       </p>
 
       <div className="flex items-center gap-4 mt-4">
