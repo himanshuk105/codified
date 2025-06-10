@@ -62,7 +62,10 @@ export const ServiceList = () => {
             {developmentType.map((d, i) => (
               <motion.button
                 key={i}
-                ref={(el) => (buttonRefs.current[i] = el)}
+                ref={(el) => {
+                  buttonRefs.current[i] = el
+                  return undefined
+                }}
                 onMouseEnter={() => handleHoverStart(i)}
                 onMouseLeave={() => handleHoverEnd(i)}
                 className="border-2 border-white bg-white text-black  px-4 py-3 rounded-md text-[14px]  shadow-lg flex items-center flex-row justify-between gap-3 w-48 h-15 cursor-pointer font-bold"
