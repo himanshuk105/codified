@@ -1,4 +1,4 @@
-import '../css/hero3.css'
+import '../../css/hero3.css'
 import { Swipper } from './Swipper'
 
 export const Hero3 = () => {

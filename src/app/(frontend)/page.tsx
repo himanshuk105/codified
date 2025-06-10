@@ -4,11 +4,12 @@ import React from 'react'
 import { fileURLToPath } from 'url'
 import config from '@/payload.config'
 import './styles.css'
-import { LandingHero } from '@/components/Hero'
-import { Hero2 } from '@/components/Hero2'
-import { Hero3 } from '@/components/Hero3'
-import { Hero4 } from '@/components/Hero4'
-import { Testimonial } from '@/components/Testimonial'
+import { LandingHero } from '@/components/Homepage/Hero'
+import { InfiniteTechScroll } from '@/components/Homepage/InfiniteSlider'
+import { Hero2 } from '@/components/Homepage/Hero2'
+import { Hero3 } from '@/components/Homepage/Hero3'
+import { Hero4 } from '@/components/Homepage/Hero4'
+import { Testimonial } from '@/components/Homepage/Testimonial'
 
 export async function generateMetadata() {
   const headers = await getHeaders()
@@ -44,6 +45,7 @@ export default async function HomePage() {
   return (
     <>
       <LandingHero hero1={hero1} />
+      <InfiniteTechScroll />
       <Hero2 />
       <Hero3 />
       <Hero4 />

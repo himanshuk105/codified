@@ -1,6 +1,6 @@
 'use client'
 
-import '../css/hero3.css'
+import '../../css/hero3.css'
 import { motion } from 'framer-motion'
 import { useRef } from 'react'
 import { CiStar } from 'react-icons/ci'
