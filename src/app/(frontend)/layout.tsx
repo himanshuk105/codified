@@ -13,6 +13,12 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="icon"
+          href="https://codifiedweb.com/wp-content/uploads/2023/10/cropped-Logo1-3-1.webp"
+        />
+      </head>
       <body>
         <Header />
         <main>{children}</main>
