@@ -2,8 +2,6 @@ import { CollectionConfig } from 'payload'
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
-  name: 'Posts',
-  singularName: 'Post',
   // add your fields here
   fields: [
     {

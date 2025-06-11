@@ -2,11 +2,7 @@ import { CollectionConfig } from 'payload'
 
 export const Tags: CollectionConfig = {
   slug: 'tags',
-  name: 'Tags',
-  singularName: 'Tag',
-  admin: {
-    useAsTitle: 'name',
-  },
+
   fields: [
     {
       name: 'name',

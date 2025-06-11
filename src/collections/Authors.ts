@@ -1,12 +1,8 @@
 import { CollectionConfig } from 'payload'
 
 export const Authors: CollectionConfig = {
-  name: 'Authors',
   slug: 'authors',
-  singularName: 'Author',
-  admin: {
-    useAsTitle: 'name',
-  },
+
   fields: [
     {
       name: 'name',
