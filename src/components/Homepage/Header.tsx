@@ -1,30 +1,31 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { IoMdClose } from 'react-icons/io'
 import { motion, AnimatePresence, useAnimation } from 'framer-motion'
 import { FaChevronDown } from 'react-icons/fa'
 import { usePathname } from 'next/navigation'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
+import { useWindowSize } from '@uidotdev/usehooks'
 
 export const Header = () => {
   const controls = useAnimation()
   const { direction, scrollY } = useScrollDirection()
+  const size = useWindowSize()
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
-
   useEffect(() => {
-    if (pathname === '/services') {
+    if (pathname === '/services' && size?.width !== null && size.width >= 1024) {
       if (direction === 'down' && scrollY > 200) {
         controls.start({ y: '-100%' }) // Hide header
       } else if (direction === 'up') {
         controls.start({ y: '0%' }) // Show header
       }
     }
-  }, [direction, scrollY, pathname])
+  }, [direction, scrollY, pathname, size])
 
   const nav = [
     { href: '/', text: 'Home' },
