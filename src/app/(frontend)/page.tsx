@@ -12,7 +12,6 @@ import { Hero4 } from '@/components/Homepage/Hero4'
 import { Testimonial } from '@/components/Homepage/Testimonial'
 
 export async function generateMetadata() {
-  const headers = await getHeaders()
   const payloadInstance = await getPayload({ config })
   const data = await payloadInstance.find({
     collection: 'pages',

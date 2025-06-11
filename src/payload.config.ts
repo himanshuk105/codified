@@ -12,6 +12,10 @@ import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Page'
 import { seoPlugin } from '@payloadcms/plugin-seo'
+import { Authors } from './collections/Authors'
+import { Posts } from './collections/Posts'
+import { Tags } from './collections/Tags'
+import { Categories } from './collections/Categories'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -23,7 +27,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Pages],
+  collections: [Users, Media, Pages, Authors, Posts, Tags, Categories],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

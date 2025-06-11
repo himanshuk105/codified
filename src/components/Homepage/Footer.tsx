@@ -48,7 +48,11 @@ export const Footer = () => {
       >
         {/* Logo & Socials */}
         <div className="space-y-4">
-          <img src="/logo.svg" alt="Logo" className="w-32" />
+          <img
+            src="https://codifiedweb.com/wp-content/uploads/2023/10/cropped-Logo1-3-1.webp"
+            alt="Logo"
+            className="h-30"
+          />
           <p className="text-sm text-gray-400">Web Solutions</p>
           <div className="flex gap-3 mt-4">
             <a href="#" className="bg-blue-600 p-2 rounded-full hover:scale-105 transition">

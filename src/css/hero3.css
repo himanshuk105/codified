@@ -1,3 +1,14 @@
 .tohide::-webkit-scrollbar {
   display: none;
 }
+
+.scrollhide::-webkit-scrollbar {
+  width: 4px;
+  background-color: white;
+  height: 80%;
+}
+
+.scrollhide::-webkit-scrollbar-thumb {
+  background-color: gray;
+  height: 5px;
+}

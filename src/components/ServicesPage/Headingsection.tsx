@@ -2,9 +2,11 @@
 
 import { motion, useAnimate } from 'framer-motion'
 
-export const HeadingSection = () => {
+export const HeadingSection = ({ hero1 }: any) => {
+  const heading = hero1?.heading
+  const subheading = hero1?.subheading
   const [scope, animate] = useAnimate()
-
+  console.log(hero1.button)
   const handleHoverStart = () => {
     animate(
       scope.current,
@@ -33,14 +35,17 @@ export const HeadingSection = () => {
       <p className="text-lg md:text-xl text-gray-300">
         Build modern, scalable, and visually stunning applications with our expert team.
       </p>
-      <motion.button
-        onMouseEnter={handleHoverStart}
-        onMouseLeave={handleHoverEnd}
-        className="border-2 border-white bg-black text-white px-6 py-3 rounded-md text-sm sm:text-base shadow-lg mt-6 flex items-center flex-row justify-center gap-3 w-45 self-center cursor-pointer font-extrabold"
-        ref={scope}
-      >
-        <span>Lets Connect</span> <span id="tt">&gt;</span>
-      </motion.button>
+      {hero1.button.map((d: any) => (
+        <motion.button
+          key={d.text}
+          onMouseEnter={handleHoverStart}
+          onMouseLeave={handleHoverEnd}
+          className="border-2 border-white bg-black text-white px-6 py-3 rounded-md text-sm sm:text-base shadow-lg mt-6 flex items-center flex-row justify-center gap-3 w-45 self-center cursor-pointer font-extrabold"
+          ref={scope}
+        >
+          <span>{d.text}</span> <span id="tt">&gt;</span>
+        </motion.button>
+      ))}
     </div>
   )
 }

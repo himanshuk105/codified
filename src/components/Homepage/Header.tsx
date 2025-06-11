@@ -60,7 +60,11 @@ export const Header = () => {
     >
       <nav className="flex justify-between items-center h-[80px] px-5 md:px-20">
         <Link href="/">
-          <img src="/logo.png" alt="logo" className="h-10 w-10" />
+          <img
+            src="https://codifiedweb.com/wp-content/uploads/2023/10/cropped-Logo1-3-1.webp"
+            alt="logo"
+            className="h-20"
+          />
         </Link>
 
         {/* Desktop Nav */}
