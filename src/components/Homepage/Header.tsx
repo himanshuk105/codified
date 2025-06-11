@@ -76,7 +76,7 @@ export const Header = () => {
                 className={`hover:text-blue-400 flex items-center gap-1 transition-all ${
                   pathname !== href
                     ? 'text-white blur-0'
-                    : 'text-white/50 hover:text-white blur-[1px]'
+                    : 'text-white/50 hover:text-white border-b'
                 }`}
               >
                 {text}
