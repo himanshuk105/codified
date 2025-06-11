@@ -86,7 +86,7 @@ const Blogpage = () => {
   })
 
   const handleListShowChange = (key: string) => {
-    let newList: list = appDevelopmentServices.find((d) => d.name == key) || {
+    const newList: list = appDevelopmentServices.find((d) => d.name == key) || {
       name: 'Default',
       description: 'Default',
     }
