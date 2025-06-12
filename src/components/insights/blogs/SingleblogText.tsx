@@ -4,23 +4,13 @@ import { motion } from 'framer-motion'
 
 export const SingleblogText = () => {
   return (
-    <section className="px-4 py-16 md:px-10 lg:px-32 max-w-screen-xl mx-auto">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="text-3xl md:text-5xl font-bold text-center mb-10"
-      >
-        Unlocking the Future: Mobile App Development in 2025
-      </motion.h2>
-
+    <section className="px-4 pb-20 md:px-10 lg:px-32 w-screen mx-auto bg-white">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed"
+        className="max-w-4xl mx-auto text-lg text-gray-700 leading-relaxed"
       >
         <p className="mb-6">
           In a world where smartphones have become digital lifelines, mobile app development is no
