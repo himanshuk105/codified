@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 
-export const Blog = () => {
+export const SingleblogText = () => {
   return (
     <section className="px-4 py-16 md:px-10 lg:px-32 max-w-screen-xl mx-auto">
       <motion.h2
