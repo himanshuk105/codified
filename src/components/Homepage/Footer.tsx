@@ -133,6 +133,7 @@ const Contactform = () => {
         const response = await fetch(
           'https://codified.vercel.app/api/forms/684985828fec93e883afb49d',
         )
+        // const response = await fetch('http://localhost:3000/api/forms/684985828fec93e883afb49d')
         const data = await response.json()
         setPayloadform(data?.fields || [])
       } catch (error) {
@@ -144,15 +145,17 @@ const Contactform = () => {
   }, [])
 
   return (
-    <div className="bg-[#111111] p-4 text-white flex flex-col md:flex-row gap-3">
-      <div>
-        <h2 className="text-xl font-semibold">Our Tech Experts are Change Catalysts</h2>
-        <h3 className="text-sm text-gray-400">
+    <div className="bg-[#111111] h-[calc(100vh-100px)] p-4 text-white flex flex-col md:flex-row gap-3">
+      <div className="md:w-1/2 flex flex-col gap-2 md:gap-8 md:justify-center md:items-center h-30 md:h-full">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold">
+          Our Tech Experts are Change Catalysts
+        </h2>
+        <h3 className="text-lg text-gray-400">
           Book a Free Consultation Call with Our Experts Today
         </h3>
       </div>
 
-      <form className="grow-1 flex flex-col gap-2 p-3 border-2 border-[#333333] rounded-lg w-full md:max-w-xl">
+      <form className="grow-1 flex flex-col gap-2 p-3 border-2 border-[#333333] rounded-lg w-full md:max-w-xl justify-between">
         {payloadform !== null && payloadform.length > 0 ? (
           payloadform.map((field, index) => (
             <InputField
@@ -186,9 +189,10 @@ const InputField = ({
   options: []
 }) => {
   return (
-    <div className="border border-[#222222] w-full p-3 rounded-lg">
+    <div className="border border-[#222222] w-full px-3 py-4 rounded-lg">
       {type == 'select' ? (
         <select className="w-full bg-transparent text-white placeholder-gray-400 focus:outline-none">
+          <option className="bg-[#222222]">Select your Budget</option>
           {options &&
             options.map((fe: any, i: number) => {
               return (

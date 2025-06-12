@@ -75,7 +75,7 @@ type list = {
   description: string
 }
 
-const Blogpage = () => {
+const Singleservicepage = () => {
   const sectionRef = useRef(null)
   const size = useWindowSize()
   const [listshow, setListshow] = useState(appDevelopmentServices[0])
@@ -161,7 +161,7 @@ const Blogpage = () => {
   )
 }
 
-export default Blogpage
+export default Singleservicepage
 
 const Developmentlist = ({ data }: any) => {
   return (
