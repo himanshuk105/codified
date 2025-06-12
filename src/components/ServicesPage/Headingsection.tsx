@@ -6,7 +6,7 @@ export const HeadingSection = ({ hero1 }: any) => {
   const heading = hero1?.heading
   const subheading = hero1?.subheading
   const [scope, animate] = useAnimate()
-  console.log(hero1.button)
+
   const handleHoverStart = () => {
     animate(
       scope.current,
@@ -28,7 +28,7 @@ export const HeadingSection = ({ hero1 }: any) => {
   }
 
   return (
-    <div className="relative z-10 text-center flex flex-col gap-6  md:h-[calc(100vh-180px)]">
+    <div className="box-border relative z-10 text-center flex flex-col justify-center gap-6 md:h-screen">
       <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-pink-500 to-yellow-400 text-transparent bg-clip-text p-2">
         Elevate Your Digital Presence
       </h2>

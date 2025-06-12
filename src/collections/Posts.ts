@@ -1,8 +1,12 @@
 import { CollectionConfig } from 'payload'
+import { title } from 'process'
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
   // add your fields here
+  admin: {
+    useAsTitle: 'title',
+  },
   fields: [
     {
       name: 'title',

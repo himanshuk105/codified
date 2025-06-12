@@ -1,9 +1,8 @@
 import { HeadingSection } from '@/components/ServicesPage/Headingsection'
-import { Servicebar } from '@/components/ServicesPage/Servicebar'
-import { ServiceList } from '@/components/ServicesPage/ServiceList'
-import { ServiceTestimonials } from '@/components/ServicesPage/Servicetestimonial'
+
 import { getPayload } from 'payload'
 import config from '@/payload.config'
+import { Service } from '@/components/ServicesPage/Service'
 
 export async function generateMetadata() {
   const payloadInstance = await getPayload({ config })
@@ -31,9 +30,7 @@ const ServicesPage = async () => {
   return (
     <section className="relative  text-white py-24 px-6 md:px-16">
       <HeadingSection hero1={hero1} />
-      <Servicebar />
-      <ServiceList />
-      <ServiceTestimonials />
+      <Service />
     </section>
   )
 }

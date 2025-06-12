@@ -51,12 +51,14 @@ export const Header = () => {
     setOpenDropdown((prev) => (prev === key ? null : key))
   }
 
+  const u = /^\/insights\/blog\/[^\/]+$/.test(pathname) ? true : false
+
   return (
     <motion.header
       animate={controls}
       initial={{ y: 0 }}
       transition={{ duration: 0.3 }}
-      className="bg-transparent text-white fixed w-screen top-0 z-52 backdrop-blur-md"
+      className={`${u ? 'bg-black' : 'bg-transparent'} text-white fixed w-screen top-0 z-52 backdrop-blur-md`}
     >
       <nav className="flex justify-between items-center h-[80px] px-5 md:px-20">
         <Link href="/">
