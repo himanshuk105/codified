@@ -4,7 +4,7 @@ import { useWindowSize } from '@uidotdev/usehooks'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef, useState } from 'react'
 import '../../../../css/hero3.css'
-import { CiCircleChevUp } from 'react-icons/ci'
+
 import { CiCircleChevDown } from 'react-icons/ci'
 
 const appDevelopmentServices = [
