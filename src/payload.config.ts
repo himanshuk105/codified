@@ -64,7 +64,7 @@ export default buildConfig({
     formBuilderPlugin({}),
     nestedDocsPlugin({
       collections: ['pages'],
-      generateLabel: (_, doc) => doc.title,
+      generateLabel: (_, doc) => (typeof doc.title === 'string' ? doc.title : 'Untitled'),
       generateURL: (docs) =>
         docs.reduce((url, doc) => (doc.slug !== 'home' ? `${url}/${doc.slug}` : url), ''),
     }),
