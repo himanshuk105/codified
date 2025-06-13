@@ -74,6 +74,9 @@ export interface Config {
     posts: Post;
     tags: Tag;
     categories: Category;
+    navbar: Navbar;
+    technologies: Technology;
+    projects: Project;
     forms: Form;
     'form-submissions': FormSubmission;
     'payload-locked-documents': PayloadLockedDocument;
@@ -89,6 +92,9 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    navbar: NavbarSelect<false> | NavbarSelect<true>;
+    technologies: TechnologiesSelect<false> | TechnologiesSelect<true>;
+    projects: ProjectsSelect<false> | ProjectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -245,12 +251,89 @@ export interface Page {
             blockName?: string | null;
             blockType: 'imageAndText';
           }
+        | {
+            'project data'?: (string | Project)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'Projects';
+          }
       )[]
     | null;
   meta?: {
     title?: string | null;
     description?: string | null;
   };
+  parent?: (string | null) | Page;
+  breadcrumbs?:
+    | {
+        doc?: (string | null) | Page;
+        url?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: string;
+  title?: string | null;
+  description?: string | null;
+  slug?: string | null;
+  technologies?:
+    | {
+        technology?: (string | Technology)[] | null;
+        id?: string | null;
+      }[]
+    | null;
+  Section?:
+    | {
+        title?: string | null;
+        description?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        additional?:
+          | {
+              additional?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        images?:
+          | {
+              image?: (string | null) | Media;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "technologies".
+ */
+export interface Technology {
+  id: string;
+  name?: string | null;
+  logo?: (string | null) | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -323,6 +406,37 @@ export interface Category {
   title: string;
   slug?: string | null;
   description?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navbar".
+ */
+export interface Navbar {
+  id: string;
+  navTitle: string;
+  navItems?:
+    | {
+        label: string;
+        href?: string | null;
+        hasDropdown?: boolean | null;
+        dropdownItems?:
+          | {
+              categoryTitle: string;
+              subServices?:
+                | {
+                    label: string;
+                    link?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -553,6 +667,18 @@ export interface PayloadLockedDocument {
         value: string | Category;
       } | null)
     | ({
+        relationTo: 'navbar';
+        value: string | Navbar;
+      } | null)
+    | ({
+        relationTo: 'technologies';
+        value: string | Technology;
+      } | null)
+    | ({
+        relationTo: 'projects';
+        value: string | Project;
+      } | null)
+    | ({
         relationTo: 'forms';
         value: string | Form;
       } | null)
@@ -677,12 +803,28 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        Projects?:
+          | T
+          | {
+              'project data'?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
   meta?:
     | T
     | {
         title?: T;
         description?: T;
+      };
+  parent?: T;
+  breadcrumbs?:
+    | T
+    | {
+        doc?: T;
+        url?: T;
+        label?: T;
+        id?: T;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -740,6 +882,82 @@ export interface CategoriesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   description?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navbar_select".
+ */
+export interface NavbarSelect<T extends boolean = true> {
+  navTitle?: T;
+  navItems?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        hasDropdown?: T;
+        dropdownItems?:
+          | T
+          | {
+              categoryTitle?: T;
+              subServices?:
+                | T
+                | {
+                    label?: T;
+                    link?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "technologies_select".
+ */
+export interface TechnologiesSelect<T extends boolean = true> {
+  name?: T;
+  logo?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects_select".
+ */
+export interface ProjectsSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  slug?: T;
+  technologies?:
+    | T
+    | {
+        technology?: T;
+        id?: T;
+      };
+  Section?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        additional?:
+          | T
+          | {
+              additional?: T;
+              id?: T;
+            };
+        images?:
+          | T
+          | {
+              image?: T;
+              id?: T;
+            };
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

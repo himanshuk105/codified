@@ -126,14 +126,13 @@ export const Footer = () => {
 
 const Contactform = () => {
   const [payloadform, setPayloadform] = useState<any[] | null>(null)
-
   useEffect(() => {
     const getData = async () => {
       try {
-        // const response = await fetch(
-        //   'https://codified.vercel.app/api/forms/684985828fec93e883afb49d',
-        // )
-        const response = await fetch('http://localhost:3000/api/forms/684985828fec93e883afb49d')
+        const response = await fetch(
+          'https://codified.vercel.app/api/forms/684985828fec93e883afb49d',
+        )
+        // const response = await fetch('http://localhost:3000/api/forms/684985828fec93e883afb49d')
         const data = await response.json()
         setPayloadform(data?.fields || [])
       } catch (error) {
@@ -145,7 +144,7 @@ const Contactform = () => {
   }, [])
 
   return (
-    <div className="bg-[#111111] h-[calc(100vh-100px)] p-4 text-white flex flex-col md:flex-row gap-3">
+    <div className="bg-[#111111] h-[calc(100vh-150px)] p-7 text-white flex flex-col md:flex-row gap-3">
       <div className="md:w-1/2 flex flex-col gap-2 md:gap-8 md:justify-center md:items-center h-30 md:h-full">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold">
           Our Tech Experts are Change Catalysts
@@ -164,6 +163,7 @@ const Contactform = () => {
               name={field.name}
               type={field.blockType}
               options={field.options}
+              placeholder={field.placeholder}
             />
           ))
         ) : (
@@ -182,17 +182,19 @@ const InputField = ({
   name,
   type,
   options,
+  placeholder,
 }: {
   label: string
   name: string
   type?: string
-  options: []
+  options?: []
+  placeholder?: string
 }) => {
   return (
     <div className="border border-[#222222] w-full px-3 py-4 rounded-lg">
       {type == 'select' ? (
         <select className="w-full bg-transparent text-white placeholder-gray-400 focus:outline-none">
-          <option className="bg-[#222222]">Select your Budget</option>
+          <option className="bg-[#222222]">{placeholder}</option>
           {options &&
             options.map((fe: any, i: number) => {
               return (

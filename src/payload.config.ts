@@ -7,6 +7,7 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
+import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -16,6 +17,9 @@ import { Authors } from './collections/Authors'
 import { Posts } from './collections/Posts'
 import { Tags } from './collections/Tags'
 import { Categories } from './collections/Categories'
+import { Navbar } from './collections/Navbar'
+import { Technologies } from './collections/Technologies'
+import { Projects } from './collections/Projects'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -27,7 +31,18 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Pages, Authors, Posts, Tags, Categories],
+  collections: [
+    Users,
+    Media,
+    Pages,
+    Authors,
+    Posts,
+    Tags,
+    Categories,
+    Navbar,
+    Technologies,
+    Projects,
+  ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -47,6 +62,12 @@ export default buildConfig({
       tabbedUI: true,
     }),
     formBuilderPlugin({}),
+    nestedDocsPlugin({
+      collections: ['pages'],
+      generateLabel: (_, doc) => doc.title,
+      generateURL: (docs) =>
+        docs.reduce((url, doc) => (doc.slug !== 'home' ? `${url}/${doc.slug}` : url), ''),
+    }),
     // storage-adapter-placeholder
   ],
 })

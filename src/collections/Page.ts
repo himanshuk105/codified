@@ -57,6 +57,24 @@ export const Pages: CollectionConfig = {
             { name: 'text', type: 'richText' },
           ],
         },
+        {
+          slug: 'Projects',
+          fields: [
+            {
+              name: 'project data',
+              type: 'relationship',
+              relationTo: 'projects',
+              hasMany: true,
+              // fields: [
+              //   {
+              //     name: 'projectName',
+              //     type: 'relationship',
+              //     relationTo: 'projects',
+              //   },
+              // ],
+            },
+          ],
+        },
       ],
     },
   ],
