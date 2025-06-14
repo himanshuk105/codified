@@ -249,7 +249,7 @@ const InputField = ({
   type?: string
   options?: []
   placeholder?: string
-  register: Function
+  register: any
 }) => {
   return (
     <div className="border border-[#222222] w-full px-3 py-4 rounded-lg">
