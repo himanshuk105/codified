@@ -10,6 +10,7 @@ import {
   FaEnvelope,
   FaArrowUp,
 } from 'react-icons/fa'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
 export const Footer = () => {
   const [showTopBtn, setShowTopBtn] = useState(false)
@@ -124,17 +125,71 @@ export const Footer = () => {
   )
 }
 
+type Inputs = {
+  fullname: string
+  email: string
+  contactno: string
+  budget: string
+  description: string
+  requiredservice: string
+}
+
+const formsubmission = async (data: any, formId: string) => {
+  const req = await fetch('http://localhost:3000/api/form-submissions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      form: formId,
+      submissionData: data,
+    }),
+  })
+  const res = await req.json()
+  return res
+}
+
 const Contactform = () => {
   const [payloadform, setPayloadform] = useState<any[] | null>(null)
+  const { register, reset, handleSubmit } = useForm<Inputs>({
+    defaultValues: {
+      fullname: '',
+      email: '',
+      contactno: '',
+      budget: '',
+      description: '',
+      requiredservice: '',
+    },
+  })
+
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const dataToSend = Object.entries(data).map(([name, value]) => ({
+      field: name,
+      value,
+    }))
+    const res = await formsubmission(dataToSend, '684985828fec93e883afb49d')
+    if (res.success) {
+      alert('Form submitted successfully')
+    }
+  }
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch(
-          'https://codified.vercel.app/api/forms/684985828fec93e883afb49d',
-        )
-        // const response = await fetch('http://localhost:3000/api/forms/684985828fec93e883afb49d')
+        // const response = await fetch(
+        //   'https://codified.vercel.app/api/forms/684985828fec93e883afb49d',
+        // )
+        const response = await fetch('http://localhost:3000/api/forms/684985828fec93e883afb49d')
         const data = await response.json()
         setPayloadform(data?.fields || [])
+        console.log(data?.id)
+        reset({
+          fullname: '',
+          email: '',
+          contactno: '',
+          budget: '',
+          description: '',
+          requiredservice: '',
+        })
       } catch (error) {
         console.error('Failed to fetch form data:', error)
         setPayloadform([]) // fallback to empty array on error
@@ -154,7 +209,10 @@ const Contactform = () => {
         </h3>
       </div>
 
-      <form className="grow-1 flex flex-col gap-2 p-3 border-2 border-[#333333] rounded-lg w-full md:max-w-xl justify-between">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="grow-1 flex flex-col gap-2 p-3 border-2 border-[#333333] rounded-lg w-full md:max-w-xl justify-between"
+      >
         {payloadform !== null && payloadform.length > 0 ? (
           payloadform.map((field, index) => (
             <InputField
@@ -164,6 +222,7 @@ const Contactform = () => {
               type={field.blockType}
               options={field.options}
               placeholder={field.placeholder}
+              register={register}
             />
           ))
         ) : (
@@ -183,17 +242,23 @@ const InputField = ({
   type,
   options,
   placeholder,
+  register,
 }: {
   label: string
   name: string
   type?: string
   options?: []
   placeholder?: string
+  register: Function
 }) => {
   return (
     <div className="border border-[#222222] w-full px-3 py-4 rounded-lg">
       {type == 'select' ? (
-        <select className="w-full bg-transparent text-white placeholder-gray-400 focus:outline-none">
+        <select
+          name={name}
+          {...register(`${name}`)}
+          className="w-full bg-transparent text-white placeholder-gray-400 focus:outline-none"
+        >
           <option className="bg-[#222222]">{placeholder}</option>
           {options &&
             options.map((fe: any, i: number) => {
@@ -209,6 +274,7 @@ const InputField = ({
           name={name}
           type={type}
           placeholder={label}
+          {...register(`${name}`)}
           className="w-full bg-transparent text-white placeholder-gray-400 focus:outline-none"
         />
       )}
