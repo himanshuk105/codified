@@ -17,7 +17,7 @@ export const Header = () => {
 
   useEffect(() => {
     const an = async () => {
-      const req = await fetch('http://localhost:3000/api/Menu/684d451583bb1549f9a95ca0')
+      const req = await fetch('https://codified.vercel.app/api/Menu/684d451583bb1549f9a95ca0')
       const res = await req.json()
       const items = res.Items
       setData(items)
