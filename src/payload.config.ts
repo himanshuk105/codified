@@ -20,6 +20,7 @@ import { Categories } from './collections/Categories'
 import { Navbar } from './collections/Navbar'
 import { Technologies } from './collections/Technologies'
 import { Projects } from './collections/Projects'
+import { Testimonials } from './collections/Testimonials'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -42,6 +43,7 @@ export default buildConfig({
     Navbar,
     Technologies,
     Projects,
+    Testimonials,
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

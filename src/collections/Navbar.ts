@@ -1,26 +1,30 @@
 import { CollectionConfig } from 'payload'
 
 export const Navbar: CollectionConfig = {
-  slug: 'navbar',
+  slug: 'Menu',
   admin: {
-    useAsTitle: 'navTitle',
+    useAsTitle: 'title',
   },
   fields: [
     {
-      name: 'navTitle',
+      name: 'title',
       type: 'text',
       required: true,
     },
     {
-      name: 'navItems',
+      name: 'Items',
       type: 'array',
-      label: 'Navigation Items',
+      label: 'Menu Items',
       fields: [
         {
           name: 'label',
           type: 'text',
           label: 'Menu Label',
           required: true,
+        },
+        {
+          name: 'slug',
+          type: 'text',
         },
         {
           name: 'href',
@@ -44,6 +48,14 @@ export const Navbar: CollectionConfig = {
               required: true,
             },
             {
+              name: 'slug',
+              type: 'text',
+            },
+            {
+              name: 'link',
+              type: 'text',
+            },
+            {
               name: 'subServices',
               type: 'array',
               label: 'Sub Services',
@@ -59,7 +71,20 @@ export const Navbar: CollectionConfig = {
                   type: 'text',
                   label: 'Sub Service Link',
                 },
+                {
+                  name: 'slug',
+                  type: 'text',
+                },
               ],
+            },
+            {
+              name: 'logoorimage',
+              type: 'upload',
+              relationTo: 'media',
+            },
+            {
+              name: 'description',
+              type: 'textarea',
             },
           ],
         },

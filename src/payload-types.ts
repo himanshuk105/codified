@@ -74,9 +74,10 @@ export interface Config {
     posts: Post;
     tags: Tag;
     categories: Category;
-    navbar: Navbar;
+    Menu: Menu;
     technologies: Technology;
     projects: Project;
+    testimonials: Testimonial;
     forms: Form;
     'form-submissions': FormSubmission;
     'payload-locked-documents': PayloadLockedDocument;
@@ -92,9 +93,10 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
-    navbar: NavbarSelect<false> | NavbarSelect<true>;
+    Menu: MenuSelect<false> | MenuSelect<true>;
     technologies: TechnologiesSelect<false> | TechnologiesSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -411,32 +413,53 @@ export interface Category {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "navbar".
+ * via the `definition` "Menu".
  */
-export interface Navbar {
+export interface Menu {
   id: string;
-  navTitle: string;
-  navItems?:
+  title: string;
+  Items?:
     | {
         label: string;
+        slug?: string | null;
         href?: string | null;
         hasDropdown?: boolean | null;
         dropdownItems?:
           | {
               categoryTitle: string;
+              slug?: string | null;
+              link?: string | null;
               subServices?:
                 | {
                     label: string;
                     link?: string | null;
+                    slug?: string | null;
                     id?: string | null;
                   }[]
                 | null;
+              logoorimage?: (string | null) | Media;
+              description?: string | null;
               id?: string | null;
             }[]
           | null;
         id?: string | null;
       }[]
     | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials".
+ */
+export interface Testimonial {
+  id: string;
+  name?: string | null;
+  testimonial?: string | null;
+  image?: (string | null) | Media;
+  testimonialname?: string | null;
+  testimonialposition?: string | null;
+  Rating?: number | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -667,8 +690,8 @@ export interface PayloadLockedDocument {
         value: string | Category;
       } | null)
     | ({
-        relationTo: 'navbar';
-        value: string | Navbar;
+        relationTo: 'Menu';
+        value: string | Menu;
       } | null)
     | ({
         relationTo: 'technologies';
@@ -677,6 +700,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'projects';
         value: string | Project;
+      } | null)
+    | ({
+        relationTo: 'testimonials';
+        value: string | Testimonial;
       } | null)
     | ({
         relationTo: 'forms';
@@ -887,27 +914,33 @@ export interface CategoriesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "navbar_select".
+ * via the `definition` "Menu_select".
  */
-export interface NavbarSelect<T extends boolean = true> {
-  navTitle?: T;
-  navItems?:
+export interface MenuSelect<T extends boolean = true> {
+  title?: T;
+  Items?:
     | T
     | {
         label?: T;
+        slug?: T;
         href?: T;
         hasDropdown?: T;
         dropdownItems?:
           | T
           | {
               categoryTitle?: T;
+              slug?: T;
+              link?: T;
               subServices?:
                 | T
                 | {
                     label?: T;
                     link?: T;
+                    slug?: T;
                     id?: T;
                   };
+              logoorimage?: T;
+              description?: T;
               id?: T;
             };
         id?: T;
@@ -958,6 +991,20 @@ export interface ProjectsSelect<T extends boolean = true> {
             };
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials_select".
+ */
+export interface TestimonialsSelect<T extends boolean = true> {
+  name?: T;
+  testimonial?: T;
+  image?: T;
+  testimonialname?: T;
+  testimonialposition?: T;
+  Rating?: T;
   updatedAt?: T;
   createdAt?: T;
 }
