@@ -7,29 +7,7 @@ export const Hero2 = ({ hero2 }: any) => {
   const paragraphText = hero2.text.root.children[0].children[0].text
   const button = hero2.button[0].text
   const sidesections = hero2.sidesection
-  console.log(sidesections)
-  const data = [
-    {
-      l: 'L',
-      h: 'SOFTWARE DEVELOPMENT SERVICES',
-      p: 'We develop secure, cloud-ready software to streamline operations and drive growth.',
-    },
-    {
-      l: 'L',
-      h: 'MOBILE APP DEVELOPMENT SERVICES',
-      p: 'We create fast, scalable mobile apps for iOS, Android, and cross-platform use.',
-    },
-    {
-      l: 'L',
-      h: 'WEB DEVELOPMENT SERVICES',
-      p: 'We build high-performing websites and platforms that elevate your digital presence.',
-    },
-    {
-      l: 'L',
-      h: 'AI Development Services',
-      p: 'We integrate AI to automate, analyze, and enhance user experiences.',
-    },
-  ]
+
   return (
     <section className="box-border text-white bg-black grid grid-cols-1 md:grid-cols-2 gap-5 p-5 md:px-20">
       <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-items-center gap-2">
@@ -44,7 +22,11 @@ export const Hero2 = ({ hero2 }: any) => {
               key={item.id}
             >
               <span className="size-11 flex-shrink-0 rounded-full flex items-center justify-center border-2">
-                <img className="size-8" src={item.logoimage.url} alt={item.logoimage.alt} />
+                <img
+                  className="size-8"
+                  src={`${process.env.NEXT_PUBLIC_WEB_URI}${item.logoimage.url}`}
+                  alt={item.logoimage.alt}
+                />
               </span>
               <h2 className="text-xl font-bold">{item.heading}</h2>
 

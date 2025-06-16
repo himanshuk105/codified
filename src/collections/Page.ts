@@ -53,7 +53,7 @@ export const Pages: CollectionConfig = {
             { name: 'subheading', type: 'textarea' },
             { name: 'backgroundImage', type: 'upload', relationTo: 'media' },
             {
-              name: 'sidesection',
+              name: 'Inner Sections',
               type: 'array',
               fields: [
                 { name: 'heading', type: 'text' },

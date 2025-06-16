@@ -236,7 +236,7 @@ export interface Page {
             heading: string;
             subheading?: string | null;
             backgroundImage?: (string | null) | Media;
-            sidesection?:
+            'Inner Sections'?:
               | {
                   heading?: string | null;
                   paragraph?: {
@@ -905,7 +905,7 @@ export interface PagesSelect<T extends boolean = true> {
               heading?: T;
               subheading?: T;
               backgroundImage?: T;
-              sidesection?:
+              'Inner Sections'?:
                 | T
                 | {
                     heading?: T;
