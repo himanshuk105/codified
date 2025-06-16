@@ -28,16 +28,15 @@ export const Pages: CollectionConfig = {
             { name: 'heading', type: 'text', required: true },
             { name: 'subheading', type: 'textarea' },
             { name: 'backgroundImage', type: 'upload', relationTo: 'media' },
-            {
-              name: 'sidesection',
-              type: 'array',
-              fields: [
-                { name: 'heading', type: 'text' },
-                { name: 'paragraph', type: 'richText' },
-                { name: 'logoimage', type: 'upload', relationTo: 'media' },
-              ],
-            },
-
+            // {
+            //   name: 'sidesection',
+            //   type: 'array',
+            //   fields: [
+            //     { name: 'heading', type: 'text' },
+            //     { name: 'paragraph', type: 'richText' },
+            //     { name: 'logoimage', type: 'upload', relationTo: 'media' },
+            //   ],
+            // },
             {
               name: 'text',
               type: 'richText',
@@ -47,7 +46,6 @@ export const Pages: CollectionConfig = {
         },
         {
           slug: 'sections',
-
           fields: [
             { name: 'heading', type: 'text', required: true },
             { name: 'subheading', type: 'textarea' },

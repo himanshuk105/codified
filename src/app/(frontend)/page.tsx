@@ -46,7 +46,7 @@ export default async function HomePage() {
     <>
       <LandingHero hero1={hero1} />
       <InfiniteTechScroll />
-      <Hero2 hero2={hero2} />
+      {/* <Hero2 hero2={hero2} /> */}
       <Hero3 />
       <Hero4 />
       <Testimonial />

@@ -1,11 +1,12 @@
 'use client'
 
 import { useWindowSize } from '@uidotdev/usehooks'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion'
 import { useRef, useState } from 'react'
 import '../../../../css/hero3.css'
 
 import { CiCircleChevDown } from 'react-icons/ci'
+import { MousewheelEvents } from 'swiper/types'
 
 const appDevelopmentServices = [
   {
@@ -77,6 +78,7 @@ type list = {
 
 const Singleservicepage = () => {
   const sectionRef = useRef(null)
+  const ScrollRef = useRef(null)
   const size = useWindowSize()
   const [listshow, setListshow] = useState(appDevelopmentServices[0])
 
@@ -93,30 +95,27 @@ const Singleservicepage = () => {
     setListshow(newList)
   }
 
-  // Always define hooks
-  const rawImageY = useTransform(scrollYProgress, [0.26, 0.3], [0, -300])
-  const rawDivY = useTransform(scrollYProgress, [0.26, 0.3], [0, 200])
-  const rawHeightA = useTransform(scrollYProgress, [0.26, 0.3], [1000, 790])
+  const rawImageY = useTransform(scrollYProgress, [0.37, 0.63], [100, -60])
+  const rawDivY = useTransform(scrollYProgress, [0.37, 0.63], [-20, 450])
+
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    console.log('Scroll Progress:', latest)
+  })
 
   // Use conditional values instead of conditional hooks
   const isLargeScreen = size.width !== null && size.width >= 1024
   const imageY = isLargeScreen ? rawImageY : undefined
   const divY = isLargeScreen ? rawDivY : undefined
-  const heightA = isLargeScreen ? rawHeightA : undefined
-
+  // const heightA = isLargeScreen ? rawHeightA : undefined
   return (
     <section
-      ref={sectionRef}
+      ref={ScrollRef}
       className="relative h-[300vh] scroll-smooth text-white py-24 px-6 md:px-16"
     >
-      <motion.div
-        style={{
-          height: heightA ?? 'auto',
-        }}
-      >
+      <motion.div ref={sectionRef}>
         <motion.div
           style={{
-            translateY: divY ?? 0,
+            translateY: divY,
           }}
           className="relative z-20 flex flex-col items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 h-50 sm:h-52 md:h-60 lg:h-120"
         >
@@ -136,7 +135,7 @@ const Singleservicepage = () => {
           style={{
             translateY: imageY ?? 0,
           }}
-          className="relative z-0 rounded-xl object-cover h-55 sm:h-60 md:h-120 w-full lg:h-150"
+          className="relative z-0 rounded-xl object-cover h-55 sm:h-60 md:h-120 w-full lg:h-120"
           src="https://images.unsplash.com/photo-1749456289357-4e5cbffe9fb3?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="unsplash"
         />

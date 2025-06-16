@@ -185,28 +185,6 @@ export interface Page {
             heading: string;
             subheading?: string | null;
             backgroundImage?: (string | null) | Media;
-            sidesection?:
-              | {
-                  heading?: string | null;
-                  paragraph?: {
-                    root: {
-                      type: string;
-                      children: {
-                        type: string;
-                        version: number;
-                        [k: string]: unknown;
-                      }[];
-                      direction: ('ltr' | 'rtl') | null;
-                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                      indent: number;
-                      version: number;
-                    };
-                    [k: string]: unknown;
-                  } | null;
-                  logoimage?: (string | null) | Media;
-                  id?: string | null;
-                }[]
-              | null;
             text?: {
               root: {
                 type: string;
@@ -881,14 +859,6 @@ export interface PagesSelect<T extends boolean = true> {
               heading?: T;
               subheading?: T;
               backgroundImage?: T;
-              sidesection?:
-                | T
-                | {
-                    heading?: T;
-                    paragraph?: T;
-                    logoimage?: T;
-                    id?: T;
-                  };
               text?: T;
               button?:
                 | T

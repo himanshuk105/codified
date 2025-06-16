@@ -18,7 +18,6 @@ export const Header = () => {
   useEffect(() => {
     const an = async () => {
       const codifiedWeb = process.env.NEXT_PUBLIC_WEB_URI
-      console.log('codifiedWeb', codifiedWeb)
       const req = await fetch(`${codifiedWeb}/api/Menu?where[title][equals]=Navigation`)
       const res = await req.json()
       const items = res.docs[0].Items
@@ -36,6 +35,12 @@ export const Header = () => {
   const handleMobileChange = () => {
     setMobileOpen(!mobileOpen)
     setOpenDropdown(null)
+  }
+
+  const handleDefaultCategory = (d: any) => {
+    console.log(d)
+    const defaultCategory = d.dropdownItems[0]
+    setActiveCategory(defaultCategory)
   }
 
   useEffect(() => {
@@ -64,16 +69,16 @@ export const Header = () => {
       <nav className="relative flex justify-between items-center h-[80px] px-5 md:px-20">
         <Link href="/">
           <img
-            src="https://codifiedweb.com/wp-content/uploads/2023/10/cropped-Logo1-3-1.webp"
+            src="https://codifiedweb.com/wp-content/uploads/2025/06/codified-white-logo.png"
             alt="logo"
-            className="h-20"
+            className="h-15"
           />
         </Link>
 
         <ul className="hidden lg:flex items-center gap-6 text-sm font-medium">
           {data &&
             data?.map((d: any) => (
-              <li key={d.id} className="group">
+              <li key={d.id} onMouseEnter={() => handleDefaultCategory(d)} className="group">
                 <Link
                   href={d.href}
                   className={`hover:text-blue-400 flex items-center gap-1 transition-all ${
