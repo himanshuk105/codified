@@ -22,11 +22,7 @@ export const Hero2 = ({ hero2 }: any) => {
               key={item.id}
             >
               <span className="size-11 flex-shrink-0 rounded-full flex items-center justify-center border-2">
-                <img
-                  className="size-8"
-                  src={`${process.env.NEXT_PUBLIC_WEB_URI}${item.logoimage.url}`}
-                  alt={item.logoimage.alt}
-                />
+                <img className="size-8" src={item.logoimage.url} alt={item.logoimage.alt} />
               </span>
               <h2 className="text-xl font-bold">{item.heading}</h2>
 
