@@ -176,9 +176,8 @@ const Contactform = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_WEB_URI}/api/forms?where[title][equals]=Contactus`,
-        )
+        const codifiedWeb = process.env.NEXT_PUBLIC_WEB_URI
+        const response = await fetch(`${codifiedWeb}/api/forms?where[title][equals]=Contactus`)
         const data = await response.json()
         console.log(data)
         setPayloadform(data.docs[0]?.fields || [])

@@ -17,10 +17,9 @@ export const Header = () => {
 
   useEffect(() => {
     const an = async () => {
-      // const req = await fetch('https://codified.vercel.app/api/Menu?where[title][equals]=Navigation')
-      const req = await fetch(
-        `${process.env.NEXT_PUBLIC_WEB_URI}/api/Menu?where[title][equals]=Navigation`,
-      )
+      const codifiedWeb = process.env.NEXT_PUBLIC_WEB_URI
+      console.log('codifiedWeb', codifiedWeb)
+      const req = await fetch(`${codifiedWeb}/api/Menu?where[title][equals]=Navigation`)
       const res = await req.json()
       const items = res.docs[0].Items
       setData(items)
