@@ -182,7 +182,7 @@ export const Footer = () => {
         <div className="flex justify-between w-full md:w-auto mt-4 md:mt-0 pb-3">
           <p>Codified Web solutions</p>
           <p>
-            2025-2026 (c) Appinventiv <span>| SiteMap | Privacy Policy</span>
+            2025-2026 &#169; Codified <span>| SiteMap | Privacy Policy</span>
           </p>
           <span className="ml-4 flex gap-3">
             <svg
