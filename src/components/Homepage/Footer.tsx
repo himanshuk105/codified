@@ -177,11 +177,11 @@ const Contactform = () => {
     const getData = async () => {
       try {
         const response = await fetch(
-          'https://codified.vercel.app/api/forms/684985828fec93e883afb49d',
+          `${process.env.NEXT_PUBLIC_WEB_URI}/api/forms?where[title][equals]=Contactus`,
         )
-        // const response = await fetch('http://localhost:3000/api/forms/684985828fec93e883afb49d')
         const data = await response.json()
-        setPayloadform(data?.fields || [])
+        console.log(data)
+        setPayloadform(data.docs[0]?.fields || [])
         console.log(data?.id)
         reset({
           fullname: '',

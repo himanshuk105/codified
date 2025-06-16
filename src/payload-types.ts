@@ -233,6 +233,77 @@ export interface Page {
             blockType: 'hero';
           }
         | {
+            heading: string;
+            subheading?: string | null;
+            backgroundImage?: (string | null) | Media;
+            sidesection?:
+              | {
+                  heading?: string | null;
+                  paragraph?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  logoimage?: (string | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            additional?:
+              | {
+                  label?: string | null;
+                  value?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            text?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            button?:
+              | {
+                  text?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            Testimonials?:
+              | {
+                  'testimonial data'?: (string | Testimonial)[] | null;
+                  id?: string | null;
+                }[]
+              | null;
+            Projects?:
+              | {
+                  'project data'?: (string | Project)[] | null;
+                  id?: string | null;
+                }[]
+              | null;
+            form?: (string | null) | Form;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'sections';
+          }
+        | {
             image?: (string | null) | Media;
             text?: {
               root: {
@@ -259,6 +330,12 @@ export interface Page {
             blockName?: string | null;
             blockType: 'Projects';
           }
+        | {
+            testimonials?: (string | Testimonial)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'Testimonials';
+          }
       )[]
     | null;
   meta?: {
@@ -274,6 +351,21 @@ export interface Page {
         id?: string | null;
       }[]
     | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials".
+ */
+export interface Testimonial {
+  id: string;
+  name?: string | null;
+  testimonial?: string | null;
+  image?: (string | null) | Media;
+  testimonialname?: string | null;
+  testimonialposition?: string | null;
+  Rating?: number | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -336,130 +428,6 @@ export interface Technology {
   id: string;
   name?: string | null;
   logo?: (string | null) | Media;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "authors".
- */
-export interface Author {
-  id: string;
-  name: string;
-  slug?: string | null;
-  bio?: string | null;
-  avatar?: (string | null) | Media;
-  socialLinks?: {
-    twitter?: string | null;
-    linkedin?: string | null;
-    github?: string | null;
-  };
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts".
- */
-export interface Post {
-  id: string;
-  title?: string | null;
-  content?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  featuredImage?: (string | null) | Media;
-  author?: (string | null) | User;
-  publishedAt?: string | null;
-  tags?: (string | Tag)[] | null;
-  readtime?: number | null;
-  categories?: (string | Category)[] | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "tags".
- */
-export interface Tag {
-  id: string;
-  name: string;
-  slug?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
- */
-export interface Category {
-  id: string;
-  title: string;
-  slug?: string | null;
-  description?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Menu".
- */
-export interface Menu {
-  id: string;
-  title: string;
-  Items?:
-    | {
-        label: string;
-        slug?: string | null;
-        href?: string | null;
-        hasDropdown?: boolean | null;
-        dropdownItems?:
-          | {
-              categoryTitle: string;
-              slug?: string | null;
-              link?: string | null;
-              subServices?:
-                | {
-                    label: string;
-                    link?: string | null;
-                    slug?: string | null;
-                    id?: string | null;
-                  }[]
-                | null;
-              logoorimage?: (string | null) | Media;
-              description?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-      }[]
-    | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "testimonials".
- */
-export interface Testimonial {
-  id: string;
-  name?: string | null;
-  testimonial?: string | null;
-  image?: (string | null) | Media;
-  testimonialname?: string | null;
-  testimonialposition?: string | null;
-  Rating?: number | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -631,6 +599,115 @@ export interface Form {
           };
           [k: string]: unknown;
         } | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "authors".
+ */
+export interface Author {
+  id: string;
+  name: string;
+  slug?: string | null;
+  bio?: string | null;
+  avatar?: (string | null) | Media;
+  socialLinks?: {
+    twitter?: string | null;
+    linkedin?: string | null;
+    github?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: string;
+  title?: string | null;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  featuredImage?: (string | null) | Media;
+  author?: (string | null) | User;
+  publishedAt?: string | null;
+  tags?: (string | Tag)[] | null;
+  readtime?: number | null;
+  categories?: (string | Category)[] | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags".
+ */
+export interface Tag {
+  id: string;
+  name: string;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
+  id: string;
+  title: string;
+  slug?: string | null;
+  description?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Menu".
+ */
+export interface Menu {
+  id: string;
+  title: string;
+  Items?:
+    | {
+        label: string;
+        slug?: string | null;
+        href?: string | null;
+        hasDropdown?: boolean | null;
+        dropdownItems?:
+          | {
+              categoryTitle: string;
+              slug?: string | null;
+              link?: string | null;
+              subServices?:
+                | {
+                    label: string;
+                    link?: string | null;
+                    slug?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              logoorimage?: (string | null) | Media;
+              description?: string | null;
+              id?: string | null;
+            }[]
+          | null;
         id?: string | null;
       }[]
     | null;
@@ -822,6 +899,50 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        sections?:
+          | T
+          | {
+              heading?: T;
+              subheading?: T;
+              backgroundImage?: T;
+              sidesection?:
+                | T
+                | {
+                    heading?: T;
+                    paragraph?: T;
+                    logoimage?: T;
+                    id?: T;
+                  };
+              additional?:
+                | T
+                | {
+                    label?: T;
+                    value?: T;
+                    id?: T;
+                  };
+              text?: T;
+              button?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              Testimonials?:
+                | T
+                | {
+                    'testimonial data'?: T;
+                    id?: T;
+                  };
+              Projects?:
+                | T
+                | {
+                    'project data'?: T;
+                    id?: T;
+                  };
+              form?: T;
+              id?: T;
+              blockName?: T;
+            };
         imageAndText?:
           | T
           | {
@@ -834,6 +955,13 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               'project data'?: T;
+              id?: T;
+              blockName?: T;
+            };
+        Testimonials?:
+          | T
+          | {
+              testimonials?: T;
               id?: T;
               blockName?: T;
             };

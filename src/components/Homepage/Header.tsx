@@ -17,9 +17,12 @@ export const Header = () => {
 
   useEffect(() => {
     const an = async () => {
-      const req = await fetch('https://codified.vercel.app/api/Menu/684d451583bb1549f9a95ca0')
+      // const req = await fetch('https://codified.vercel.app/api/Menu?where[title][equals]=Navigation')
+      const req = await fetch(
+        `${process.env.NEXT_PUBLIC_WEB_URI}/api/Menu?where[title][equals]=Navigation`,
+      )
       const res = await req.json()
-      const items = res.Items
+      const items = res.docs[0].Items
       setData(items)
     }
     an()
@@ -50,8 +53,6 @@ export const Header = () => {
     setOpenDropdown((prev) => (prev === key ? null : key))
   }
 
-  console.log(data)
-
   const u = /^\/insights\/blog\/[^\/]+$/.test(pathname)
 
   return (
@@ -73,9 +74,9 @@ export const Header = () => {
         <ul className="hidden lg:flex items-center gap-6 text-sm font-medium">
           {data &&
             data?.map((d: any) => (
-              <li key={d.href} className="group">
+              <li key={d.id} className="group">
                 <Link
-                  href={d.id}
+                  href={d.href}
                   className={`hover:text-blue-400 flex items-center gap-1 transition-all ${
                     pathname !== d.href ? 'text-white' : 'text-white/50 hover:text-white border-b'
                   }`}
@@ -145,7 +146,7 @@ export const Header = () => {
                         activeCategory.subServices.map((d: any) => {
                           return (
                             <li
-                              className="flex items-center justify-start hover:bg-gray-100 transition-all duration-500 rounded-xl p-4 h-20 lg:w-80 xl:w-65 cursor-pointer"
+                              className="flex items-center justify-start hover:bg-gray-100 transition-all duration-500 rounded-xl grow-1 basis-1/4 p-4 h-20 lg:w-80 xl:w-65 cursor-pointer"
                               key={d.id}
                             >
                               {d?.label}

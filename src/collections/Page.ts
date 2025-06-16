@@ -5,12 +5,7 @@ export const Pages: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
   },
-  //   access: {
-  //     read: () => true,
-  //     create: ({ req }) => req.user?.role === 'admin',
-  //     update: ({ req }) => req.user?.role === 'admin',
-  //     delete: ({ req }) => req.user?.role === 'admin',
-  //   },
+
   fields: [
     {
       name: 'title',
@@ -42,6 +37,7 @@ export const Pages: CollectionConfig = {
                 { name: 'logoimage', type: 'upload', relationTo: 'media' },
               ],
             },
+
             {
               name: 'text',
               type: 'richText',
@@ -49,7 +45,66 @@ export const Pages: CollectionConfig = {
             { name: 'button', type: 'array', fields: [{ name: 'text', type: 'text' }] },
           ],
         },
+        {
+          slug: 'sections',
 
+          fields: [
+            { name: 'heading', type: 'text', required: true },
+            { name: 'subheading', type: 'textarea' },
+            { name: 'backgroundImage', type: 'upload', relationTo: 'media' },
+            {
+              name: 'sidesection',
+              type: 'array',
+              fields: [
+                { name: 'heading', type: 'text' },
+                { name: 'paragraph', type: 'richText' },
+                { name: 'logoimage', type: 'upload', relationTo: 'media' },
+              ],
+            },
+            {
+              name: 'additional',
+              type: 'array',
+              fields: [
+                { name: 'label', type: 'text' },
+                { name: 'value', type: 'text' },
+              ],
+            },
+            {
+              name: 'text',
+              type: 'richText',
+            },
+            { name: 'button', type: 'array', fields: [{ name: 'text', type: 'text' }] },
+            {
+              name: 'Testimonials',
+              type: 'array',
+              fields: [
+                {
+                  name: 'testimonial data',
+                  type: 'relationship',
+                  relationTo: 'testimonials',
+                  hasMany: true,
+                },
+              ],
+            },
+            {
+              name: 'Projects',
+              type: 'array',
+              fields: [
+                {
+                  name: 'project data',
+                  type: 'relationship',
+                  relationTo: 'projects',
+                  hasMany: true,
+                },
+              ],
+            },
+            {
+              name: 'form',
+              type: 'relationship',
+              relationTo: 'forms',
+            },
+          ],
+        },
         {
           slug: 'imageAndText',
           fields: [
@@ -65,13 +120,17 @@ export const Pages: CollectionConfig = {
               type: 'relationship',
               relationTo: 'projects',
               hasMany: true,
-              // fields: [
-              //   {
-              //     name: 'projectName',
-              //     type: 'relationship',
-              //     relationTo: 'projects',
-              //   },
-              // ],
+            },
+          ],
+        },
+        {
+          slug: 'Testimonials',
+          fields: [
+            {
+              name: 'testimonials',
+              type: 'relationship',
+              relationTo: 'testimonials',
+              hasMany: true,
             },
           ],
         },

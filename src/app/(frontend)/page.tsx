@@ -38,6 +38,7 @@ export default async function HomePage() {
   })
 
   const hero1 = data?.docs[0]?.blocks?.find((d) => d.blockName === 'hero1')
+  const hero2 = data?.docs[0]?.blocks?.find((d) => d.blockName === 'hero2')
 
   const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
 
@@ -45,7 +46,7 @@ export default async function HomePage() {
     <>
       <LandingHero hero1={hero1} />
       <InfiniteTechScroll />
-      <Hero2 />
+      <Hero2 hero2={hero2} />
       <Hero3 />
       <Hero4 />
       <Testimonial />

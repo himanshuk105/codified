@@ -2,7 +2,12 @@
 
 import { motion } from 'framer-motion'
 
-export const Hero2 = () => {
+export const Hero2 = ({ hero2 }: any) => {
+  const heading = hero2?.heading
+  const paragraphText = hero2.text.root.children[0].children[0].text
+  const button = hero2.button[0].text
+  const sidesections = hero2.sidesection
+  console.log(sidesections)
   const data = [
     {
       l: 'L',
@@ -28,42 +33,34 @@ export const Hero2 = () => {
   return (
     <section className="box-border text-white bg-black grid grid-cols-1 md:grid-cols-2 gap-5 p-5 md:px-20">
       <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-items-center gap-2">
-        {data.map((item, index) => {
+        {sidesections.map((item: any, index: number) => {
+          const para = item?.paragraph.root.children[0].children[0].text
           return (
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
               className="min-w-[180px] max-w-[520px] flex flex-col gap-1 p-6 rounded-lg border border-[#222222] h-50 md:h-90 lg:h-60 md:gap-3 bg-[#111111]"
-              key={index}
+              key={item.id}
             >
-              <span className="size-10 flex-shrink-0 rounded-full flex items-center justify-center border-2">
-                {item.l}
+              <span className="size-11 flex-shrink-0 rounded-full flex items-center justify-center border-2">
+                <img className="size-8" src={item.logoimage.url} alt={item.logoimage.alt} />
               </span>
-              <h2 className="text-xl font-bold">{item.h}</h2>
+              <h2 className="text-xl font-bold">{item.heading}</h2>
 
-              <p>{item.p}</p>
+              <p>{para}</p>
             </motion.div>
           )
         })}
       </div>
       <div className="grid grid-cols-1 gap-3 justify-items-center">
         <div className="max-w-[520px] flex flex-col gap-4 md:min-w-full">
-          <h2 className="text-3xl font-extrabold lg:text-5xl">Services</h2>
+          <h2 className="text-3xl font-extrabold lg:text-5xl">{heading}</h2>
           <h2 className="text-xl font-bold lg:text-3xl">
             Building Digital Solutions That Drive Growth
           </h2>
 
-          <p className="">
-            At Codified Web, we blend creativity, code, and cutting-edge technology to deliver
-            digital products that are not only functional but built for impact. Our services are
-            crafted for businesses ready to scale, automate, and stand out in a competitive market.
-            We work as a true tech partner — understanding your goals, aligning with your vision,
-            and building products that solve real problems. Whether you’re a startup building from
-            scratch or an enterprise optimizing existing systems, our team is here to bring your
-            ideas to life. We believe in clean design, smart development, and future-ready tech
-            stacks — because your success is what we code for.
-          </p>
+          <p className="">{paragraphText}</p>
           <div className="flex  justify-between items-center">
             <div className="flex flex-col gap-2">
               <span className="text-5xl">5k+</span>
@@ -80,7 +77,7 @@ export const Hero2 = () => {
           </div>
           <div className="text-black border-white ">
             <button className="bg-white font-bold w-40  h-full p-2 text-center flex items-center justify-center rounded">
-              Contact Us
+              {button}
             </button>
           </div>
         </div>
