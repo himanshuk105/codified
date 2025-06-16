@@ -31,7 +31,7 @@ export const Hero2 = ({ hero2 }: any) => {
           )
         })}
       </div>
-      <div className="grid grid-cols-1 gap-3 justify-items-center">
+      <div className="grid grid-cols-1 gap-3 justify-items-center ms-4">
         <div className="max-w-[520px] flex flex-col gap-4 md:min-w-full">
           <h2 className="text-3xl font-extrabold lg:text-5xl">{heading}</h2>
           <h2 className="text-xl font-bold lg:text-3xl">
@@ -54,9 +54,25 @@ export const Hero2 = ({ hero2 }: any) => {
             </div>
           </div>
           <div className="text-black border-white ">
-            <button className="bg-white font-bold w-40  h-full p-2 text-center flex items-center justify-center rounded">
-              {button}
-            </button>
+            {/* <button className="bg-white font-bold w-40  h-full p-2 text-center flex items-center justify-center rounded">
+              Contact Us
+            </button> */}
+
+            <motion.button
+              className="relative px-6 py-2 border-2 text-white font-medium rounded-md overflow-hidden group "
+              style={{ borderColor: '#4993cd' }} // Custom border color
+            >
+              {/* Text Layer */}
+              <span className="relative z-10 group-hover:text-white transition-colors duration-500">
+                Contact Us
+              </span>
+
+              {/* Animated Background Layer */}
+              <span
+                className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out transform translate-x-full group-hover:translate-x-0 z-0"
+                style={{ backgroundColor: '#4993cd' }} // Custom hover background
+              ></span>
+            </motion.button>
           </div>
         </div>
       </div>

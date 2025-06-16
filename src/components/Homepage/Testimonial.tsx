@@ -9,7 +9,7 @@ export const Testimonial = () => {
   const scrollRef = useRef(null)
 
   return (
-    <section className="box-border text-white bg-black grid grid-cols-1 gap-5 p-5 mt-[80px] md:px-20">
+    <section className="box-border text-white bg-black grid grid-cols-1 gap-5 p-5 mt-[80px] mb-[80px] md:px-20">
       <div className="grid grid-cols-1 w-full gap-3 justify-items-center">
         <div className="w-full max-w-[520px] md:max-w-full flex flex-col gap-7">
           <h1 className="text-3xl w-full font-extrabold lg:text-5xl">Testimonials</h1>

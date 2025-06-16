@@ -28,7 +28,7 @@ export const HomeHeading = ({ data }: ComponentProps) => {
 
   return (
     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center w-[90%] z-10 text-white text-center px-4 mt-10">
-      <h1 className="w-[480px] sm:w-[520px] md:w-[720px] flex flex-wrap lg:w-[900px] justify-center text-balance text-center leading-tight mb-6 font-bold text-3xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl">
+      <h1 className="w-[300px] sm:w-[520px] md:w-[720px] flex flex-wrap lg:w-[1200px] justify-center text-balance text-center leading-tight mb-6 font-bold text-4xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl">
         {words.map((word, i) => (
           <motion.span
             key={i}
@@ -47,16 +47,29 @@ export const HomeHeading = ({ data }: ComponentProps) => {
         ))}
       </h1>
 
-      <p className="text-base sm:text-lg md:text-xl mb-6 w-[90%] sm:w-[70%] md:w-[50%] lg:w-[40%] text-gray-300">
+      <p className="text-base sm:text-lg md:text-xl mb-6 w-[100%] sm:w-[70%] md:w-[50%] lg:w-[70%] text-gray-300">
         {data?.para}
       </p>
 
+      {/* <motion.button className="relative px-6 py-2 border-2 border-white-400 text-white font-medium rounded-md overflow-hidden group">
+        <span className="relative z-10">Connect With Our Experts</span>
+        <span className="absolute top-0 left-0 w-full h-full bg-green-400 transition-transform duration-500 ease-in-out transform translate-x-full group-hover:translate-x-0 z-0"></span>
+      </motion.button> */}
+
       <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="border-2 border-white bg-black text-white px-6 py-3 rounded-md text-sm sm:text-base shadow-lg"
+        className="relative px-6 py-2 border-2 text-white font-medium rounded-md overflow-hidden group cursor-pointer"
+        style={{ borderColor: '#4993cd' }} // Custom border color
       >
-        {data?.text}
+        {/* Text Layer */}
+        <span className="relative z-10 group-hover:text-white transition-colors duration-500">
+          Connect With Our Experts
+        </span>
+
+        {/* Animated Background Layer */}
+        <span
+          className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out transform translate-x-full group-hover:translate-x-0 z-0"
+          style={{ backgroundColor: '#4993cd' }} // Custom hover background
+        ></span>
       </motion.button>
     </div>
   )
