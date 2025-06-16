@@ -230,12 +230,12 @@ const Contactform = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        // const response = await fetch(
-        //   'https://codified.vercel.app/api/forms/684985828fec93e883afb49d',
-        // )
-        const response = await fetch('http://localhost:3000/api/forms/684985828fec93e883afb49d')
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_WEB_URI}/api/forms?where[title][equals]=Contactus`,
+        )
         const data = await response.json()
-        setPayloadform(data?.fields || [])
+
+        setPayloadform(data.docs[0]?.fields || [])
       } catch (error) {
         console.error('Failed to fetch form data:', error)
         setPayloadform([]) // fallback to empty array on error
