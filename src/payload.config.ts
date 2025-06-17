@@ -31,6 +31,12 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    livePreview: {
+      url: ({ data }) => {
+        return data.slug != 'home' ? `http://localhost:3000/${data.slug}` : 'http://localhost:3000'
+      },
+      collections: ['pages'],
+    },
   },
   collections: [
     Users,
@@ -70,6 +76,5 @@ export default buildConfig({
       generateURL: (docs) =>
         docs.reduce((url, doc) => (doc.slug !== 'home' ? `${url}/${doc.slug}` : url), ''),
     }),
-    // storage-adapter-placeholder
   ],
 })

@@ -1,4 +1,6 @@
 import { CollectionConfig } from 'payload'
+import { Hero } from './Blocks/Hero'
+import { Section } from './Blocks/Section'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -22,28 +24,30 @@ export const Pages: CollectionConfig = {
       name: 'blocks',
       type: 'blocks',
       blocks: [
-        {
-          slug: 'hero',
-          fields: [
-            { name: 'heading', type: 'text', required: true },
-            { name: 'subheading', type: 'textarea' },
-            { name: 'backgroundImage', type: 'upload', relationTo: 'media' },
-            // {
-            //   name: 'sidesection',
-            //   type: 'array',
-            //   fields: [
-            //     { name: 'heading', type: 'text' },
-            //     { name: 'paragraph', type: 'richText' },
-            //     { name: 'logoimage', type: 'upload', relationTo: 'media' },
-            //   ],
-            // },
-            {
-              name: 'text',
-              type: 'richText',
-            },
-            { name: 'button', type: 'array', fields: [{ name: 'text', type: 'text' }] },
-          ],
-        },
+        Hero,
+        // {
+        //   slug: 'hero',
+        //   fields: [
+        //     { name: 'heading', type: 'text', required: true },
+        //     { name: 'subheading', type: 'textarea' },
+        //     { name: 'backgroundImage', type: 'upload', relationTo: 'media' },
+        //     // {
+        //     //   name: 'sidesection',
+        //     //   type: 'array',
+        //     //   fields: [
+        //     //     { name: 'heading', type: 'text' },
+        //     //     { name: 'paragraph', type: 'richText' },
+        //     //     { name: 'logoimage', type: 'upload', relationTo: 'media' },
+        //     //   ],
+        //     // },
+        //     {
+        //       name: 'text',
+        //       type: 'richText',
+        //     },
+        //     { name: 'button', type: 'array', fields: [{ name: 'text', type: 'text' }] },
+        //   ],
+        // },
+        Section,
         {
           slug: 'sections',
           fields: [
