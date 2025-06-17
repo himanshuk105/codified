@@ -32,7 +32,7 @@ const PositionCard = () => {
     console.log('hovered')
     animate(
       '#tohover',
-      { backgroundColor: '#845ec2', x: 75 },
+      { backgroundColor: '#845ec2', x: 120 },
       {
         duration: 0.3,
         ease: 'easeInOut',
@@ -66,12 +66,12 @@ const PositionCard = () => {
         className="relative flex items-center justify-end gap-2"
       >
         <div className="relative z-20 bg-transparent flex flex-row items-center gap-4 py-2 text-[20px] px-5 ">
-          <span>Apply</span>
+          <span>Apply Now</span>
           <FaChevronRight size={20} />
         </div>
         <motion.div
           id="tohover"
-          className="left-1 z-2 absolute size-8 rounded-full bg-[#c197ff] "
+          className="left-1 z-2 absolute size-10 rounded-full bg-[#c197ff] "
         ></motion.div>
       </button>
     </div>

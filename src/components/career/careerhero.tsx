@@ -22,9 +22,10 @@ export const CareerHero = () => {
             Explore opportunities to join our team and make an impact.
           </h2>
           <p className="sm:w-[70%] w-full">
-            We're always looking for talented individuals to join our team. Whether you're a recent
-            graduate or an experienced professional, we have a range of opportunities available.
-            Explore our current job openings and find the perfect fit for your skills and passion.
+            We&#39;re always looking for talented individuals to join our team. Whether you&#39;re a
+            recent graduate or an experienced professional, we have a range of opportunities
+            available. Explore our current job openings and find the perfect fit for your skills and
+            passion.
           </p>
           <div>
             <button className="w-[180px] text-white font-bold h-[60px] border border-gray-600 transition-colors duration-1000 ease-in-out relative overflow-hidden">
