@@ -211,119 +211,10 @@ export interface Page {
             blockType: 'hero';
           }
         | {
-            'Section Title': string;
-            'Section Type'?:
-              | (
-                  | {
-                      'Side-1'?:
-                        | {
-                            'Left Heading'?: string | null;
-                            Description?: string | null;
-                            Image?: (string | null) | Media;
-                            Button?:
-                              | {
-                                  'Button Text'?: string | null;
-                                  'Button Link'?: string | null;
-                                  id?: string | null;
-                                }[]
-                              | null;
-                            id?: string | null;
-                          }[]
-                        | null;
-                      'Side-2'?:
-                        | {
-                            'Right Heading'?: string | null;
-                            image?: (string | null) | Media;
-                            Description?: {
-                              root: {
-                                type: string;
-                                children: {
-                                  type: string;
-                                  version: number;
-                                  [k: string]: unknown;
-                                }[];
-                                direction: ('ltr' | 'rtl') | null;
-                                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                                indent: number;
-                                version: number;
-                              };
-                              [k: string]: unknown;
-                            } | null;
-                            blobcard?:
-                              | {
-                                  label?: string | null;
-                                  value?: string | null;
-                                  id?: string | null;
-                                }[]
-                              | null;
-                            Cards?:
-                              | {
-                                  heading?: string | null;
-                                  description?: string | null;
-                                  image?: (string | null) | Media;
-                                  button?:
-                                    | {
-                                        'Button Text'?: string | null;
-                                        'Button Link'?: string | null;
-                                        id?: string | null;
-                                      }[]
-                                    | null;
-                                  id?: string | null;
-                                }[]
-                              | null;
-                            Button?:
-                              | {
-                                  'Button Text'?: string | null;
-                                  'Button Link'?: string | null;
-                                  id?: string | null;
-                                }[]
-                              | null;
-                            id?: string | null;
-                          }[]
-                        | null;
-                      id?: string | null;
-                      blockName?: string | null;
-                      blockType: 'Side-by-Side';
-                    }
-                  | {
-                      heading?: string | null;
-                      description?: string | null;
-                      testimonialtype?: ('slider' | 'grid') | null;
-                      'testimonial data'?: (string | Testimonial)[] | null;
-                      id?: string | null;
-                      blockName?: string | null;
-                      blockType: 'Testimonials';
-                    }
-                  | {
-                      heading?: string | null;
-                      description?: string | null;
-                      'projects data'?: (string | Project)[] | null;
-                      id?: string | null;
-                      blockName?: string | null;
-                      blockType: 'Projects';
-                    }
-                  | {
-                      heading?: string | null;
-                      description?: string | null;
-                      'form fields'?: (string | null) | Form;
-                      id?: string | null;
-                      blockName?: string | null;
-                      blockType: 'Forms';
-                    }
-                )[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'section';
-          }
-        | {
-            heading: string;
-            subheading?: string | null;
-            backgroundImage?: (string | null) | Media;
-            'Inner Sections'?:
+            'Side-1'?:
               | {
-                  heading?: string | null;
-                  paragraph?: {
+                  'Left Heading'?: string | null;
+                  Description?: {
                     root: {
                       type: string;
                       children: {
@@ -338,17 +229,76 @@ export interface Page {
                     };
                     [k: string]: unknown;
                   } | null;
-                  logoimage?: (string | null) | Media;
+                  Image?: (string | null) | Media;
+                  Button?:
+                    | {
+                        'Button Text'?: string | null;
+                        'Button Link'?: string | null;
+                        id?: string | null;
+                      }[]
+                    | null;
                   id?: string | null;
                 }[]
               | null;
-            additional?:
+            'Side-2'?:
               | {
-                  label?: string | null;
-                  value?: string | null;
+                  'Right Heading'?: string | null;
+                  image?: (string | null) | Media;
+                  Description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  blobcard?:
+                    | {
+                        label?: string | null;
+                        value?: string | null;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  Cards?:
+                    | {
+                        heading?: string | null;
+                        description?: string | null;
+                        image?: (string | null) | Media;
+                        button?:
+                          | {
+                              'Button Text'?: string | null;
+                              'Button Link'?: string | null;
+                              id?: string | null;
+                            }[]
+                          | null;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  Button?:
+                    | {
+                        'Button Text'?: string | null;
+                        'Button Link'?: string | null;
+                        id?: string | null;
+                      }[]
+                    | null;
                   id?: string | null;
                 }[]
               | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'Side-by-Side-Section';
+          }
+        | {
+            heading: string;
+            subheading?: string | null;
+            backgroundImage?: (string | null) | Media;
             text?: {
               root: {
                 type: string;
@@ -370,26 +320,85 @@ export interface Page {
                   id?: string | null;
                 }[]
               | null;
-            Testimonials?:
-              | {
-                  'testimonial data'?: (string | Testimonial)[] | null;
-                  id?: string | null;
-                }[]
-              | null;
-            Projects?:
-              | {
-                  'project data'?: (string | Project)[] | null;
-                  id?: string | null;
-                }[]
-              | null;
-            form?: (string | null) | Form;
             id?: string | null;
             blockName?: string | null;
-            blockType: 'sections';
+            blockType: 'Single-Column-Section';
+          }
+        | {
+            heading?: string | null;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            subheading?: string | null;
+            testimonialtype?: ('slider' | 'grid') | null;
+            'testimonial data'?: (string | Testimonial)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'Testimonials';
+          }
+        | {
+            heading?: string | null;
+            subheading?: string | null;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            'projects data'?: (string | Project)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'Projects';
+          }
+        | {
+            heading?: string | null;
+            subheading?: string | null;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            'form fields'?: (string | null) | Form;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'Forms';
           }
         | {
             image?: (string | null) | Media;
-            text?: {
+            heading?: string | null;
+            subheading?: string | null;
+            description?: {
               root: {
                 type: string;
                 children: {
@@ -407,18 +416,6 @@ export interface Page {
             id?: string | null;
             blockName?: string | null;
             blockType: 'imageAndText';
-          }
-        | {
-            'project data'?: (string | Project)[] | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'Projects';
-          }
-        | {
-            testimonials?: (string | Testimonial)[] | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'Testimonials';
           }
       )[]
     | null;
@@ -975,124 +972,70 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-        section?:
+        'Side-by-Side-Section'?:
           | T
           | {
-              'Section Title'?: T;
-              'Section Type'?:
+              'Side-1'?:
                 | T
                 | {
-                    'Side-by-Side'?:
+                    'Left Heading'?: T;
+                    Description?: T;
+                    Image?: T;
+                    Button?:
                       | T
                       | {
-                          'Side-1'?:
+                          'Button Text'?: T;
+                          'Button Link'?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              'Side-2'?:
+                | T
+                | {
+                    'Right Heading'?: T;
+                    image?: T;
+                    Description?: T;
+                    blobcard?:
+                      | T
+                      | {
+                          label?: T;
+                          value?: T;
+                          id?: T;
+                        };
+                    Cards?:
+                      | T
+                      | {
+                          heading?: T;
+                          description?: T;
+                          image?: T;
+                          button?:
                             | T
                             | {
-                                'Left Heading'?: T;
-                                Description?: T;
-                                Image?: T;
-                                Button?:
-                                  | T
-                                  | {
-                                      'Button Text'?: T;
-                                      'Button Link'?: T;
-                                      id?: T;
-                                    };
-                                id?: T;
-                              };
-                          'Side-2'?:
-                            | T
-                            | {
-                                'Right Heading'?: T;
-                                image?: T;
-                                Description?: T;
-                                blobcard?:
-                                  | T
-                                  | {
-                                      label?: T;
-                                      value?: T;
-                                      id?: T;
-                                    };
-                                Cards?:
-                                  | T
-                                  | {
-                                      heading?: T;
-                                      description?: T;
-                                      image?: T;
-                                      button?:
-                                        | T
-                                        | {
-                                            'Button Text'?: T;
-                                            'Button Link'?: T;
-                                            id?: T;
-                                          };
-                                      id?: T;
-                                    };
-                                Button?:
-                                  | T
-                                  | {
-                                      'Button Text'?: T;
-                                      'Button Link'?: T;
-                                      id?: T;
-                                    };
+                                'Button Text'?: T;
+                                'Button Link'?: T;
                                 id?: T;
                               };
                           id?: T;
-                          blockName?: T;
                         };
-                    Testimonials?:
+                    Button?:
                       | T
                       | {
-                          heading?: T;
-                          description?: T;
-                          testimonialtype?: T;
-                          'testimonial data'?: T;
+                          'Button Text'?: T;
+                          'Button Link'?: T;
                           id?: T;
-                          blockName?: T;
                         };
-                    Projects?:
-                      | T
-                      | {
-                          heading?: T;
-                          description?: T;
-                          'projects data'?: T;
-                          id?: T;
-                          blockName?: T;
-                        };
-                    Forms?:
-                      | T
-                      | {
-                          heading?: T;
-                          description?: T;
-                          'form fields'?: T;
-                          id?: T;
-                          blockName?: T;
-                        };
+                    id?: T;
                   };
               id?: T;
               blockName?: T;
             };
-        sections?:
+        'Single-Column-Section'?:
           | T
           | {
               heading?: T;
               subheading?: T;
               backgroundImage?: T;
-              'Inner Sections'?:
-                | T
-                | {
-                    heading?: T;
-                    paragraph?: T;
-                    logoimage?: T;
-                    id?: T;
-                  };
-              additional?:
-                | T
-                | {
-                    label?: T;
-                    value?: T;
-                    id?: T;
-                  };
               text?: T;
               button?:
                 | T
@@ -1100,19 +1043,37 @@ export interface PagesSelect<T extends boolean = true> {
                     text?: T;
                     id?: T;
                   };
-              Testimonials?:
-                | T
-                | {
-                    'testimonial data'?: T;
-                    id?: T;
-                  };
-              Projects?:
-                | T
-                | {
-                    'project data'?: T;
-                    id?: T;
-                  };
-              form?: T;
+              id?: T;
+              blockName?: T;
+            };
+        Testimonials?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              subheading?: T;
+              testimonialtype?: T;
+              'testimonial data'?: T;
+              id?: T;
+              blockName?: T;
+            };
+        Projects?:
+          | T
+          | {
+              heading?: T;
+              subheading?: T;
+              description?: T;
+              'projects data'?: T;
+              id?: T;
+              blockName?: T;
+            };
+        Forms?:
+          | T
+          | {
+              heading?: T;
+              subheading?: T;
+              description?: T;
+              'form fields'?: T;
               id?: T;
               blockName?: T;
             };
@@ -1120,21 +1081,9 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               image?: T;
-              text?: T;
-              id?: T;
-              blockName?: T;
-            };
-        Projects?:
-          | T
-          | {
-              'project data'?: T;
-              id?: T;
-              blockName?: T;
-            };
-        Testimonials?:
-          | T
-          | {
-              testimonials?: T;
+              heading?: T;
+              subheading?: T;
+              description?: T;
               id?: T;
               blockName?: T;
             };

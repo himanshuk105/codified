@@ -51,11 +51,6 @@ export const HomeHeading = ({ data }: ComponentProps) => {
         {data?.para}
       </p>
 
-      {/* <motion.button className="relative px-6 py-2 border-2 border-white-400 text-white font-medium rounded-md overflow-hidden group">
-        <span className="relative z-10">Connect With Our Experts</span>
-        <span className="absolute top-0 left-0 w-full h-full bg-green-400 transition-transform duration-500 ease-in-out transform translate-x-full group-hover:translate-x-0 z-0"></span>
-      </motion.button> */}
-
       <motion.button
         className="relative px-6 py-2 border-2 text-white font-medium rounded-md overflow-hidden group cursor-pointer"
         style={{ borderColor: '#4993cd' }} // Custom border color

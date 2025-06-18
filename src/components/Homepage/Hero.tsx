@@ -14,7 +14,6 @@ export const LandingHero = ({ hero1 }: any) => {
         particleCount={300}
         className="h-full w-full absolute top-0 left-0 z-1 bg-black"
         particleColors={['#00d8ff']}
-        moveParticlesOnHover
       />
 
       {/* Content Layer */}
