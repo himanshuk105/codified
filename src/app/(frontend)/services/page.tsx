@@ -4,19 +4,19 @@ import { getPayload } from 'payload'
 import config from '@/payload.config'
 import { Service } from '@/components/ServicesPage/Service'
 
-export async function generateMetadata() {
-  const payloadInstance = await getPayload({ config })
-  const data = await payloadInstance.find({
-    collection: 'pages',
-    where: { slug: { equals: 'services' } },
-  })
+// export async function generateMetadata() {
+//   const payloadInstance = await getPayload({ config })
+//   const data = await payloadInstance.find({
+//     collection: 'pages',
+//     where: { slug: { equals: 'services' } },
+//   })
 
-  const servicepage = data.docs[0]
-  return {
-    title: servicepage?.meta?.title,
-    description: servicepage?.meta?.description,
-  }
-}
+//   const servicepage = data.docs[0]
+//   return {
+//     title: servicepage?.meta?.title,
+//     description: servicepage?.meta?.description,
+//   }
+// }
 
 const ServicesPage = async () => {
   const payloadInstance = await getPayload({ config })
