@@ -45,7 +45,6 @@ export default async function HomePage() {
     (block: any) => block.blockType === 'Single-Column-Section' && block.blockName === 'Strategy',
   )
   const testimonial = blocks.find((block: any) => block.blockType === 'Testimonials')
-  // console.log(testimonial)
 
   return (
     <>

@@ -80,29 +80,29 @@ import { motion } from 'framer-motion'
 import { FaRobot, FaBrain, FaCodeBranch, FaRocket, FaChartLine, FaComments } from 'react-icons/fa'
 import { ReactElement } from 'react'
 
-type Card = {
-  id: string
-  heading: string
-  description: string
-  button?: unknown[] // You can replace this with actual button type if needed
-}
+// type Card = {
+//   id: string
+//   heading: string
+//   description: string
+//   button?: unknown[] // You can replace this with actual button type if needed
+// }
 
-type Button = {
-  'Button Text': string
-  'Button Link': string
-  id: string
-}
+// type Button = {
+//   'Button Text': string
+//   'Button Link': string
+//   id: string
+// }
 
-type Hero4Props = {
-  hero4: {
-    heading: string
-    subheading: string
-    Cards: Card[]
-    Button: Button[]
-  }
-}
+// type Hero4Props = {
+//   hero4: {
+//     heading: string
+//     subheading: string
+//     Cards: Card[]
+//     Button: Button[]
+//   }
+// }
 
-export const Hero4 = ({ hero4 }: Hero4Props) => {
+export const Hero4 = ({ hero4 }: any) => {
   const icons: ReactElement[] = [
     <FaBrain key="brain" className="text-3xl text-blue-400" />,
     <FaRocket key="rocket" className="text-3xl text-purple-400" />,
@@ -134,7 +134,7 @@ export const Hero4 = ({ hero4 }: Hero4Props) => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 max-w-6xl mx-auto">
-        {hero4.Cards.map((card, idx) => (
+        {hero4.Cards.map((card: any, idx: number) => (
           <motion.div
             key={card.id}
             className="bg-[#111] p-6 rounded-2xl shadow-md hover:shadow-blue-500/30 transition-all duration-300"
