@@ -279,7 +279,7 @@ export const Testimonial = ({ testimonials }: any) => {
   )
 }
 
-const TestimonialCard = ({ data }: { data: TestimonialType }) => {
+const TestimonialCard = ({ data }: { data: any }) => {
   const { name, testimonialposition, testimonial, Rating = 5, testimonialname } = data
 
   const initial = name.charAt(0)
