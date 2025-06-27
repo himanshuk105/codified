@@ -179,6 +179,14 @@ export interface Page {
   id: string;
   title: string;
   slug: string;
+  /**
+   * Used for SEO purposes. Appears in the <title> tag.
+   */
+  metaTitle?: string | null;
+  /**
+   * Used for SEO purposes. Appears in the <meta name="description" /> tag.
+   */
+  metaDescription?: string | null;
   blocks?:
     | (
         | {
@@ -211,95 +219,89 @@ export interface Page {
             blockType: 'hero';
           }
         | {
-            'Side-1'?:
-              | {
-                  'Left Heading'?: string | null;
-                  Description?: {
-                    root: {
-                      type: string;
-                      children: {
-                        type: string;
-                        version: number;
-                        [k: string]: unknown;
-                      }[];
-                      direction: ('ltr' | 'rtl') | null;
-                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                      indent: number;
-                      version: number;
-                    };
+            'Side-1'?: {
+              'Left Heading'?: string | null;
+              Description?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: string;
+                    version: number;
                     [k: string]: unknown;
-                  } | null;
-                  Image?: (string | null) | Media;
-                  Button?:
-                    | {
-                        'Button Text'?: string | null;
-                        'Button Link'?: string | null;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                }[]
-              | null;
-            'Side-2'?:
-              | {
-                  'Right Heading'?: string | null;
-                  image?: (string | null) | Media;
-                  Description?: {
-                    root: {
-                      type: string;
-                      children: {
-                        type: string;
-                        version: number;
-                        [k: string]: unknown;
-                      }[];
-                      direction: ('ltr' | 'rtl') | null;
-                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                      indent: number;
-                      version: number;
-                    };
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              Image?: (string | null) | Media;
+              Button?:
+                | {
+                    'Button Text'?: string | null;
+                    'Button Link'?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+            };
+            'Side-2'?: {
+              'Right Heading'?: string | null;
+              image?: (string | null) | Media;
+              Description?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: string;
+                    version: number;
                     [k: string]: unknown;
-                  } | null;
-                  blobcard?:
-                    | {
-                        label?: string | null;
-                        value?: string | null;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  Cards?:
-                    | {
-                        heading?: string | null;
-                        description?: string | null;
-                        image?: (string | null) | Media;
-                        button?:
-                          | {
-                              'Button Text'?: string | null;
-                              'Button Link'?: string | null;
-                              id?: string | null;
-                            }[]
-                          | null;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  Button?:
-                    | {
-                        'Button Text'?: string | null;
-                        'Button Link'?: string | null;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                }[]
-              | null;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              blobcard?:
+                | {
+                    label?: string | null;
+                    value?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              Cards?:
+                | {
+                    heading?: string | null;
+                    description?: string | null;
+                    image?: (string | null) | Media;
+                    button?:
+                      | {
+                          'Button Text'?: string | null;
+                          'Button Link'?: string | null;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              Button?:
+                | {
+                    'Button Text'?: string | null;
+                    'Button Link'?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+            };
             id?: string | null;
             blockName?: string | null;
             blockType: 'Side-by-Side-Section';
           }
         | {
-            heading: string;
+            heading?: string | null;
             subheading?: string | null;
-            backgroundImage?: (string | null) | Media;
-            text?: {
+            image?: (string | null) | Media;
+            description?: {
               root: {
                 type: string;
                 children: {
@@ -314,9 +316,32 @@ export interface Page {
               };
               [k: string]: unknown;
             } | null;
-            button?:
+            blobcard?:
               | {
-                  text?: string | null;
+                  label?: string | null;
+                  value?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            Cards?:
+              | {
+                  heading?: string | null;
+                  description?: string | null;
+                  image?: (string | null) | Media;
+                  button?:
+                    | {
+                        'Button Text'?: string | null;
+                        'Button Link'?: string | null;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  id?: string | null;
+                }[]
+              | null;
+            Button?:
+              | {
+                  'Button Text'?: string | null;
+                  'Button Link'?: string | null;
                   id?: string | null;
                 }[]
               | null;
@@ -417,20 +442,31 @@ export interface Page {
             blockName?: string | null;
             blockType: 'imageAndText';
           }
+        | {
+            heading?: string | null;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            subheading?: string | null;
+            'Tech Type'?: ('slider' | 'grid') | null;
+            'techdata data'?: (string | Technology)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'Technologies';
+          }
       )[]
-    | null;
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-  };
-  parent?: (string | null) | Page;
-  breadcrumbs?:
-    | {
-        doc?: (string | null) | Page;
-        url?: string | null;
-        label?: string | null;
-        id?: string | null;
-      }[]
     | null;
   updatedAt: string;
   createdAt: string;
@@ -953,6 +989,8 @@ export interface MediaSelect<T extends boolean = true> {
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  metaTitle?: T;
+  metaDescription?: T;
   blocks?:
     | T
     | {
@@ -988,7 +1026,6 @@ export interface PagesSelect<T extends boolean = true> {
                           'Button Link'?: T;
                           id?: T;
                         };
-                    id?: T;
                   };
               'Side-2'?:
                 | T
@@ -1025,7 +1062,6 @@ export interface PagesSelect<T extends boolean = true> {
                           'Button Link'?: T;
                           id?: T;
                         };
-                    id?: T;
                   };
               id?: T;
               blockName?: T;
@@ -1035,12 +1071,35 @@ export interface PagesSelect<T extends boolean = true> {
           | {
               heading?: T;
               subheading?: T;
-              backgroundImage?: T;
-              text?: T;
-              button?:
+              image?: T;
+              description?: T;
+              blobcard?:
                 | T
                 | {
-                    text?: T;
+                    label?: T;
+                    value?: T;
+                    id?: T;
+                  };
+              Cards?:
+                | T
+                | {
+                    heading?: T;
+                    description?: T;
+                    image?: T;
+                    button?:
+                      | T
+                      | {
+                          'Button Text'?: T;
+                          'Button Link'?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              Button?:
+                | T
+                | {
+                    'Button Text'?: T;
+                    'Button Link'?: T;
                     id?: T;
                   };
               id?: T;
@@ -1087,21 +1146,17 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-      };
-  meta?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-      };
-  parent?: T;
-  breadcrumbs?:
-    | T
-    | {
-        doc?: T;
-        url?: T;
-        label?: T;
-        id?: T;
+        Technologies?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              subheading?: T;
+              'Tech Type'?: T;
+              'techdata data'?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;

@@ -38,7 +38,6 @@ export const Header = () => {
   }
 
   const handleDefaultCategory = (d: any) => {
-    console.log(d)
     const defaultCategory = d.dropdownItems[0]
     setActiveCategory(defaultCategory)
   }
@@ -91,24 +90,32 @@ export const Header = () => {
 
                 {d.hasDropdown && (
                   <div
-                    className="absolute left-0 mt-3 bg-white text-black p-4 shadow-lg flex flex-row gap-2 z-50 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 w-screen"
+                    className="absolute left-0 mt-3 bg-white text-black p-4 shadow-lg flex flex-row gap-2 z-50 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 w-screen h-[200px]"
                     onMouseLeave={() => setActiveCategory(null)}
                   >
-                    <ul className="flex flex-col gap-2 justify-between w-4/12">
+                    <ul className="flex flex-col gap-2  w-4/12">
                       {d.dropdownItems?.map((d: any) => {
                         return (
                           <li
                             key={d.id}
-                            className={` ${activeCategory && activeCategory?.categoryTitle == d.categoryTitle ? 'bg-gray-100' : ''} p-4  rounded-xl transition-colors duration-300 cursor-pointer`}
+                            className={` ${activeCategory && activeCategory?.categoryTitle == d.categoryTitle ? 'bg-gray-100' : ''}   rounded-xl transition-colors duration-300 cursor-pointer`}
                             onMouseEnter={() => setActiveCategory(d)}
                           >
-                            {d.categoryTitle}
+                            {d.link ? (
+                              <Link className="block p-4 border-black h-full w-full" href={d.link}>
+                                {d.categoryTitle}
+                              </Link>
+                            ) : (
+                              <span>{d.categoryTitle}</span>
+                            )}
                           </li>
                         )
                       })}
                     </ul>
                     <div className="border-2"></div>
-                    <ul className="box-border flex w-8/12 flex-row flex-shrink-0 gap-5 flex-wrap h-full overflow-y-scroll">
+                    <ul
+                      className={`box-border flex w-8/12 flex-row flex-shrink-0 gap-5 flex-wrap h-full ${activeCategory && activeCategory.subServices.length ? 'overflow-y-scroll' : ''}`}
+                    >
                       {activeCategory && activeCategory.subServices.length == 0 ? (
                         <li className="flex items-center justify-start gap-2 hover:bg-gray-100 h-30 rounded-xl p-3 border-2 w-6/12 ">
                           <div className="size-6 border-2 rounded-full">M</div>
@@ -153,7 +160,9 @@ export const Header = () => {
                               className="flex items-center justify-start hover:bg-gray-100 transition-all duration-500 rounded-xl grow-1 basis-1/4 p-4 h-20 lg:w-80 xl:w-65 cursor-pointer"
                               key={d.id}
                             >
-                              {d?.label}
+                              <Link className="w-full p-4 block" href={d.link}>
+                                {d?.label}
+                              </Link>
                             </li>
                           )
                         })

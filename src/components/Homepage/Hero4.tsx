@@ -1,124 +1,86 @@
 'use client'
 
-import { motion } from 'motion/react'
-import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { FaRobot, FaBrain, FaCodeBranch, FaRocket, FaChartLine, FaComments } from 'react-icons/fa'
 
-export const Hero4 = () => {
-  const data = [
-    {
-      l: 'Software Enginner',
-      p: 'Company Name',
-      t: 'Aug 2022 - Present',
-    },
-    {
-      l: 'Software Enginner',
-      p: 'Company Name',
-      t: 'Aug 2022 - Present',
-    },
-    {
-      l: 'Software Enginner',
-      p: 'Company Name',
-      t: 'Aug 2022 - Present',
-    },
-    {
-      l: 'Software Enginner',
-      p: 'Company Name',
-      t: 'Aug 2022 - Present',
-    },
-    {
-      l: 'Software Enginner',
-      p: 'Company Name',
-      t: 'Aug 2022 - Present',
-    },
-    {
-      l: 'Software Enginner',
-      p: 'Company Name',
-      t: 'Aug 2022 - Present',
-    },
-    {
-      l: 'Software Enginner',
-      p: 'Company Name',
-      t: 'Aug 2022 - Present',
-    },
-    {
-      l: 'Software Enginner',
-      p: 'Company Name',
-      t: 'Aug 2022 - Present',
-    },
-  ]
-
-  const [showMore, setShowMore] = useState(false)
-
-  const handleShow = () => {
-    setShowMore((prev) => !prev)
-  }
-
-  return (
-    <section className="box-border text-white bg-black grid grid-cols-1 md:grid-cols-2 gap-5 p-5 md:px-20 mt-[50px]">
-      <div className="grid grid-cols-1 gap-3 justify-items-center">
-        <div className="max-w-[520px] flex flex-col gap-4 md:min-w-full">
-          <h1 className="text-3xl font-extrabold lg:text-5xl">Software is Causing More</h1>
-          <p className="">
-            I founded Design & Code which is a global community with a mission to connect designers
-            and developers to create a happy community eager to learn, innovate and grow together.
-            We welcome all designers and developers: beginners, intermediates, and experts willing
-            to learn together.
-          </p>
-        </div>
-      </div>
-      <div className="grid grid-cols-1 justify-items-center gap-2">
-        <div className="max-w-[520px] flex flex-col gap-4 w-full">
-          <ul
-            className={`${!showMore ? 'h-42 overflow-y-clip ' : 'h-80 overflow-y-scroll'} box-border w-full  md:gap-5 tohide transition-all`}
-          >
-            {data.map((d, index) => {
-              return <CardList key={index} />
-            })}
-          </ul>
-        </div>
-        {/* <button
-          onClick={handleShow}
-          className="border-2 p-3 w-32 bg-white text-black font-bold rounded-2xl hover:bg-gray-200"
-        >
-          {!showMore ? 'Show More' : 'Show Less'}
-        </button> */}
-
-        <motion.button
-          className="relative px-6 py-2 border-2 text-white font-medium rounded-md overflow-hidden group cursor-pointer"
-          onClick={handleShow}
-          style={{ borderColor: '#4993cd' }} // Custom border color
-        >
-          {/* Text Layer */}
-          <span className="relative z-10 group-hover:text-white transition-colors duration-500">
-            {!showMore ? 'Show More' : 'Show Less'}
-          </span>
-
-          {/* Animated Background Layer */}
-          <span
-            className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out transform translate-x-full group-hover:translate-x-0 z-0"
-            style={{ backgroundColor: '#4993cd' }} // Custom hover background
-          ></span>
-        </motion.button>
-      </div>
-    </section>
-  )
+type CardType = {
+  heading: string
+  description: string
+  id: string
 }
 
-const CardList = () => {
+type ButtonType = {
+  'Button Text': string
+  'Button Link': string
+}
+
+export const Hero4 = ({ hero4 }: any) => {
+  const icons = [
+    <FaBrain className="text-3xl text-blue-400" />,
+    <FaRocket className="text-3xl text-purple-400" />,
+    <FaChartLine className="text-3xl text-pink-400" />,
+    <FaCodeBranch className="text-3xl text-green-400" />,
+    <FaComments className="text-3xl text-yellow-400" />,
+    <FaRobot className="text-3xl text-red-400" />,
+  ]
+
   return (
-    <li className="flex items-center flex-row h-25 justify-between gap-2 border-b border-b-[#222222]">
-      <div className="w-10 h-10 sm:w-[50px] sm:h-[50px] border-2 rounded-full flex items-center justify-center">
-        L
+    <section className="bg-black text-white py-16 px-6 md:px-20">
+      <div className="max-w-6xl mx-auto text-center">
+        <motion.h2
+          className="text-4xl lg:text-5xl font-extrabold mb-4"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          {hero4.heading}
+        </motion.h2>
+        <motion.p
+          className="text-lg text-gray-300 max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
+          {hero4.subheading}
+        </motion.p>
       </div>
 
-      <div className="w-3/6 flex flex-col gap-2">
-        <span className="text-[16px] sm:text-[18px]  md:text-[18px] font-bold">
-          {' '}
-          Software Engineer
-        </span>
-        <span>Company Name</span>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 max-w-6xl mx-auto">
+        {hero4.Cards.map((card: any, idx: number) => (
+          <motion.div
+            key={card.id}
+            className="bg-[#111] p-6 rounded-2xl shadow-md hover:shadow-blue-500/30 transition-all duration-300"
+            whileHover={{ scale: 1.05 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: idx * 0.1 }}
+          >
+            <div className="mb-4">{icons[idx % icons.length]}</div>
+            <h3 className="text-xl font-semibold mb-2 text-white">{card.heading}</h3>
+            <p className="text-gray-400 text-sm">{card.description}</p>
+          </motion.div>
+        ))}
       </div>
-      <div className="w-2/6 flex justify-end">Aug 2022 - Present</div>
-    </li>
+
+      {hero4.Button.length > 0 && (
+        <div className="mt-12 text-center">
+          <motion.a
+            href={hero4.Button[0]['Button Link']}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-6 py-3 rounded-md border-2 text-white font-semibold transition-all relative overflow-hidden group inline-block"
+            style={{ borderColor: '#4993cd' }}
+          >
+            <span className="relative z-10 group-hover:text-white transition-colors duration-500">
+              {hero4.Button[0]['Button Text']} →
+            </span>
+            <span
+              className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out transform translate-x-full group-hover:translate-x-0 z-0"
+              style={{ backgroundColor: '#4993cd' }}
+            ></span>
+          </motion.a>
+        </div>
+      )}
+    </section>
   )
 }

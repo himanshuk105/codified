@@ -29,7 +29,7 @@ const ServicesPage = async () => {
 
   return (
     <section className="relative  text-white py-24 px-6 md:px-16">
-      <HeadingSection hero1={hero1} />
+      {/* <HeadingSection hero1={hero1} /> */}
       <Service />
     </section>
   )

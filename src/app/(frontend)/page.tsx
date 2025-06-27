@@ -1,7 +1,5 @@
-import { headers as getHeaders } from 'next/headers.js'
 import { getPayload } from 'payload'
 import React from 'react'
-import { fileURLToPath } from 'url'
 import config from '@/payload.config'
 import './styles.css'
 import { LandingHero } from '@/components/Homepage/Hero'
@@ -21,35 +19,42 @@ export async function generateMetadata() {
   const page = data.docs[0]
 
   return {
-    title: page?.meta?.title || 'Codified Solutions',
+    title: page?.metaTitle || 'Codified Solutions',
     description:
-      page?.meta?.description || 'Codified Solutions is a global software development company.',
+      page?.metaDescription || 'Codified Solutions is a global software development company.',
   }
 }
 
 export default async function HomePage() {
-  const headers = await getHeaders()
-  const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig })
-  const { user } = await payload.auth({ headers })
-  const data = await payload.find({
+  const payloadInstance = await getPayload({ config })
+  const { docs } = await payloadInstance.find({
     collection: 'pages',
     where: { slug: { equals: 'home' } },
   })
 
-  const hero1 = data?.docs[0]?.blocks?.find((d) => d.blockName === 'hero1')
-  const hero2 = data?.docs[0]?.blocks?.find((d) => d.blockName === 'hero2')
+  const page = docs[0]
+  const blocks = page?.blocks || []
 
-  const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
+  const hero1 = blocks.find((block: any) => block.blockType === 'hero')
+  // const technologies = blocks.find((block: any) => block.blockType === 'Technologies')
+  const hero2 = blocks.find((block: any) => block.blockName === 'Services')
+  const hero3 = blocks.find(
+    (block: any) => block.blockType === 'Single-Column-Section' && block.blockName === 'Industry',
+  )
+  const hero4 = blocks.find(
+    (block: any) => block.blockType === 'Single-Column-Section' && block.blockName === 'Strategy',
+  )
+  const testimonial = blocks.find((block: any) => block.blockType === 'Testimonials')
+  // console.log(testimonial)
 
   return (
     <>
       <LandingHero hero1={hero1} />
       <InfiniteTechScroll />
-      {/* <Hero2 hero2={hero2} /> */}
-      <Hero3 />
-      <Hero4 />
-      <Testimonial />
+      <Hero2 hero2={hero2} />
+      <Hero3 hero3={hero3} />
+      <Hero4 hero4={hero4} />
+      <Testimonial testimonials={testimonial} />
     </>
   )
 }

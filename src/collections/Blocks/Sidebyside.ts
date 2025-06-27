@@ -5,7 +5,7 @@ export const Sidebyside: Block = {
   fields: [
     {
       name: 'Side-1',
-      type: 'array',
+      type: 'group',
       fields: [
         {
           name: 'Left Heading',
@@ -38,7 +38,7 @@ export const Sidebyside: Block = {
     },
     {
       name: 'Side-2',
-      type: 'array',
+      type: 'group',
       fields: [
         {
           name: 'Right Heading',

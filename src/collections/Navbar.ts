@@ -3,10 +3,7 @@ import { CollectionConfig } from 'payload'
 export const Navbar: CollectionConfig = {
   slug: 'Menu',
   access: {
-    read: (): boolean => true,
-    create: (): boolean => false,
-    update: (): boolean => false,
-    delete: (): boolean => false,
+    read: () => true,
   },
   admin: {
     useAsTitle: 'title',
