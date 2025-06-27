@@ -3,17 +3,6 @@
 import { motion } from 'framer-motion'
 import { FaRobot, FaBrain, FaCodeBranch, FaRocket, FaChartLine, FaComments } from 'react-icons/fa'
 
-type CardType = {
-  heading: string
-  description: string
-  id: string
-}
-
-type ButtonType = {
-  'Button Text': string
-  'Button Link': string
-}
-
 export const Hero4 = ({ hero4 }: any) => {
   const icons = [
     <FaBrain className="text-3xl text-blue-400" />,
@@ -48,7 +37,7 @@ export const Hero4 = ({ hero4 }: any) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 max-w-6xl mx-auto">
         {hero4.Cards.map((card: any, idx: number) => (
           <motion.div
-            key={card.id}
+            key={idx}
             className="bg-[#111] p-6 rounded-2xl shadow-md hover:shadow-blue-500/30 transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             initial={{ opacity: 0, y: 30 }}
