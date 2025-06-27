@@ -49,6 +49,12 @@ export const Singlecolumnsection: Block = {
             },
           ],
         },
+        {
+          name: 'tech-data',
+          type: 'relationship',
+          relationTo: 'technologies',
+          hasMany: true,
+        },
       ],
     },
     {

@@ -335,6 +335,7 @@ export interface Page {
                         id?: string | null;
                       }[]
                     | null;
+                  'tech-data'?: (string | Technology)[] | null;
                   id?: string | null;
                 }[]
               | null;
@@ -391,6 +392,13 @@ export interface Page {
               };
               [k: string]: unknown;
             } | null;
+            button?:
+              | {
+                  'Button Text'?: string | null;
+                  'Button Link'?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
             'projects data'?: (string | Project)[] | null;
             id?: string | null;
             blockName?: string | null;
@@ -473,6 +481,17 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "technologies".
+ */
+export interface Technology {
+  id: string;
+  name?: string | null;
+  logo?: (string | null) | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "testimonials".
  */
 export interface Testimonial {
@@ -531,20 +550,10 @@ export interface Project {
               id?: string | null;
             }[]
           | null;
+        projects?: (string | Testimonial)[] | null;
         id?: string | null;
       }[]
     | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "technologies".
- */
-export interface Technology {
-  id: string;
-  name?: string | null;
-  logo?: (string | null) | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -1093,6 +1102,7 @@ export interface PagesSelect<T extends boolean = true> {
                           'Button Link'?: T;
                           id?: T;
                         };
+                    'tech-data'?: T;
                     id?: T;
                   };
               Button?:
@@ -1122,6 +1132,13 @@ export interface PagesSelect<T extends boolean = true> {
               heading?: T;
               subheading?: T;
               description?: T;
+              button?:
+                | T
+                | {
+                    'Button Text'?: T;
+                    'Button Link'?: T;
+                    id?: T;
+                  };
               'projects data'?: T;
               id?: T;
               blockName?: T;
@@ -1294,6 +1311,7 @@ export interface ProjectsSelect<T extends boolean = true> {
               image?: T;
               id?: T;
             };
+        projects?: T;
         id?: T;
       };
   updatedAt?: T;

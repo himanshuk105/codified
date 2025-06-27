@@ -63,6 +63,12 @@ export const Projects: CollectionConfig = {
             },
           ],
         },
+        {
+          name: 'projects',
+          type: 'relationship',
+          relationTo: 'testimonials',
+          hasMany: true,
+        },
       ],
     },
   ],

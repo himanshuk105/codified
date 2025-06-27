@@ -7,6 +7,20 @@ export const Projects: Block = {
     { name: 'subheading', type: 'text' },
     { name: 'description', type: 'richText' },
     {
+      name: 'button',
+      type: 'array',
+      fields: [
+        {
+          name: 'Button Text',
+          type: 'text',
+        },
+        {
+          name: 'Button Link',
+          type: 'text',
+        },
+      ],
+    },
+    {
       name: 'projects data',
       type: 'relationship',
       relationTo: 'projects',

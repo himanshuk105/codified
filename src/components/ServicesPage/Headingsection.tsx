@@ -3,27 +3,16 @@
 import { motion, useAnimate } from 'framer-motion'
 
 export const HeadingSection = ({ hero1 }: any) => {
+  console.log(hero1)
   const heading = hero1?.heading
   const subheading = hero1?.subheading
   const [scope, animate] = useAnimate()
 
   const handleHoverStart = () => {
-    animate(
-      scope.current,
-      {
-        backgroundColor: 'white',
-        color: 'black',
-      },
-      { duration: 1.2, ease: 'easeInOut', delay: 0.4 },
-    )
     animate('#tt', { x: [0, 10, 0] }, { duration: 0.8, ease: 'easeInOut', repeat: Infinity })
   }
 
   const handleHoverEnd = () => {
-    animate(scope.current, {
-      backgroundColor: 'black',
-      color: 'white',
-    })
     animate('#tt', { x: 0 }) // Stop the animation// Reset to original position
   }
 
@@ -40,7 +29,7 @@ export const HeadingSection = ({ hero1 }: any) => {
           key={d.text}
           onMouseEnter={handleHoverStart}
           onMouseLeave={handleHoverEnd}
-          className="border-2 border-white bg-black text-white px-6 py-3 rounded-md text-sm sm:text-base shadow-lg mt-6 flex items-center flex-row justify-center gap-3 w-45 self-center cursor-pointer font-extrabold"
+          className="border-2 border-white bg-black text-white px-6 py-3 rounded-md text-sm sm:text-base shadow-lg mt-6 flex items-center flex-row justify-center gap-3 w-100 self-center cursor-pointer font-extrabold hover:bg-white hover:text-black transition-colors duration-200"
           ref={scope}
         >
           <span>{d.text}</span> <span id="tt">&gt;</span>

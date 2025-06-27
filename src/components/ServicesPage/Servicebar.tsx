@@ -3,14 +3,7 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-export const Servicebar = () => {
-  const sections = [
-    'Product-Development',
-    'App-Development',
-    'Software-Development',
-    'Digital-Marketing',
-  ]
-
+export const Servicebar = ({ sections }: any) => {
   const [activeSection, setActiveSection] = useState<string | null>(null)
 
   useEffect(() => {
@@ -41,13 +34,13 @@ export const Servicebar = () => {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions)
 
-    sections.forEach((id) => {
+    sections.forEach((id: string) => {
       const el = document.getElementById(id)
       if (el) observer.observe(el)
     })
 
     return () => {
-      sections.forEach((id) => {
+      sections.forEach((id: string) => {
         const el = document.getElementById(id)
         if (el) observer.unobserve(el)
       })
@@ -56,8 +49,9 @@ export const Servicebar = () => {
 
   return (
     <ul className="hidden lg:flex flex-row gap-4 border border-[#222222] items-center justify-between bg-black px-7 py-3 z-50 rounded-2xl lg:sticky top-0">
-      {sections.map((id, i) => {
+      {sections.map((id: any, i: number) => {
         const label = id.replace(/-/g, ' ')
+
         const isActive = activeSection === id
 
         return (

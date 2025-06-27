@@ -2,9 +2,10 @@
 
 import { motion, useAnimate } from 'framer-motion'
 import { useRef } from 'react'
+import Link from 'next/link'
 import { ServiceTestimonials } from './Servicetestimonial'
 
-export const ServiceList = () => {
+export const ServiceList = ({ block }: any) => {
   const buttonRefs = useRef<(HTMLButtonElement | null)[]>([])
   const [scope, animate] = useAnimate()
 
@@ -46,40 +47,42 @@ export const ServiceList = () => {
     }
   }
 
-  const developmentType = ['UI/UX Design', 'Consultation', 'Photoshop Expertise', 'Xpro Branding']
-
   return (
-    <div className="mt-20 px-4 md:px-0 " ref={scope}>
+    <div id={block.blockName} className="mt-20 px-4 md:px-0" ref={scope}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left Section */}
         <div className="text-white space-y-4">
           <h2 className="text-[clamp(2rem,4vw,4rem)] font-extrabold leading-tight">
-            Our Premium Services
+            {block.heading}
           </h2>
-          <h4 className="text-[clamp(1.2rem,3vw,2.6rem)] font-semibold text-gray-300">
-            Designed to Elevate Your Brand
-          </h4>
-          <p className="text-gray-300">
-            We help you bring your vision to life with creativity, strategy, and technology. Our
-            services are crafted to deliver measurable impact.
-          </p>
+          {block.subheading && (
+            <h4 className="text-[clamp(1.2rem,3vw,2.6rem)] font-semibold text-gray-300">
+              {block.subheading}
+            </h4>
+          )}
+          {block.description?.root?.children?.map((child: any, idx: number) => (
+            <p className="text-gray-300" key={idx}>
+              {child?.children?.map((t: any) => t.text).join('')}
+            </p>
+          ))}
         </div>
 
         {/* Right Section */}
         <div className="flex flex-wrap gap-4 md:gap-6 items-start">
-          {developmentType.map((label, i) => (
-            <motion.button
-              key={i}
-              ref={(el) => {
-                buttonRefs.current[i] = el
-              }}
-              onMouseEnter={() => handleHoverStart(i)}
-              onMouseLeave={() => handleHoverEnd(i)}
-              className="border-2 border-white bg-white text-black px-6 py-3 rounded-xl text-sm font-bold shadow-md flex items-center justify-between w-48 h-14 transition-colors duration-300"
-            >
-              <span>{label}</span>
-              <motion.span className="arrow text-lg font-bold">&gt;</motion.span>
-            </motion.button>
+          {block.Button?.map((btn: any, i: number) => (
+            <Link href={btn['Button Link']} key={btn.id} passHref>
+              <motion.button
+                ref={(el) => {
+                  buttonRefs.current[i] = el
+                }}
+                onMouseEnter={() => handleHoverStart(i)}
+                onMouseLeave={() => handleHoverEnd(i)}
+                className="border-2 border-white bg-white text-black px-6 py-3 rounded-xl text-sm font-bold shadow-md flex items-center justify-between w-48 h-14 transition-colors duration-100"
+              >
+                <span>{btn['Button Text']}</span>
+                <motion.span className="arrow text-lg font-bold">&gt;</motion.span>
+              </motion.button>
+            </Link>
           ))}
         </div>
       </div>
