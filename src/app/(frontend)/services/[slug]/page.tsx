@@ -4,7 +4,7 @@ import { Singleserviceheading } from '@/components/ServicesPage/Singleservice'
 import { Techstacks } from '@/components/ServicesPage/Techstack'
 import { WhyUs } from '@/components/ServicesPage/Whyus'
 import { Advancetech } from '@/components/ServicesPage/Advancetech'
-import { MobileAppTimeline } from '@/components/ServicesPage/Timeline'
+
 import { Trustedby } from '@/components/Trusted'
 
 export async function generateMetadata({ params }: any) {
