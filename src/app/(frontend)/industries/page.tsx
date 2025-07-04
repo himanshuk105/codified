@@ -6,6 +6,7 @@
 //   })
 
 import { IndustriesHero } from '@/components/industries/Industryhero'
+import { Indutryslider } from '@/components/industries/Slider'
 
 //   const servicepage = data.docs[0]
 //   return {
@@ -33,6 +34,7 @@ const IndustryPage = async () => {
     <section className="">
       <div>
         <IndustriesHero />
+        <Indutryslider />
       </div>
     </section>
   )
