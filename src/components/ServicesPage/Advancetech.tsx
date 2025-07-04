@@ -1,7 +1,7 @@
 // 'use client'
 
-// import { useEffect } from 'react'
-// import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion'
+// import { useRef } from 'react'
+// import { motion, useInView } from 'framer-motion'
 
 // export const Advancetech = () => {
 //   const data = [
@@ -33,7 +33,7 @@
 //   ]
 
 //   return (
-//     <div className="min-h-screen bg-gray-950 text-white font-sans px-4 py-20 md:px-16 lg:px-32">
+//     <div className="mt-2 min-h-screen  text-white font-sans px-4 py-20 md:px-16 lg:px-32">
 //       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 relative">
 //         {/* Left Side */}
 //         <div className="md:sticky top-24 h-fit space-y-6">
@@ -51,23 +51,31 @@
 //         </div>
 
 //         {/* Right Side */}
-//         <ul className="space-y-10 md:overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-indigo-500 scrollbar-track-gray-800">
-//           {data.map((d, i) => (
-//             <li key={i} className="p-6 rounded-2xl">
-//               <motion.span
-//                 whileInView={{ scale: 2 }}
-//                 viewport={{ once: false, amount: 0.5 }} // Required
-//                 transition={{ duration: 0.5 }}
-//                 className="text-3xl"
-//               >
-//                 {d.icon}
-//               </motion.span>
-//               <h3 className="text-xl font-semibold mt-3 text-indigo-300">
-//                 {i + 1}. {d.heading}
-//               </h3>
-//               <p className="text-gray-400 mt-2">{d.p}</p>
-//             </li>
-//           ))}
+//         <ul className="space-y-10 pr-4 ">
+//           {data.map((d, i) => {
+//             const ref = useRef(null)
+//             const inView = useInView(ref, {
+//               amount: 0.5,
+//               once: false,
+//             })
+
+//             return (
+//               <li key={i} className="p-6 rounded-2xl transition-transform duration-300">
+//                 <motion.span
+//                   ref={ref}
+//                   animate={{ scale: inView ? 1.2 : 0 }}
+//                   transition={{ duration: 0.4 }}
+//                   className="text-3xl inline-block"
+//                 >
+//                   {d.icon}
+//                 </motion.span>
+//                 <h3 className="text-xl sm:text-2xl md:text-4xl font-semibold mt-3 text-indigo-300">
+//                   {i + 1}. {d.heading}
+//                 </h3>
+//                 <p className="text-lg text-gray-400 mt-2">{d.p}</p>
+//               </li>
+//             )
+//           })}
 //         </ul>
 //       </div>
 //     </div>
@@ -108,8 +116,15 @@ export const Advancetech = () => {
     },
   ]
 
+  // Precompute refs and inView statuses
+  const items = data.map(() => {
+    const ref = useRef(null)
+    const inView = useInView(ref, { amount: 0.5, once: false })
+    return { ref, inView }
+  })
+
   return (
-    <div className="mt-2 min-h-screen  text-white font-sans px-4 py-20 md:px-16 lg:px-32">
+    <div className="mt-2 min-h-screen text-white font-sans px-4 py-20 md:px-16 lg:px-32">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 relative">
         {/* Left Side */}
         <div className="md:sticky top-24 h-fit space-y-6">
@@ -127,14 +142,9 @@ export const Advancetech = () => {
         </div>
 
         {/* Right Side */}
-        <ul className="space-y-10 pr-4 ">
+        <ul className="space-y-10 pr-4">
           {data.map((d, i) => {
-            const ref = useRef(null)
-            const inView = useInView(ref, {
-              amount: 0.5,
-              once: false,
-            })
-
+            const { ref, inView } = items[i]
             return (
               <li key={i} className="p-6 rounded-2xl transition-transform duration-300">
                 <motion.span
