@@ -3,7 +3,6 @@
 import { motion, useAnimate } from 'framer-motion'
 
 export const HeadingSection = ({ hero1 }: any) => {
-  console.log(hero1)
   const heading = hero1?.heading
   const subheading = hero1?.subheading
   const [scope, animate] = useAnimate()

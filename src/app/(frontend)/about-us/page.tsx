@@ -3,6 +3,7 @@
 'use client'
 import { Aboutusheading } from '@/components/aboutus/Aboutusheading'
 import { Achiements } from '@/components/aboutus/Achievment'
+import { CoreTeamSection } from '@/components/aboutus/Cta'
 import { Section2 } from '@/components/aboutus/Section2'
 import { useScroll, useTransform } from 'motion/react'
 import { useRef } from 'react'
@@ -33,6 +34,7 @@ const AboutUsPage = () => {
       <Aboutusheading />
       <Section2 />
       <Achiements />
+      <CoreTeamSection />
     </section>
   )
 }

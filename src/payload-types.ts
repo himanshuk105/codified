@@ -814,16 +814,19 @@ export interface Menu {
     | {
         label: string;
         slug?: string | null;
+        description?: string | null;
         href?: string | null;
         hasDropdown?: boolean | null;
         dropdownItems?:
           | {
               categoryTitle: string;
               slug?: string | null;
+              image?: (string | null) | Media;
               link?: string | null;
               subServices?:
                 | {
                     label: string;
+                    description?: string | null;
                     link?: string | null;
                     slug?: string | null;
                     id?: string | null;
@@ -1245,6 +1248,7 @@ export interface MenuSelect<T extends boolean = true> {
     | {
         label?: T;
         slug?: T;
+        description?: T;
         href?: T;
         hasDropdown?: T;
         dropdownItems?:
@@ -1252,11 +1256,13 @@ export interface MenuSelect<T extends boolean = true> {
           | {
               categoryTitle?: T;
               slug?: T;
+              image?: T;
               link?: T;
               subServices?:
                 | T
                 | {
                     label?: T;
+                    description?: T;
                     link?: T;
                     slug?: T;
                     id?: T;

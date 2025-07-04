@@ -16,9 +16,9 @@ export const Techstacks = ({ techstack }: any) => {
   }
 
   return (
-    <section className="w-full mt-20 px-4 sm:px-8">
+    <section className="w-full sm:px-8 px-6 md:px-16">
       <div className="text-center mb-12 max-w-4xl mx-auto">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+        <h2 className="text-4xl p-3 sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
           {techstack.heading}
         </h2>
         <p className="text-xl sm:text-2xl mt-2 font-semibold text-white">{techstack.subheading}</p>

@@ -15,19 +15,20 @@ export const Singleserviceheading = ({ hero }: any) => {
     offset: ['start end', 'end start'],
   })
 
-  const imageY = useTransform(scrollYProgress, [0.3, 0.8], [100, -100])
+  const imageY = useTransform(scrollYProgress, [0.3, 0.8], [200, -50])
   const contentY = useTransform(scrollYProgress, [0.3, 0.8], [-40, 60])
 
   const isLargeScreen = size.width !== null && size.width >= 1024
 
+  // text-white py-24 px-6 md:px-16
   return (
-    <motion.section ref={sectionRef} className="relative w-full overflow-hidden">
+    <motion.section ref={sectionRef} className="py-20  relative w-full overflow-hidden md:py-0">
       {/* Background Image with Parallax */}
       <motion.img
         style={{ translateY: isLargeScreen ? imageY : 0 }}
         src="https://images.unsplash.com/photo-1749456289357-4e5cbffe9fb3?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt="Hero Background"
-        className="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-cover rounded-xl"
+        className="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-cover "
       />
 
       {/* Overlay for Contrast */}

@@ -3,9 +3,12 @@ import config from '@/payload.config'
 import { Singleserviceheading } from '@/components/ServicesPage/Singleservice'
 import { Techstacks } from '@/components/ServicesPage/Techstack'
 import { WhyUs } from '@/components/ServicesPage/Whyus'
+import { Advancetech } from '@/components/ServicesPage/Advancetech'
+import { MobileAppTimeline } from '@/components/ServicesPage/Timeline'
+import { Trustedby } from '@/components/Trusted'
 
 export async function generateMetadata({ params }: any) {
-  const { slug } = params
+  const { slug } = await params
   const payloadInstance = await getPayload({ config })
   const data = await payloadInstance.find({
     collection: 'pages',
@@ -22,7 +25,7 @@ export async function generateMetadata({ params }: any) {
 }
 
 const SingleServicesPage = async ({ params }: any) => {
-  const { slug } = params
+  const { slug } = await params
   const payloadInstance = await getPayload({ config })
   const pagedata = await payloadInstance.find({
     collection: 'pages',
@@ -35,13 +38,13 @@ const SingleServicesPage = async ({ params }: any) => {
   const whyus = blocks?.find((block) => block.blockName == 'Why Us')
   const techstack = blocks?.find((block) => block.blockName == 'Tech Stack')
 
-  console.log(hero, project, whyus, techstack)
-
   return (
-    <section className="relative  text-white py-24 px-6 md:px-16">
+    <section className="relative ">
       <Singleserviceheading hero={hero} />
       <WhyUs data={whyus} />
       <Techstacks techstack={techstack} />
+      <Advancetech />
+      <Trustedby />
     </section>
   )
 }

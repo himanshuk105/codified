@@ -30,6 +30,10 @@ export const Navbar: CollectionConfig = {
           type: 'text',
         },
         {
+          name: 'description',
+          type: 'text',
+        },
+        {
           name: 'href',
           type: 'text',
           label: 'Link (if no dropdown)',
@@ -55,6 +59,11 @@ export const Navbar: CollectionConfig = {
               type: 'text',
             },
             {
+              name: 'image',
+              type: 'relationship',
+              relationTo: 'media',
+            },
+            {
               name: 'link',
               type: 'text',
             },
@@ -68,6 +77,10 @@ export const Navbar: CollectionConfig = {
                   type: 'text',
                   label: 'Sub Service Name',
                   required: true,
+                },
+                {
+                  name: 'description',
+                  type: 'text',
                 },
                 {
                   name: 'link',

@@ -29,7 +29,6 @@ const PositionCard = () => {
   const [scope, animate] = useAnimate()
 
   const handleHover = () => {
-    console.log('hovered')
     animate(
       '#tohover',
       { backgroundColor: '#845ec2', x: 120 },
@@ -41,7 +40,6 @@ const PositionCard = () => {
   }
 
   const handleLeaverHover = () => {
-    console.log('hovered')
     animate(
       '#tohover',
       { backgroundColor: '#c197ff', x: 0 },

@@ -20,12 +20,9 @@ export const Section2 = ({ prop }: any) => {
     offset: ['center end', 'end center'],
   })
   const gradient1 = useTransform(scrollYProgress, [0.17, 0.29], [0, 1400], { clamp: true })
-  const gradient2 = useTransform(scrollYProgress, [0.28, 0.41], [0, 1400], { clamp: true })
-  const gradient3 = useTransform(scrollYProgress, [0.4, 0.53], [0, 1500], { clamp: true })
+  const gradient2 = useTransform(scrollYProgress, [0.3, 0.41], [0, 1400], { clamp: true })
+  const gradient3 = useTransform(scrollYProgress, [0.43, 0.53], [0, 1500], { clamp: true })
 
-  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    console.log('---->', latest)
-  })
   const gradient = [gradient1, gradient2, gradient3]
 
   return (
