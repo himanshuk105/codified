@@ -3,9 +3,9 @@ import config from '@/payload.config'
 import { Singleserviceheading } from '@/components/ServicesPage/Singleservice'
 import { Techstacks } from '@/components/ServicesPage/Techstack'
 import { WhyUs } from '@/components/ServicesPage/Whyus'
-import { Advancetech } from '@/components/ServicesPage/Advancetech'
 
 import { Trustedby } from '@/components/Trusted'
+import { Advancetech } from '@/components/ServicesPage/Advancetech'
 
 export async function generateMetadata({ params }: any) {
   const { slug } = await params
@@ -37,14 +37,16 @@ const SingleServicesPage = async ({ params }: any) => {
   const project = blocks?.find((block) => block.blockName == 'Case Study')
   const whyus = blocks?.find((block) => block.blockName == 'Why Us')
   const techstack = blocks?.find((block) => block.blockName == 'Tech Stack')
+  const AdvanceTech = blocks?.find((block) => block.blockName == 'Advance Tech')
+  const TrustedBy = blocks?.find((block) => block.blockName == 'Trustedby')
 
   return (
     <section className="relative ">
       <Singleserviceheading hero={hero} />
       <WhyUs data={whyus} />
       <Techstacks techstack={techstack} />
-      <Advancetech />
-      <Trustedby />
+      <Advancetech AdvanceTech={AdvanceTech} />
+      <Trustedby TrustedBy={TrustedBy} />
     </section>
   )
 }

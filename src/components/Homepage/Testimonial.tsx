@@ -1,309 +1,211 @@
-// 'use client'
-
-// import '../../css/hero3.css'
-// import { motion } from 'framer-motion'
-// import { useRef } from 'react'
-// import { CiStar } from 'react-icons/ci'
-
-// export const Testimonial = () => {
-//   const scrollRef = useRef(null)
-
-//   return (
-//     <section className="box-border text-white bg-black grid grid-cols-1 gap-5 p-5 mt-[80px] mb-[80px] md:px-20">
-//       <div className="grid grid-cols-1 w-full gap-3 justify-items-center">
-//         <div className="w-full max-w-[520px] md:max-w-full flex flex-col gap-7">
-//           <h1 className="text-3xl w-full font-extrabold lg:text-5xl">Testimonials</h1>
-
-//           <div ref={scrollRef} className="flex gap-6 overflow-x-auto scrollbar-hide tohide py-2">
-//             {[...Array(8)].map((_, i) => (
-//               <motion.div
-//                 key={i}
-//                 initial={{ opacity: 0, scale: 0.8 }}
-//                 whileInView={{ opacity: 1, scale: 1 }}
-//                 transition={{ duration: 0.6, delay: i * 0.1, ease: 'easeOut' }}
-//                 className="w-[300px] flex-shrink-0 rounded-2xl p-6 bg-[#111111] backdrop-blur-lg border border-[#222222] shadow-md flex flex-col gap-4"
-//               >
-//                 <TestimonialCard />
-//               </motion.div>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   )
-// }
-
-// const TestimonialCard = () => {
-//   return (
-//     <>
-//       <div className="flex text-yellow-400 text-xl">
-//         {[...Array(5)].map((_, i) => (
-//           <CiStar key={i} />
-//         ))}
-//       </div>
-
-//       <p className="text-sm italic text-gray-300">
-//         This AI has boosted my productivity tenfold. The predictive features are spot-on and so
-//         helpful.
-//       </p>
-
-//       <div className="flex items-center gap-4 mt-4">
-//         <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center font-bold">
-//           I
-//         </div>
-//         <div className="text-left">
-//           <p className="font-semibold">Ishaan Verma</p>
-//           <p className="text-xs text-gray-400">Product Manager</p>
-//         </div>
-//       </div>
-//     </>
-//   )
-// }
-
-// 'use client'
-
-// import '../../css/hero3.css'
-// import { motion } from 'framer-motion'
-// import { useRef, useEffect } from 'react'
-// import { CiStar } from 'react-icons/ci'
-
-// export const Testimonial = ({ testimonials }: any) => {
-//   const scrollRef = useRef<HTMLDivElement>(null)
-
-//   useEffect(() => {
-//     const el = scrollRef.current
-//     if (!el) return
-
-//     let scrollAmount = 1
-//     const autoScroll = () => {
-//       el.scrollLeft += scrollAmount
-//       if (el.scrollLeft + el.offsetWidth >= el.scrollWidth || el.scrollLeft <= 0) {
-//         scrollAmount *= -1 // reverse scroll direction
-//       }
-//     }
-
-//     const interval = setInterval(autoScroll, 30)
-//     return () => clearInterval(interval)
-//   }, [])
-
-//   return (
-//     <section className="box-border text-white bg-black grid grid-cols-1 gap-5 p-5 mt-[80px] mb-[80px] md:px-20">
-//       <div className="grid grid-cols-1 w-full gap-3 justify-items-center">
-//         <div className="w-full max-w-[520px] md:max-w-full flex flex-col gap-7">
-//           <h1 className="text-3xl w-full font-extrabold lg:text-5xl relative inline-block">
-//             Testimonials
-//             <span className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></span>
-//           </h1>
-
-//           <div ref={scrollRef} className="flex gap-6 overflow-x-auto scrollbar-hide tohide py-2">
-//             {[...Array(8)].map((_, i) => (
-//               <motion.div
-//                 key={i}
-//                 initial={{ opacity: 0, scale: 0.8 }}
-//                 whileInView={{ opacity: 1, scale: 1 }}
-//                 transition={{ duration: 0.6, delay: i * 0.1, ease: 'easeOut' }}
-//                 className="w-[300px] flex-shrink-0 rounded-3xl p-6 bg-gradient-to-br from-[#111111] via-[#151515] to-[#1a1a1a] border border-[#333] shadow-[0_0_20px_rgba(72,117,255,0.1)] hover:shadow-[0_0_25px_rgba(72,117,255,0.3)] transition-shadow duration-500 ease-in-out"
-//               >
-//                 <TestimonialCard />
-//               </motion.div>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   )
-// }
-
-// const TestimonialCard = () => {
-//   return (
-//     <>
-//       <div className="flex text-yellow-400 text-xl">
-//         {[...Array(5)].map((_, i) => (
-//           <CiStar key={i} />
-//         ))}
-//       </div>
-
-//       <p className="text-sm italic text-gray-300 leading-relaxed">
-//         “This AI has boosted my productivity tenfold. The predictive features are spot-on and truly
-//         transformative.”
-//       </p>
-
-//       <div className="flex items-center gap-4 mt-4">
-//         <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-500 to-blue-500 text-white flex items-center justify-center font-bold text-lg shadow-md">
-//           I
-//         </div>
-//         <div className="text-left">
-//           <p className="font-semibold text-white">Ishaan Verma</p>
-//           <p className="text-xs text-gray-400">Product Manager</p>
-//         </div>
-//       </div>
-//     </>
-//   )
-// }
-
-// 'use client'
-
-// import '../../css/hero3.css'
-// import { motion } from 'framer-motion'
-// import { useRef, useEffect } from 'react'
-// import { CiStar } from 'react-icons/ci'
-
-// export const Testimonial = ({ testimonials }: any) => {
-//   const scrollRef = useRef<HTMLDivElement>(null)
-
-//   useEffect(() => {
-//     const el = scrollRef.current
-//     if (!el) return
-
-//     let scrollAmount = 1
-//     const autoScroll = () => {
-//       el.scrollLeft += scrollAmount
-//       if (el.scrollLeft + el.offsetWidth >= el.scrollWidth || el.scrollLeft <= 0) {
-//         scrollAmount *= -1
-//       }
-//     }
-
-//     const interval = setInterval(autoScroll, 30)
-//     return () => clearInterval(interval)
-//   }, [])
-
-//   return (
-//     <section className="box-border text-white bg-black grid grid-cols-1 gap-5 p-5 mt-[80px] mb-[80px] md:px-20">
-//       <div className="grid grid-cols-1 w-full gap-3 justify-items-center">
-//         <div className="w-full max-w-[520px] md:max-w-full flex flex-col gap-7">
-//           <h1 className="text-3xl w-full font-extrabold lg:text-5xl relative inline-block">
-//             Testimonials
-//             <span className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></span>
-//           </h1>
-
-//           <div ref={scrollRef} className="flex gap-6 overflow-x-auto scrollbar-hide tohide py-2">
-//             {testimonials?.map((testimonial, i) => (
-//               <motion.div
-//                 key={i}
-//                 initial={{ opacity: 0, scale: 0.8 }}
-//                 whileInView={{ opacity: 1, scale: 1 }}
-//                 transition={{ duration: 0.6, delay: i * 0.1, ease: 'easeOut' }}
-//                 className="w-[300px] flex-shrink-0 rounded-3xl p-6 bg-gradient-to-br from-[#111111] via-[#151515] to-[#1a1a1a] border border-[#333] shadow-[0_0_20px_rgba(72,117,255,0.1)] hover:shadow-[0_0_25px_rgba(72,117,255,0.3)] transition-shadow duration-500 ease-in-out"
-//               >
-//                 <TestimonialCard data={testimonial} />
-//               </motion.div>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   )
-// }
-
-// const TestimonialCard = ({
-//   data,
-// }: {
-//   data: { name: string; position: string; quote: string; rating?: number; initial?: string }
-// }) => {
-//   const { name, position, quote, rating = 5, initial = name.charAt(0) } = data
-
-//   return (
-//     <>
-//       <div className="flex text-yellow-400 text-xl">
-//         {[...Array(rating)].map((_, i) => (
-//           <CiStar key={i} />
-//         ))}
-//       </div>
-
-//       <p className="text-sm italic text-gray-300 leading-relaxed">“{quote}”</p>
-
-//       <div className="flex items-center gap-4 mt-4">
-//         <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-500 to-blue-500 text-white flex items-center justify-center font-bold text-lg shadow-md">
-//           {initial}
-//         </div>
-//         <div className="text-left">
-//           <p className="font-semibold text-white">{name}</p>
-//           <p className="text-xs text-gray-400">{position}</p>
-//         </div>
-//       </div>
-//     </>
-//   )
-// }
-
 'use client'
 
-import '../../css/hero3.css'
 import { motion } from 'framer-motion'
-import { useRef, useEffect } from 'react'
-import { CiStar } from 'react-icons/ci'
+import { useRef } from 'react'
+import { FaPlay } from 'react-icons/fa'
+import '../../css/hero3.css'
 
 export const Testimonial = ({ testimonials }: any) => {
   const scrollRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const el = scrollRef.current
-    if (!el) return
+  const scroll = (direction: 'left' | 'right') => {
+    const container = scrollRef.current
+    if (!container) return
 
-    let scrollAmount = 1
-    const autoScroll = () => {
-      el.scrollLeft += scrollAmount
-      if (el.scrollLeft + el.offsetWidth >= el.scrollWidth || el.scrollLeft <= 0) {
-        scrollAmount *= -1
-      }
-    }
+    const screenWidth = window.innerWidth
+    const isLargeScreen = screenWidth >= 1024 // lg breakpoint
 
-    const interval = setInterval(autoScroll, 30)
-    return () => clearInterval(interval)
-  }, [])
+    const scrollAmount = isLargeScreen
+      ? container.scrollWidth / container.children.length
+      : container.offsetWidth
+
+    container.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    })
+  }
 
   return (
-    <section className="box-border text-white bg-black grid grid-cols-1 gap-5 p-5 mt-[80px] mb-[80px] md:px-20">
-      <div className="grid grid-cols-1 w-full gap-3 justify-items-center">
-        <div className="w-full max-w-[520px] md:max-w-full flex flex-col gap-7">
-          <h1 className="text-3xl w-full font-extrabold lg:text-5xl relative inline-block">
-            Testimonials
-            <span className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></span>
-          </h1>
+    <section className="bg-black text-white py-20 px-5 md:px-20">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-10">
+          <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
+            Discover how{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
+              we’ve transformed businesses
+            </span>
+          </h2>
+          <p className="mt-4 text-lg text-gray-300 max-w-3xl">
+            with exceptional user experience design, innovative app development, cutting-edge
+            product optimization, and dedicated ongoing support
+          </p>
+        </div>
 
-          <div ref={scrollRef} className="flex gap-6 overflow-x-auto scrollbar-hide tohide py-2">
-            {testimonials['testimonial data'].map((testimonial: any, i: number) => (
-              <motion.div
-                key={testimonial.id || i}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: i * 0.1, ease: 'easeOut' }}
-                className="w-[300px] flex-shrink-0 rounded-3xl p-6 bg-gradient-to-br from-[#111111] via-[#151515] to-[#1a1a1a] border border-[#333] shadow-[0_0_20px_rgba(72,117,255,0.1)] hover:shadow-[0_0_25px_rgba(72,117,255,0.3)] transition-shadow duration-500 ease-in-out"
-              >
-                <TestimonialCard data={testimonial} />
-              </motion.div>
-            ))}
-          </div>
+        <div className="flex items-center justify-between mb-4">
+          <p className="text-sm text-gray-400 uppercase tracking-wide font-semibold">
+            Exceeding Expectations, Delivering Excellence
+          </p>
+          <p className="flex items-center gap-1 text-white font-bold text-lg">
+            Clutch <span className="text-red-500 text-xl">5.0</span>
+            <span className="text-red-500">★★★★★</span>
+          </p>
+        </div>
+
+        <div
+          ref={scrollRef}
+          className="flex flex-nowrap overflow-x-scroll gap-1 lg:gap-3 py-2 overflow-y-hidden scroll-smooth snap-mandatory custom-scrollbar"
+        >
+          {testimonials['testimonial data'].map((data: any, i: number) => (
+            <motion.div
+              key={data.id || i}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="flex w-full lg:w-[600px] rounded-xl overflow-hidden border border-[#222] bg-[#0e0e0e] snap-left flex-none"
+            >
+              <div className="flex flex-col justify-between p-5 w-[60%]">
+                <div>
+                  <p className="font-bold text-white underline underline-offset-4 mb-1">
+                    {data.testimonialname}
+                  </p>
+                  <p className="text-sm italic text-gray-300 mb-4 leading-relaxed">
+                    “{data.testimonial}”
+                  </p>
+                  <p className="text-sm font-semibold text-white">{data.name}</p>
+                  <p className="text-xs text-gray-500">{data.testimonialposition}</p>
+                </div>
+              </div>
+              <div className="w-[40%] bg-[#222] flex items-center justify-center">
+                <div className="w-full h-full bg-[#333]"></div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Buttons */}
+        <div className="mt-6 flex justify-center gap-6">
+          <button
+            onClick={() => scroll('left')}
+            className="px-6 py-2 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition"
+          >
+            Prev
+          </button>
+          <button
+            onClick={() => scroll('right')}
+            className="px-6 py-2 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition"
+          >
+            Next
+          </button>
         </div>
       </div>
     </section>
   )
 }
 
-const TestimonialCard = ({ data }: { data: any }) => {
-  const { name, testimonialposition, testimonial, Rating = 5, testimonialname } = data
+// 'use client'
 
-  const initial = name.charAt(0)
+// import { motion } from 'framer-motion'
+// import { useRef } from 'react'
 
-  return (
-    <>
-      <div className="flex text-yellow-400 text-xl mb-2">
-        {[...Array(Rating)].map((_, i) => (
-          <CiStar key={i} />
-        ))}
-      </div>
+// import { FaPlay } from 'react-icons/fa'
+// import { useMediaQuery } from '@uidotdev/usehooks'
 
-      <p className="text-sm italic text-gray-300 leading-relaxed">“{testimonial}”</p>
+// export const Testimonial = ({ testimonials }: any) => {
+//   const scrollRef = useRef<HTMLDivElement>(null)
 
-      <div className="flex items-center gap-4 mt-4">
-        <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-500 to-blue-500 text-white flex items-center justify-center font-bold text-lg shadow-md">
-          {initial}
-        </div>
-        <div className="text-left">
-          <p className="font-semibold text-white">{name}</p>
-          <p className="text-xs text-gray-400">{testimonialposition}</p>
-          {testimonialname && <p className="text-xs text-gray-500 italic">{testimonialname}</p>}
-        </div>
-      </div>
-    </>
-  )
-}
+//   const isLargeScreen = useMediaQuery(
+//     'only screen and (min-width : 993px) and (max-width : 1200px)',
+//   )
+
+//   const scroll = (direction: 'left' | 'right') => {
+//     const container = scrollRef.current
+//     if (!container) return
+
+//     const scrollAmount = isLargeScreen ? container.scrollWidth / 3 : container.offsetWidth
+
+//     container.scrollBy({
+//       left: direction === 'left' ? -scrollAmount : scrollAmount,
+//       behavior: 'smooth',
+//     })
+//   }
+
+//   return (
+//     <section className="bg-black text-white py-20 px-5 md:px-20">
+//       <div className="max-w-7xl mx-auto">
+//         <div className="mb-10">
+//           <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
+//             Discover how{' '}
+//             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
+//               we’ve transformed businesses
+//             </span>
+//           </h2>
+//           <p className="mt-4 text-lg text-gray-300 max-w-3xl">
+//             with exceptional user experience design, innovative app development, cutting-edge
+//             product optimization, and dedicated ongoing support
+//           </p>
+//         </div>
+
+//         <div className="flex items-center justify-between mb-4">
+//           <p className="text-sm text-gray-400 uppercase tracking-wide font-semibold">
+//             Exceeding Expectations, Delivering Excellence
+//           </p>
+//           <p className="flex items-center gap-1 text-white font-bold text-lg">
+//             Clutch <span className="text-red-500 text-xl">5.0</span>
+//             <span className="text-red-500">★★★★★</span>
+//           </p>
+//         </div>
+
+//         <div
+//           ref={scrollRef}
+//           className="flex gap-6 overflow-x-auto scrollbar-hide py-6 scroll-smooth "
+//         >
+//           {testimonials['testimonial data'].map((data: any, i: number) => (
+//             <motion.div
+//               key={data.id || i}
+//               initial={{ opacity: 0, scale: 0.95 }}
+//               whileInView={{ opacity: 1, scale: 1 }}
+//               transition={{ duration: 0.5, delay: i * 0.1 }}
+//               className="min-w-[340px] md:min-w-[600px] flex rounded-xl overflow-hidden border border-[#222] bg-[#0e0e0e]"
+//             >
+//               <div className="flex flex-col justify-between p-5 w-[60%]">
+//                 <div>
+//                   <p className="font-bold text-white underline underline-offset-4 mb-1">
+//                     {data.testimonialname}
+//                   </p>
+//                   <p className="text-sm italic text-gray-300 mb-4 leading-relaxed">
+//                     “{data.testimonial}”
+//                   </p>
+//                   <p className="text-sm font-semibold text-white">{data.name}</p>
+//                   <p className="text-xs text-gray-500">{data.testimonialposition}</p>
+//                 </div>
+//                 <button className="flex items-center gap-2 mt-4 text-purple-400 text-sm font-semibold hover:underline">
+//                   <FaPlay className="text-purple-400" /> Watch
+//                 </button>
+//               </div>
+//               <div className="w-[40%] bg-[#222] flex items-center justify-center">
+//                 {/* Placeholder for image or video */}
+//                 <div className="w-full h-full bg-[#333]"></div>
+//               </div>
+//             </motion.div>
+//           ))}
+//         </div>
+
+//         {/* Buttons */}
+//         <div className="mt-6 flex justify-center gap-6">
+//           <button
+//             onClick={() => scroll('left')}
+//             className="px-6 py-2 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition"
+//           >
+//             Prev
+//           </button>
+//           <button
+//             onClick={() => scroll('right')}
+//             className="px-6 py-2 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition"
+//           >
+//             Next
+//           </button>
+//         </div>
+//       </div>
+//     </section>
+//   )
+// }

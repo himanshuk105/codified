@@ -1,34 +1,46 @@
 'use client'
 
-export const Trustedby = () => {
+export const Trustedby = ({ TrustedBy }: any) => {
+  if (!TrustedBy) return null
+
+  const { heading, description, blobcard } = TrustedBy
+
+  const parsedDescription = description?.root?.children?.map((paragraph: any, i: number) => (
+    <p key={i} className="text-sm md:text-lg text-center md:w-3/4">
+      {paragraph.children.map((child: any, j: number) => {
+        const isBold = child.format === 1
+        return (
+          <span key={j} className={isBold ? 'font-semibold' : ''}>
+            {child.text}
+          </span>
+        )
+      })}
+    </p>
+  ))
+
   return (
     <section className="mt-2 bg-white/5 text-white font-sans px-4 py-20 md:px-16 lg:px-32">
-      <div className="flex items-center flex-col gap-3">
-        <h2 className="text-2xl font-extrabold md:text-4xl">Trusted By</h2>
-        <p className=" md:w-3/4 sm:text-sm md:text-lg text-center">
-          Empowering Global Brands and Startups to Drive Innovation and Success with our unparalled
-          expertise and commitment to excellence
-        </p>
+      <div className="flex flex-col items-center gap-6">
+        <h2 className="text-2xl font-extrabold md:text-4xl text-center">{heading}</h2>
+        {parsedDescription}
+
+        {/* Replace with <InfiniteTechScroll /> if needed */}
         <InfiniteTechScroll />
+
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-12 w-full max-w-6xl">
+          {blobcard?.map((item: any) => (
+            <li
+              key={item.id}
+              className="flex flex-col p-4 bg-white/10 rounded-xl border border-white/10 hover:bg-white/20 transition-all duration-300"
+            >
+              <span className="text-3xl md:text-4xl font-bold border-l-2 border-teal-400 pl-2 py-1">
+                {item.label}
+              </span>
+              <span className="pl-2 text-sm md:text-base text-white/90">{item.value}</span>
+            </li>
+          ))}
+        </ul>
       </div>
-      <ul className="flex flex-col gap-3 md:flex-row items-center justify-center">
-        <li className="flex flex-col p-2 gap-1">
-          <span className="text-3xl md:text-4xl font-bold pl-2 py-2 border-l-2">2550 Years</span>
-          <span className="pl-2 text-sm md:text-lg">Apps & Digital Product Delivered</span>
-        </li>
-        <li className="flex flex-col p-2 gap-1">
-          <span className="text-3xl md:text-4xl font-bold pl-2 py-2 border-l-2">2550 Years</span>
-          <span className="pl-2 text-sm md:text-lg">Apps & Digital Product Delivered</span>
-        </li>
-        <li className="flex flex-col p-2 gap-1">
-          <span className="text-3xl md:text-4xl font-bold pl-2 py-2 border-l-2">2550 Years</span>
-          <span className="pl-2 text-sm md:text-lg">Apps & Digital Product Delivered</span>
-        </li>
-        <li className="flex flex-col p-2 gap-1">
-          <span className="text-3xl md:text-4xl font-bold pl-2 py-2 border-l-2">2550 Years</span>
-          <span className="pl-2 text-sm md:text-lg">Apps & Digital Product Delivered</span>
-        </li>
-      </ul>
     </section>
   )
 }

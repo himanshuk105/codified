@@ -19,3 +19,25 @@
   display: block;
   background-color: transparent;
 }
+
+/* Scrollbar container */
+.custom-scrollbar {
+  overflow-x: auto;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: white #2b2a36; /* thumb track */
+}
+
+/* For WebKit (Chrome, Safari) */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #2b2a36; /* Dark background */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: white; /* White thumb */
+  border-radius: 10px;
+}

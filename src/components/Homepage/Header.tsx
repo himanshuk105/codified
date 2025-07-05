@@ -231,9 +231,14 @@ export const Header = ({ data }: any) => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="lg:hidden fixed top-14 right-0 h-120 w-3/4 text-black p-6 z-50 bg-transparent"
+            className="lg:hidden fixed top-0 left-0 h-screen w-screen text-black z-50 bg-transparent"
           >
-            <ul className="p-5 bg-white space-y-4 text-lg overflow-y-auto h-full">
+            <ul className="bg-white flex flex-col space-y-4 text-lg overflow-y-auto h-full p-4 w-full">
+              <li className="self-end">
+                <button onClick={handleMobileChange}>
+                  <IoMdClose size={28} />
+                </button>
+              </li>
               {data?.map((d: any) => (
                 <li key={d.id}>
                   <div className="flex justify-between items-center">
