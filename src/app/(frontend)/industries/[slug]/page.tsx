@@ -14,6 +14,8 @@
 // }
 
 import { SingleIndustryHeroSection } from '@/components/industries/SingleIndustries/SInduhero'
+import { WhyUs } from '@/components/ServicesPage/Whyus'
+import { Trustedby } from '@/components/Trusted'
 
 const SingleIndustryPage = async () => {
   // const payloadInstance = await getPayload({ config })
@@ -31,6 +33,8 @@ const SingleIndustryPage = async () => {
   return (
     <section className="">
       <SingleIndustryHeroSection />
+      <WhyUs />
+      <Trustedby />
     </section>
   )
 }
