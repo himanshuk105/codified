@@ -11,7 +11,7 @@ export const CTASection = () => {
           {/* Card 1 */}
           <div className="rounded-2xl p-8 bg-gradient-to-br from-[#1e3c72] to-[#2a5298] text-center">
             <p className="text-white font-bold text-lg mb-6">
-              CAN’T FIND THE SOLUTIONS <br /> YOU ARE LOOKING FOR?
+              CAN&apos;T FIND THE SOLUTIONS <br /> YOU ARE LOOKING FOR?
             </p>
             <button className="bg-white text-black px-6 py-2 rounded-md font-semibold hover:bg-gray-200 transition">
               Explore Solutions
