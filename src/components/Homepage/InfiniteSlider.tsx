@@ -99,11 +99,11 @@ export const InfiniteTechScroll: React.FC = () => {
       onMouseEnter={() => cancelAnimationFrame(requestRef.current!)}
       onMouseLeave={() => (requestRef.current = requestAnimationFrame(animate))}
       ref={containerRef}
-      className="overflow-hidden whitespace-nowrap bg-transparent p-4 mb-[50px]"
+      className="overflow-hidden whitespace-nowrap bg-gray-900 p-4 pb-[50px]"
     >
       <div
         ref={scrollRef}
-        className="flex gap-6 will-change-transform"
+        className="flex gap-6 will-change-transform "
         style={{ transform: 'translateX(0)', whiteSpace: 'nowrap' }}
       >
         {[...technologies, ...technologies].map((tech, index) => (

@@ -113,10 +113,10 @@ export const Hero4 = ({ hero4 }: any) => {
   ]
 
   return (
-    <section className="bg-black text-white py-16 px-6 md:px-20">
+    <section className="bg-white text-white py-20 px-6 md:px-30">
       <div className="max-w-6xl mx-auto text-center">
         <motion.h2
-          className="text-4xl lg:text-5xl font-extrabold mb-4"
+          className="text-xxl lg:text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent leading-tight bg-clip-text mb-3"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -124,7 +124,7 @@ export const Hero4 = ({ hero4 }: any) => {
           {hero4.heading}
         </motion.h2>
         <motion.p
-          className="text-lg text-gray-300 max-w-3xl mx-auto"
+          className="text-lg text-gray-700 max-w-3xl mx-auto "
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
@@ -137,15 +137,15 @@ export const Hero4 = ({ hero4 }: any) => {
         {hero4.Cards.map((card: any, idx: number) => (
           <motion.div
             key={card.id}
-            className="bg-[#111] p-6 rounded-2xl shadow-md hover:shadow-blue-500/30 transition-all duration-300"
+            className="bg-[#f1f1f1] p-6 rounded-2xl shadow-md hover:shadow-blue-500/30 transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.1 }}
           >
             <div className="mb-4">{icons[idx % icons.length]}</div>
-            <h3 className="text-xl font-semibold mb-2 text-white">{card.heading}</h3>
-            <p className="text-gray-400 text-sm">{card.description}</p>
+            <h3 className="text-xl font-semibold mb-2 text-black">{card.heading}</h3>
+            <p className="text-gray-700 text-sm">{card.description}</p>
           </motion.div>
         ))}
       </div>
@@ -156,7 +156,7 @@ export const Hero4 = ({ hero4 }: any) => {
             href={hero4.Button[0]['Button Link']}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 rounded-md border-2 text-white font-semibold transition-all relative overflow-hidden group inline-block"
+            className="px-6 py-3 rounded-md border-2 text-black font-semibold transition-all relative overflow-hidden group inline-block"
             style={{ borderColor: '#4993cd' }}
           >
             <span className="relative z-10 group-hover:text-white transition-colors duration-500">

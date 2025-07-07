@@ -104,7 +104,7 @@ type Props = {
 
 export const Swipper = ({ cards = [] }: Props) => {
   return (
-    <div className="w-full px-5 py-10 bg-black text-white">
+    <div className="w-full px-5 py-10 text-white">
       <Swiper
         modules={[Autoplay]}
         autoplay={{
@@ -124,7 +124,7 @@ export const Swipper = ({ cards = [] }: Props) => {
       >
         {cards.map((card, index) => (
           <SwiperSlide key={index}>
-            <div className="h-full w-full flex flex-col gap-3 p-6 rounded-xl border border-gray-700 bg-[#111111]">
+            <div className="h-full w-full flex flex-col gap-3 p-6 rounded-xl border border-gray-700 bg-gray-800 shadow  transition-shadow duration-300">
               <span className="size-14 text-xl font-bold rounded-full flex items-center justify-center border-2 border-gray-500">
                 {card.heading?.charAt(0) || 'H'}
               </span>

@@ -54,7 +54,7 @@ export const Hero3 = ({ hero3 }: any) => {
     'We empower businesses with intelligent, scalable, and user-first digital solutions.'
 
   return (
-    <section className="box-border text-white bg-black grid grid-cols-1 gap-12 p-5 mt-[80px] md:px-20 overflow-hidden">
+    <section className="box-border text-white bg-gray-900 grid grid-cols-1 gap-12 p-5 py-[80px] md:px-20 overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

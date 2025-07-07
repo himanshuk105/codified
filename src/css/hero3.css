@@ -41,3 +41,14 @@
   background: white; /* White thumb */
   border-radius: 10px;
 }
+
+
+.bg-section{
+  background-color: #F7F8FC;
+}
+
+p{
+   /* font-family: "Poppins", sans-serif !important; */
+  font-family: "Open Sans", sans-serif !important;
+
+}

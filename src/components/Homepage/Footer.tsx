@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { FaLinkedinIn, FaFacebookF, FaPhoneAlt, FaEnvelope, FaArrowUp } from 'react-icons/fa'
 import { FAQSection } from './Faq'
 import { useForm } from 'react-hook-form'
-
+import codified from '../../../public/codified-logo.png'
 type FieldType = {
   label: string
   name: string
@@ -52,13 +52,13 @@ export const Footer = () => {
       <Contactform />
 
       {/* Main Footer Content */}
-      <div className="pt-12 px-6 md:px-16 text-gray-300 mt-10 sm:mt-0">
+      <div className="pt-12 px-6 md:px-16 text-gray-300 mt-10 sm:mt-0 bg-white">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-6 gap-8 backdrop-blur-md bg-white/5 rounded-2xl p-8 border border-white/10 shadow-xl"
+          className="grid grid-cols-2 md:grid-cols-6 gap-8 backdrop-blur-md  rounded-2xl p-8 border border-white/10"
         >
           {[
             {
@@ -123,10 +123,13 @@ export const Footer = () => {
             },
           ].map((section, index) => (
             <div key={index}>
-              <h3 className="text-white font-semibold mb-4">{section.title}</h3>
-              <ul className="space-y-2 text-sm leading-relaxed text-gray-400">
+              <h3 className="text-black text-lg font-semibold mb-4">{section.title}</h3>
+              <ul className="space-y-2 text-md leading-relaxed text-gray-400">
                 {section.items.map((item, i) => (
-                  <li key={i} className="hover:text-blue-500 transition-colors cursor-pointer">
+                  <li
+                    key={i}
+                    className="hover:text-blue-500 text-gray-700 text-md transition-colors cursor-pointer"
+                  >
                     {item}
                   </li>
                 ))}
@@ -136,23 +139,19 @@ export const Footer = () => {
         </motion.div>
 
         {/* Logo + Description */}
-        <div className="mt-10 flex flex-col md:flex-row items-center justify-between gap-6 py-6 border-t border-white/10">
+        <div className="mt-10 flex flex-col md:flex-row items-center justify-between gap-6 py-6 border-t border-gray/10">
           <div className="flex items-center gap-4">
-            <img
-              src="https://codifiedweb.com/wp-content/uploads/2025/06/codified-white-logo.png"
-              alt="Logo"
-              className="h-12"
-            />
-            <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
+            <img src={codified.src} alt="Logo" className="h-24" />
+            <p className="text-gray-700 text-sm leading-relaxed max-w-sm">
               Full stack mobile (iOS, Android) and web app design and development agency.
             </p>
           </div>
 
           <div className="flex items-center gap-4 text-white/60">
-            <FaLinkedinIn className="hover:text-blue-500 transition" />
-            <FaFacebookF className="hover:text-blue-500 transition" />
-            <FaPhoneAlt className="hover:text-blue-500 transition" />
-            <FaEnvelope className="hover:text-blue-500 transition" />
+            <FaLinkedinIn className="hover:text-blue-500 text-[#4994cc] text-2xl transition" />
+            <FaFacebookF className="hover:text-blue-500  text-[#4994cc] text-2xl transition" />
+            <FaPhoneAlt className="hover:text-blue-500 text-[#4994cc] text-2xl transition" />
+            <FaEnvelope className="hover:text-blue-500 text-[#4994cc] text-2xl transition" />
           </div>
         </div>
 
@@ -231,7 +230,7 @@ const Contactform = () => {
   }, [])
 
   return (
-    <div className="bg-gradient-to-r from-blue-950 via-black to-purple-950 h-[calc(100vh-100px)] text-white flex flex-col md:flex-row gap-6 p-8 rounded-3xl border border-white/10 shadow-inner">
+    <div className="bg-[linear-gradient(180deg,_#171624_0%,_#171623_100%)] h-[calc(100vh-100px)] text-white flex flex-col md:flex-row gap-6 p-8 rounded-3xl border border-white/10 shadow-inner">
       <div className="md:w-1/2 flex flex-col gap-4 justify-center">
         <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
           Our Tech Experts are Change Catalysts
@@ -243,7 +242,7 @@ const Contactform = () => {
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-3 p-5 border border-[#333] bg-[#111] rounded-xl w-full md:max-w-xl shadow-lg"
+        className="flex flex-col gap-3 p-5 pb-0 border border-[#333] bg-gray-800 rounded-xl w-full md:max-w-xl shadow-lg"
       >
         {payloadform.length > 0 ? (
           payloadform.map((field, index) => (
@@ -266,7 +265,7 @@ const Contactform = () => {
         )}
         <button
           type="submit"
-          className="border-2 p-3 rounded-lg bg-white text-black font-bold hover:bg-gray-100 transition"
+          className="border-2 p-3 rounded-lg bg-gradient-to-r from-blue-400 to-purple-500 border border-gray-800 cursor-pointer font-bold hover:bg-gray-100 transition"
         >
           Get Proposal
         </button>
@@ -293,14 +292,14 @@ export const InputField = ({
   error?: any
 }) => {
   return (
-    <div className="border border-[#222] w-full px-3 py-4 rounded-lg bg-black/20">
+    <div className="border border-[#222] w-full px-3 py-4 rounded-lg bg-white">
       {type === 'select' ? (
         <select
           {...register(name, { required: 'This field is required' })}
-          className="w-full bg-transparent text-white placeholder-gray-400 focus:outline-none"
+          className="w-full bg-white text-gray-700 placeholder-gray-700 focus:outline-none"
         >
           {options?.map((option, i) => (
-            <option key={i} className="bg-[#222]" value={option.value}>
+            <option key={i} className="bg-[#fff]" value={option.value}>
               {option.label}
             </option>
           ))}
@@ -310,7 +309,7 @@ export const InputField = ({
           {...register(name, { required: 'This field is required' })}
           type={type === 'email' ? 'email' : type}
           placeholder={label}
-          className="w-full bg-transparent text-white placeholder-gray-400 focus:outline-none"
+          className="w-full bg-transparent text-gray-700 placeholder-gray-700 focus:outline-none"
         />
       )}
 
