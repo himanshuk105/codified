@@ -166,7 +166,7 @@ export const WhyUs = ({ data }: any) => {
     'We provide unmatched quality, support, and innovation to empower your business.'
 
   return (
-    <section className="w-full px-5 sm:px-8 md:px-16 py-16 bg-gradient-to-br from-[#0f0f0f] to-black text-white">
+    <section className="w-full px-5 sm:px-8 md:px-16 py-16 bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-left sm:text-center mb-14">
@@ -210,7 +210,7 @@ export const WhyUs = ({ data }: any) => {
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.4 }}
                 >
-                  <p className="text-lg text-gray-200 bg-[#111111] p-6 rounded-xl border border-gray-800 shadow-md">
+                  <p className="text-lg text-gray-900 bg-white p-6 rounded-xl border border-gray-800 shadow-md">
                     {selected.description ||
                       'Detailed information about this topic is coming soon.'}
                   </p>

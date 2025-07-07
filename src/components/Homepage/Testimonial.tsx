@@ -26,7 +26,7 @@ export const Testimonial = ({ testimonials }: any) => {
   }
 
   return (
-    <section className="bg-black text-white py-20 px-5 md:px-20">
+    <section className="bg-gray-900 text-white py-20 px-5 md:px-20">
       <div className="max-w-7xl mx-auto">
         <div className="mb-10">
           <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
@@ -61,7 +61,7 @@ export const Testimonial = ({ testimonials }: any) => {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex w-full lg:w-[600px] rounded-xl overflow-hidden border border-[#222] bg-[#0e0e0e] snap-left flex-none"
+              className="flex w-full lg:w-[600px] rounded-xl overflow-hidden border border-[#222] bg-gradient-to-b from-gray-800 to-gray-700 text-white snap-left flex-none"
             >
               <div className="flex flex-col justify-between p-5 w-[60%]">
                 <div>
