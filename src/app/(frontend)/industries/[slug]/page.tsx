@@ -13,7 +13,9 @@
 //   }
 // }
 
+import { SmartAppFramework } from '@/components/industries/SingleIndustries/Miscellenous'
 import { SingleIndustryHeroSection } from '@/components/industries/SingleIndustries/SInduhero'
+import { Strategy } from '@/components/industries/SingleIndustries/Strategy'
 import { WhyUs } from '@/components/ServicesPage/Whyus'
 import { Trustedby } from '@/components/Trusted'
 
@@ -35,6 +37,8 @@ const SingleIndustryPage = async () => {
       <SingleIndustryHeroSection />
       <WhyUs />
       <Trustedby />
+      <SmartAppFramework />
+      <Strategy />
     </section>
   )
 }
