@@ -32,6 +32,16 @@ export const Header = ({ data }: any) => {
     setActiveCategory(defaultCategory)
   }
 
+  const [us, setUs] = useState(true)
+
+  useEffect(() => {
+    const onScroll = () => {
+      setUs(window.scrollY < 50)
+    }
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   useEffect(() => {
     if (pathname === '/services' && size?.width && size.width >= 1024) {
       if (direction === 'down' && scrollY > 200) {
@@ -53,14 +63,16 @@ export const Header = ({ data }: any) => {
       animate={controls}
       initial={{ y: 0 }}
       transition={{ duration: 0.3 }}
-      className={`${u ? 'bg-black' : 'bg-transparent'} text-white fixed w-screen top-0 z-52 backdrop-blur-md`}
+      className={`fixed top-0 w-full z-50 backdrop-blur-md transition-colors duration-300 py-1 ${
+        us ? 'bg-transparent' : 'bg-[#101828]'
+      }`}
     >
       <nav className="relative flex justify-between items-center h-[80px] px-5 md:px-20">
         <Link href="/">
           <img
             src="https://codifiedweb.com/wp-content/uploads/2025/06/codified-white-logo.png"
             alt="logo"
-            className="h-20"
+            className="h-18"
           />
         </Link>
 
@@ -81,7 +93,7 @@ export const Header = ({ data }: any) => {
                 href={d.href}
                 className={`text-lg flex items-center gap-1 h-[80px] overflow-hidden`}
               >
-                <motion.span className="hover:bg-black/40 hover:border-b-2 hover:border-b-white flex items-center p-2 h-[80px]">
+                <motion.span className="hover:bg-black/40 hover:border-b-2 hover:border-b-white flex items-center p-2 h-[80px] text-white">
                   {d.label}
                 </motion.span>
               </Link>

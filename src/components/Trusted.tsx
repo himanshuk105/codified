@@ -206,7 +206,7 @@ export const Trustedby = ({ TrustedBy }: any) => {
   ))
 
   return (
-    <section className="mt-2 bg-white/5 text-white font-sans px-4 py-20 md:px-16 lg:px-32">
+    <section className="mt-2 bg-white/5 text-white font-sans px-4 py-20 md:px-16 lg:px-32 bg-gray-900">
       <div className="flex flex-col items-center gap-6">
         <h2 className="text-2xl font-extrabold md:text-4xl text-center">{heading}</h2>
         {parsedDescription}

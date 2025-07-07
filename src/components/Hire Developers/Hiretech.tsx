@@ -4,25 +4,42 @@ import { useState } from 'react'
 import Image from 'next/image'
 import classNames from 'classnames'
 
+import iconAndroid from '../../../public/icon-android.svg'
+import iconAngular from '../../../public/icon-angular.svg'
+import iconFlutter from '../../../public/104_flutter.png'
+// import iconIOS from '../../../public/icon-ios.svg'
+import iconNode from '../../../public/icon-nodejs.svg'
+import iconPython from '../../../public/icon-python.svg'
+import iconReact from '../../../public/icon-react.svg'
+import iconCSharp from '../../../public/icon-csharp.svg'
+import iconAWS from '../../../public/aws.svg'
+import iconLaravel from '../../../public/icon-laravel.svg'
+import iconMagento from '../../../public/icon-magento.svg'
+import iconJava from '../../../public/icon-java.svg'
+import iconRuby1 from '../../../public/icon-ruby-on-rails (1).svg'
+import iconRuby2 from '../../../public/icon-ruby-on-rails.svg'
+import iconDjango from '../../../public/icon-django.svg'
+import iconIOSDev from '../../../public/ios-app-development.svg'
+
 const skills = [
-  { name: 'Android Developers', icon: '/icons/android.svg' },
-  { name: 'iOS Developers', icon: '/icons/ios.svg' },
-  { name: 'Flutter Developers', icon: '/icons/flutter.svg' },
-  { name: 'React Native Developers', icon: '/icons/react.svg' },
-  { name: 'React.JS', icon: '/icons/react.svg' },
-  { name: 'Node.JS', icon: '/icons/node.svg' },
-  { name: 'Python', icon: '/icons/python.svg' },
-  { name: 'AWS', icon: '/icons/aws.svg' },
-  { name: 'JavaScript', icon: '/icons/js.svg' },
-  { name: 'Ruby on Rails', icon: '/icons/rails.svg' },
-  { name: 'Java', icon: '/icons/java.svg' },
-  { name: 'Angular', icon: '/icons/angular.svg' },
-  { name: 'Golang', icon: '/icons/go.svg' },
-  { name: 'Django', icon: '/icons/django.svg' },
-  { name: 'Laravel', icon: '/icons/laravel.svg' },
-  { name: 'Magento', icon: '/icons/magento.svg' },
-  { name: 'ASP.NET', icon: '/icons/aspnet.svg' },
-  { name: 'C#', icon: '/icons/csharp.svg' },
+  { name: 'Android Developers', icon: iconAndroid.src },
+  // { name: 'iOS Developers', icon: iconIOS.src },
+  { name: 'Flutter Developers', icon: iconFlutter.src },
+  { name: 'React Native Developers', icon: iconReact.src },
+  { name: 'React.JS', icon: iconReact.src },
+  { name: 'Node.JS', icon: iconNode.src },
+  { name: 'Python', icon: iconPython.src },
+  { name: 'AWS', icon: iconAWS.src },
+  { name: 'JavaScript', icon: iconReact.src },
+  { name: 'Ruby on Rails', icon: iconRuby2.src },
+  { name: 'Java', icon: iconJava.src },
+  { name: 'Angular', icon: iconAngular.src },
+  { name: 'Golang', icon: iconNode.src }, // placeholder
+  { name: 'Django', icon: iconDjango.src },
+  { name: 'Laravel', icon: iconLaravel.src },
+  { name: 'Magento', icon: iconMagento.src },
+  { name: 'ASP.NET', icon: iconCSharp.src },
+  { name: 'C#', icon: iconCSharp.src },
 ]
 
 export const HireDeveloperSection = () => {

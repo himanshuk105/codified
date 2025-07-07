@@ -16,7 +16,7 @@ export const HeadingSection = ({ hero1 }: any) => {
   }
 
   return (
-    <div className="box-border relative z-10 text-center flex flex-col justify-center gap-6 md:h-screen">
+    <div className="box-border relative z-10 text-center flex flex-col justify-center gap-6 md:h-screen bg-gray-900">
       <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-pink-500 to-yellow-400 text-transparent bg-clip-text p-2">
         Elevate Your Digital Presence
       </h2>
@@ -28,7 +28,7 @@ export const HeadingSection = ({ hero1 }: any) => {
           key={d.text}
           onMouseEnter={handleHoverStart}
           onMouseLeave={handleHoverEnd}
-          className="border-2 border-white bg-black text-white px-6 py-3 rounded-md text-sm sm:text-base shadow-lg mt-6 flex items-center flex-row justify-center gap-3 w-100 self-center cursor-pointer font-extrabold hover:bg-white hover:text-black transition-colors duration-200"
+          className="border-2 border-white hover:border-[#4993cd] bg-white text-black px-6 py-3 rounded-md text-sm sm:text-base shadow-lg mt-6 flex items-center flex-row justify-center gap-3 w-100 self-center cursor-pointer font-extrabold hover:bg-[#4993cd] hover:text-white transition-colors duration-200"
           ref={scope}
         >
           <span>{d.text}</span> <span id="tt">&gt;</span>

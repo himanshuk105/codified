@@ -68,9 +68,9 @@ const SingleTestimonialcard = () => {
           <h4 className="text-[clamp(1.2rem,3vw,2.6rem)] font-bold">Punch Line for the Service</h4>
         </div>
       </div>
-      <div className="h-auto md:h-[calc(90vh-200px)] flex flex-col justify-between bg-[#111111] border border-[#222] rounded-2xl p-8 text-white shadow-md">
+      <div className="h-auto md:h-[calc(90vh-200px)] flex flex-col justify-between bg-gray-800 border border-[#222] rounded-2xl p-8 text-white shadow-md">
         <div>
-          <div className="w-14 h-14 border-2 border-white rounded-full flex items-center justify-center text-lg font-semibold bg-[#1a1a1a]">
+          <div className="w-14 h-14 border-2 border-black rounded-full flex items-center justify-center text-lg font-semibold bg-[#fff]">
             L
           </div>
           <p className="mt-8 text-lg leading-relaxed text-gray-300">
