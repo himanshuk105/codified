@@ -27,7 +27,7 @@ const services = [
 
 export const ServicesSection = () => {
   return (
-    <section className="bg-black text-white px-6 py-20 md:px-20">
+    <section className="bg-white text-black px-6 py-20 md:px-20">
       <div className="max-w-7xl mx-auto text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
           We enable rapid growth
@@ -43,11 +43,11 @@ export const ServicesSection = () => {
         {services.map((item, index) => (
           <div
             key={index}
-            className="bg-[#111111] hover:bg-[#1b1b1b] transition-all duration-300 rounded-2xl p-6 flex gap-6 items-start shadow-lg"
+            className="bg-gray-900 hover:bg-[#1b1b1b] transition-all duration-300 rounded-2xl p-6 flex gap-6 items-start shadow-lg"
           >
             <div className="relative">
               <div
-                className={`w-14 h-14 rounded-full bg-gradient-to-br ${item.gradient} flex items-center justify-center text-white text-2xl`}
+                className={`w-14 h-14 rounded-full bg-gradient-to-br ${item.gradient} flex items-center justify-center text-black text-2xl`}
               >
                 {item.icon}
               </div>
@@ -56,7 +56,7 @@ export const ServicesSection = () => {
               </div>
             </div>
             <div>
-              <h3 className="font-semibold text-lg md:text-xl mb-1">{item.title}</h3>
+              <h3 className="font-semibold text-white text-lg md:text-xl mb-1">{item.title}</h3>
               <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
             </div>
           </div>
