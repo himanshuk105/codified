@@ -188,11 +188,11 @@ export const Hero2 = ({ hero2 }: any) => {
   const cards = hero2?.['Side-2']?.Cards || []
 
   return (
-    <section className="bg-black text-white px-6 py-16 md:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <section className="bg-section px-6 py-16 md:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
       {/* Left Content */}
       <div className="flex flex-col gap-6">
         <motion.h2
-          className="text-4xl lg:text-5xl font-extrabold leading-tight text-white"
+          className="text-4xl lg:text-5xl font-extrabold leading-tight text-[#4994cc]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -200,29 +200,29 @@ export const Hero2 = ({ hero2 }: any) => {
           {headingLeft}
         </motion.h2>
 
-        <h3 className="text-2xl lg:text-3xl font-semibold text-[#4993cd]">{headingRight}</h3>
+        <h3 className="text-2xl lg:text-3xl font-semibold text-gray-800">{headingRight}</h3>
 
-        <p className="text-gray-400">{descriptionLeft}</p>
+        <p className="text-gray-700">{descriptionLeft}</p>
 
         <div className="flex gap-8 text-center">
           <div>
-            <p className="text-4xl font-bold text-white">5k+</p>
-            <span className="text-sm text-gray-400">Community Members</span>
+            <p className="text-4xl font-bold text-black">5k+</p>
+            <span className="text-sm text-gray-700 font-semibold">Community Members</span>
           </div>
           <div>
-            <p className="text-4xl font-bold text-white">5+</p>
-            <span className="text-sm text-gray-400">Events Conducted</span>
+            <p className="text-4xl font-bold text-black">5+</p>
+            <span className="text-sm text-gray-700 font-semibold">Events Conducted</span>
           </div>
           <div>
-            <p className="text-4xl font-bold text-white">4</p>
-            <span className="text-sm text-gray-400">Years of Experience</span>
+            <p className="text-4xl font-bold text-black">4</p>
+            <span className="text-sm text-gray-700 font-semibold">Years of Experience</span>
           </div>
         </div>
 
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="relative inline-flex items-center justify-center px-6 py-3 font-medium text-white border-2 border-[#4993cd] rounded-lg overflow-hidden group"
+          className="relative inline-flex items-center justify-center px-6 py-3 font-medium text-black border-2 border-[#4993cd] rounded-lg overflow-hidden group"
         >
           <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
             {buttonText}
@@ -241,13 +241,13 @@ export const Hero2 = ({ hero2 }: any) => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-[#0f0f0f] border border-[#222222] rounded-2xl p-6 flex flex-col gap-3 shadow-lg hover:shadow-[#4993cd]/30 transition-shadow duration-300"
+              className="bg-[#ffffff] rounded-2xl p-6 flex flex-col gap-3 shadow hover:shadow-[#4994cc]/100 transition-shadow duration-300"
             >
-              <div className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-[#4993cd] bg-black/50">
+              <div className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-[#4993cd] bg-transparent">
                 <Icon className="w-6 h-6 text-[#4993cd]" />
               </div>
-              <h3 className="text-xl font-semibold text-[#e0e0e0]">{card.heading}</h3>
-              <p className="text-sm text-gray-400">{card.description}</p>
+              <h3 className="text-xl font-semibold text-[#000]">{card.heading}</h3>
+              <p className="text-sm text-gray-600">{card.description}</p>
             </motion.div>
           )
         })}

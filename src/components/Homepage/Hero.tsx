@@ -37,7 +37,7 @@ export const LandingHero = ({ hero1 }: any) => {
     <section className="h-[calc(100vh-80px)] relative overflow-hidden">
       <Particles
         particleCount={300}
-        className="h-full w-full absolute top-0 left-0 z-1 bg-black"
+        className="h-full w-full absolute top-0 left-0 z-1 bg-gray-900"
         particleColors={['#00d8ff']}
       />
 

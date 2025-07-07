@@ -36,23 +36,23 @@ export const FAQSection = () => {
   }
 
   return (
-    <section className="w-full px-4 md:px-10 py-16 bg-black text-white">
+    <section className="w-full px-4 md:px-10 py-16 bg-section text-white">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-10">
-          Frequently Asked <span className="text-cyan-400">Questions</span>
+        <h2 className="text-xxl lg:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent leading-tight bg-clip-text mb-6 mx-auto text-center">
+          Frequently Asked Questions{' '}
         </h2>
 
-        <div className="space-y-4">
+        <div className="space-y-4 mt-8">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-gray-700 rounded-2xl bg-[#0c0c0c] hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300"
+              className="border border-gray-700 rounded-2xl bg-[#ffffff] hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300"
             >
               <button
                 onClick={() => toggle(index)}
-                className="w-full flex justify-between items-center px-6 py-5 text-left text-lg md:text-xl font-medium text-white focus:outline-none"
+                className="w-full flex justify-between items-center px-6 py-5 text-white text-left text-lg md:text-xl font-medium text-white focus:outline-none"
               >
-                <span>{faq.question}</span>
+                <span className="text-black">{faq.question}</span>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -70,7 +70,7 @@ export const FAQSection = () => {
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.4, ease: 'easeInOut' }}
                   >
-                    <div className="px-6 pb-5 text-gray-300 text-base md:text-lg">{faq.answer}</div>
+                    <div className="px-6 pb-5 text-gray-700 text-base md:text-lg">{faq.answer}</div>
                   </motion.div>
                 )}
               </AnimatePresence>
