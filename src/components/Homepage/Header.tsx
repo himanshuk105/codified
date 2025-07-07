@@ -77,71 +77,72 @@ export const Header = ({ data }: any) => {
 
                 {d.hasDropdown && (
                   <div
-                    className="absolute left-0 top-21 px-20 bg-white text-black py-4 shadow-lg flex flex-col gap-2 z-50 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 w-screen font-normal h-100 overflow-hidden"
+                    className="absolute left-0 top-21 px-20 bg-white text-black py-6 shadow-2xl flex flex-col gap-6 z-50 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 w-screen font-normal h-100 overflow-hidden rounded-b-xl"
                     onMouseLeave={() => setActiveCategory(null)}
                   >
                     <div className="h-20 flex flex-col justify-between">
-                      <h2 className="text-2xl font-extrabold">Name of Menu</h2>
-                      <p className="text-lg font-bold">
+                      <h2 className="text-3xl font-bold text-gray-900">Name of Menu</h2>
+                      <p className="text-md text-gray-600 leading-snug">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. At, fugit.
                       </p>
                     </div>
-                    <div className="flex flex-row border-t-2 border-t-black/50 h-full gap-5">
+
+                    <div className="flex flex-row border-t border-gray-300 h-full gap-8 pt-4">
                       {activeCategory && activeCategory.categoryTitle !== 'Industries' && (
-                        <ul
-                          className={`relative z-30 flex flex-col gap-2 w-3/12 border-r border-gray-200 overflow--hidden`}
-                        >
+                        <ul className="relative z-30 flex flex-col gap-1 w-3/12 pr-4 border-r border-gray-200 overflow-hidden">
                           {d.dropdownItems?.map((d: any) => {
+                            const isActive = activeCategory?.categoryTitle === d.categoryTitle
                             return (
                               <li
                                 key={d.id}
-                                className={`relative ${activeCategory && activeCategory?.categoryTitle == d.categoryTitle ? 'font-extrabold' : ''}  transition-colors duration-300 cursor-pointer flex items-center`}
+                                className={`relative transition-colors duration-300 cursor-pointer flex items-center rounded-md hover:bg-gray-100 ${
+                                  isActive ? 'font-extrabold bg-gray-100 text-blue-600' : ''
+                                }`}
                                 onClick={() => setActiveCategory(d)}
                               >
                                 {d.link ? (
                                   <Link
-                                    className="block p-4 border-black h-full w-full text-[18px]"
+                                    className="block px-4 py-2 w-full text-[17px]"
                                     href={d.link}
                                   >
                                     {d.categoryTitle}
                                   </Link>
                                 ) : (
-                                  <span className="block p-4 border-black h-full w-full text-[18px]">
+                                  <span className="block px-4 py-2 w-full text-[17px]">
                                     {d.categoryTitle}
                                   </span>
                                 )}
 
-                                {activeCategory &&
-                                  activeCategory?.categoryTitle == d.categoryTitle && (
-                                    <div className="absolute right-[-17px] z-50">
-                                      <svg
-                                        className="rotate-90"
-                                        width="20"
-                                        height="24"
-                                        viewBox="0 0 450 400"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                      >
-                                        <path
-                                          id="lineAB"
-                                          d="M 100 350 l 150 -300"
-                                          stroke="gray"
-                                          strokeWidth="4"
-                                        />
-                                        <path
-                                          id="lineBC"
-                                          d="M 250 50 l 150 300"
-                                          stroke="gray"
-                                          strokeWidth="4"
-                                        />
-                                        <path
-                                          id="lineMID"
-                                          d="M 100 350 l 300 0"
-                                          stroke="white"
-                                          strokeWidth="40"
-                                        />
-                                      </svg>
-                                    </div>
-                                  )}
+                                {isActive && (
+                                  <div className="absolute right-[-17px] z-50">
+                                    <svg
+                                      className="rotate-90"
+                                      width="20"
+                                      height="24"
+                                      viewBox="0 0 450 400"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        id="lineAB"
+                                        d="M 100 350 l 150 -300"
+                                        stroke="gray"
+                                        strokeWidth="4"
+                                      />
+                                      <path
+                                        id="lineBC"
+                                        d="M 250 50 l 150 300"
+                                        stroke="gray"
+                                        strokeWidth="4"
+                                      />
+                                      <path
+                                        id="lineMID"
+                                        d="M 100 350 l 300 0"
+                                        stroke="white"
+                                        strokeWidth="40"
+                                      />
+                                    </svg>
+                                  </div>
+                                )}
                               </li>
                             )
                           })}
@@ -149,18 +150,28 @@ export const Header = ({ data }: any) => {
                       )}
 
                       <ul
-                        className={`box-border ${activeCategory && activeCategory.categoryTitle === 'Industries' ? 'w-9/12' : 'w-7/12'} ${activeCategory && activeCategory.subServices.length ? 'overflow-y-scroll' : ''} overflow-x-hidden grid grid-cols-3 md:grid-cols-2 h-[99%]`}
+                        className={`box-border ${
+                          activeCategory?.categoryTitle === 'Industries' ? 'w-9/12' : 'w-7/12'
+                        } ${
+                          activeCategory?.subServices.length ? 'overflow-y-scroll' : ''
+                        } overflow-x-hidden grid grid-cols-3 md:grid-cols-2 h-[99%] gap-4 pr-2`}
                       >
-                        {activeCategory && activeCategory.subServices.length == 0 ? (
-                          <li className="mt-2 col-span-3 border-2 flex items-center justify-start gap-2 hover:bg-gray-100 h-30 rounded-xl p-3 w-full ">
-                            <div className="size-6 border-2 rounded-full">M</div>
+                        {activeCategory?.subServices.length === 0 ? (
+                          <li className="mt-2 col-span-3 border h-30 rounded-xl hover:shadow-md flex items-center justify-start gap-4 bg-gray-50 p-4 transition">
+                            <div className="size-8 bg-blue-100 text-black flex items-center justify-center rounded-full font-bold">
+                              M
+                            </div>
                             <div className="flex flex-col">
-                              <span>{activeCategory.categoryTitle}</span>
-                              <span>{activeCategory.description}</span>
+                              <span className="text-md font-medium">
+                                {activeCategory.categoryTitle}
+                              </span>
+                              <span className="text-sm text-gray-600">
+                                {activeCategory.description}
+                              </span>
                             </div>
                             <div className="w-[400px] h-[400px] flex items-center justify-center">
                               <div className="w-[180px] h-[60px] relative">
-                                <button className="w-[180px] h-[60px] border border-blue-300 bg-[white] transition-colors duration-1000 ease-in-out relative overflow-hidden">
+                                <button className="w-[180px] h-[60px] border border-blue-300 bg-white relative overflow-hidden">
                                   <motion.svg
                                     width="180"
                                     height="60"
@@ -191,16 +202,19 @@ export const Header = ({ data }: any) => {
                             </div>
                           </li>
                         ) : (
-                          activeCategory &&
-                          activeCategory.subServices.map((d: any) => {
-                            return (
-                              <li className=" hover:bg-gray-300 h-20 hover:border-b-2 " key={d.id}>
-                                <Link className="w-full flex items-center p-4 h-full" href={d.link}>
-                                  {d?.label}
-                                </Link>
-                              </li>
-                            )
-                          })
+                          activeCategory?.subServices.map((d: any) => (
+                            <li
+                              className="h-20 hover:bg-gray-100 hover:border-l-4 border-blue-400 transition duration-300 rounded-md"
+                              key={d.id}
+                              onClick={() => {
+                                setActiveCategory(null)
+                              }}
+                            >
+                              <Link className="w-full flex items-center p-4 h-full" href={d.link}>
+                                {d?.label}
+                              </Link>
+                            </li>
+                          ))
                         )}
                       </ul>
                     </div>
