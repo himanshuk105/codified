@@ -153,6 +153,37 @@ export const Header = ({ data }: any) => {
                                 {activeCategory.description}
                               </span>
                             </div>
+                            <div className="w-[400px] h-[400px] flex items-center justify-center">
+                              <div className="w-[180px] h-[60px] relative">
+                                <button className="w-[180px] h-[60px] border border-blue-300 bg-white relative overflow-hidden">
+                                  <motion.svg
+                                    width="180"
+                                    height="60"
+                                    viewBox="0 0 180 60"
+                                    className="absolute left-0 top-0 pointer-events-none"
+                                    fill="none"
+                                    stroke="black"
+                                    strokeWidth="6"
+                                    initial={{
+                                      strokeDasharray: '150 480',
+                                      strokeDashoffset: 150,
+                                    }}
+                                    animate={{ strokeDashoffset: [-480, 100] }}
+                                    transition={{
+                                      duration: 2,
+                                      ease: 'easeInOut',
+                                      repeat: Infinity,
+                                      repeatType: 'loop',
+                                    }}
+                                  >
+                                    <polyline points="179,1 179,59 1,59 1,1 179,1" />
+                                  </motion.svg>
+                                  <span className="text-black text-lg font-light relative z-10">
+                                    Explore
+                                  </span>
+                                </button>
+                              </div>
+                            </div>
                           </li>
                         ) : (
                           activeCategory?.subServices.map((d: any) => (
