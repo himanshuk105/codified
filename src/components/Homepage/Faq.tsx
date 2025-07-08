@@ -36,7 +36,7 @@ export const FAQSection = () => {
   }
 
   return (
-    <section className="w-full px-4 md:px-10 py-16 bg-section text-white">
+    <section className="w-full px-4 md:px-10 py-16 bg-section text-white bg-white">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-xxl lg:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent leading-tight bg-clip-text mb-6 mx-auto text-center">
           Frequently Asked Questions{' '}
@@ -50,7 +50,7 @@ export const FAQSection = () => {
             >
               <button
                 onClick={() => toggle(index)}
-                className="w-full flex justify-between items-center px-6 py-5 text-white text-left text-lg md:text-xl font-medium text-white focus:outline-none"
+                className="w-full flex justify-between items-center px-6 py-5 text-white text-left text-lg md:text-xl font-medium focus:outline-none"
               >
                 <span className="text-black">{faq.question}</span>
                 <motion.div

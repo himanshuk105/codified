@@ -91,23 +91,23 @@ const cards = [
 
 export const AchievementSection = () => {
   return (
-    <section className="bg-black text-white py-20 px-6 md:px-20">
+    <section className="bg-gray-900 text-white py-20 px-6 md:px-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {cards.map((card, i) => (
           <div
             key={i}
-            className={`group relative rounded-2xl p-6 min-h-[320px] flex flex-col justify-between overflow-hidden transition-all duration-300 ${
+            className={`group relative rounded-2xl p-6 min-h-[320px] flex flex-col justify-between overflow-hiddetransition-all duration-300 transform hover:scale-[1.03] ${
               card.light
                 ? 'bg-gradient-to-br from-white/90 to-white text-black'
-                : 'bg-gradient-to-br from-violet-800/40 to-purple-900/60 text-white'
-            } border border-white/10 shadow-[0_0_20px_#7f5af0] hover:shadow-[0_0_40px_#7f5af0]`}
+                : 'bg-gradient-to-br bg-[#2a5298] text-white'
+            } border border-white/10  `}
             style={{
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               clipPath: 'polygon(0 0, 100% 0, 96% 10%, 100% 10%, 100% 100%, 0 100%)',
             }}
           >
-            <div className="absolute inset-0 pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-tr before:from-purple-700/20 before:to-transparent before:blur-3xl before:scale-125 z-0" />
+            <div className="absolute inset-0 pointer-events-none  z-0" />
 
             <div className="relative z-10 flex-1 flex flex-col justify-between">
               {card.subtitle ? (

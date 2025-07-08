@@ -2,7 +2,14 @@
 
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaLinkedinIn, FaFacebookF, FaPhoneAlt, FaEnvelope, FaArrowUp } from 'react-icons/fa'
+import {
+  FaLinkedinIn,
+  FaFacebookF,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaArrowUp,
+  FaInstagram,
+} from 'react-icons/fa'
 import { FAQSection } from './Faq'
 import { useForm } from 'react-hook-form'
 import codified from '../../../public/codified-logo.png'
@@ -12,6 +19,7 @@ type FieldType = {
   blockType?: string
   options?: { label: string; value: string }[]
 }
+import { RiTwitterXFill } from 'react-icons/ri'
 
 export const Footer = () => {
   const [showTopBtn, setShowTopBtn] = useState(false)
@@ -54,7 +62,7 @@ export const Footer = () => {
       {/* Main Footer Content */}
       <div className="pt-12 px-6 md:px-16 text-gray-300 mt-10 sm:mt-0 bg-white">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 1, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
@@ -128,7 +136,7 @@ export const Footer = () => {
                 {section.items.map((item, i) => (
                   <li
                     key={i}
-                    className="hover:text-blue-500 text-gray-700 text-md transition-colors cursor-pointer"
+                    className="hover:text-blue-500 text-gray-700 text-md transition-colors cursor-pointer text-sm hover:underline"
                   >
                     {item}
                   </li>
@@ -148,10 +156,21 @@ export const Footer = () => {
           </div>
 
           <div className="flex items-center gap-4 text-white/60">
-            <FaLinkedinIn className="hover:text-blue-500 text-[#4994cc] text-2xl transition" />
-            <FaFacebookF className="hover:text-blue-500  text-[#4994cc] text-2xl transition" />
-            <FaPhoneAlt className="hover:text-blue-500 text-[#4994cc] text-2xl transition" />
-            <FaEnvelope className="hover:text-blue-500 text-[#4994cc] text-2xl transition" />
+            <a
+              href="https://www.linkedin.com/company/codified-web-solutions/posts/?feedView=all"
+              target="_blank"
+            >
+              <FaLinkedinIn className="hover:text-blue-500 text-[#4994cc] text-2xl transition" />
+            </a>
+            <a href="https://www.facebook.com/codifiedweb" target="_blank">
+              <FaFacebookF className="hover:text-blue-500  text-[#4994cc] text-2xl transition" />
+            </a>
+            <a href="https://www.instagram.com/codified_web/" target="_blank">
+              <FaInstagram className="hover:text-blue-500 text-[#4994cc] text-2xl transition" />
+            </a>
+            <a href="https://x.com/codifiedweb" target="_blank">
+              <RiTwitterXFill className="hover:text-blue-500 text-[#4994cc] text-2xl transition" />
+            </a>
           </div>
         </div>
 
@@ -230,7 +249,7 @@ const Contactform = () => {
   }, [])
 
   return (
-    <div className="bg-[linear-gradient(180deg,_#171624_0%,_#171623_100%)] h-[calc(100vh-100px)] text-white flex flex-col md:flex-row gap-6 p-8 rounded-3xl border border-white/10 shadow-inner">
+    <div className="bg-[linear-gradient(180deg,_#171624_0%,_#171623_100%)]  text-white flex flex-col md:flex-row gap-6 p-8 rounded-0 border border-white/10 shadow-inner">
       <div className="md:w-1/2 flex flex-col gap-4 justify-center">
         <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
           Our Tech Experts are Change Catalysts
@@ -242,7 +261,7 @@ const Contactform = () => {
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-3 p-5 pb-0 border border-[#333] bg-gray-800 rounded-xl w-full md:max-w-xl shadow-lg"
+        className="flex flex-col gap-3 p-5 border border-[#333] bg-gray-800 rounded-xl w-full md:max-w-xl shadow-lg"
       >
         {payloadform.length > 0 ? (
           payloadform.map((field, index) => (

@@ -43,7 +43,7 @@ export const ServicesSection = () => {
         {services.map((item, index) => (
           <div
             key={index}
-            className="bg-gray-900 hover:bg-[#1b1b1b] transition-all duration-300 rounded-2xl p-6 flex gap-6 items-start shadow-lg"
+            className="bg-[#f2f2f2] hover:bg-[#f7f7f7] transition-all duration-300 rounded-2xl p-6 flex gap-6 items-start shadow-lg"
           >
             <div className="relative">
               <div
@@ -56,8 +56,8 @@ export const ServicesSection = () => {
               </div>
             </div>
             <div>
-              <h3 className="font-semibold text-white text-lg md:text-xl mb-1">{item.title}</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
+              <h3 className="font-semibold text-black text-lg md:text-xl mb-1">{item.title}</h3>
+              <p className="text-sm text-gray-700 leading-relaxed">{item.desc}</p>
             </div>
           </div>
         ))}
