@@ -48,7 +48,7 @@ export const Servicebar = ({ sections }: any) => {
   }, [])
 
   return (
-    <ul className="hidden lg:flex flex-row gap-4 border border-[#222222] items-center justify-between bg-black px-7 py-3 z-50 rounded-2xl lg:sticky top-0">
+    <ul className="hidden lg:flex flex-row gap-4 border border-[#222222] items-center justify-between bg-white px-7 py-3 z-50 rounded-2xl lg:sticky top-0">
       {sections.map((id: any, i: number) => {
         const label = id.replace(/-/g, ' ')
 
@@ -60,7 +60,7 @@ export const Servicebar = ({ sections }: any) => {
               className={`cursor-pointer text-sm capitalize px-4 py-2 rounded-lg transition-colors duration-300 ${
                 isActive
                   ? 'bg-yellow-400 text-black font-semibold'
-                  : 'text-white hover:text-yellow-400'
+                  : 'text-black font-semibold hover:text-yellow-400'
               }`}
             >
               {label}

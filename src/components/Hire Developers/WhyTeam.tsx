@@ -37,9 +37,11 @@ const reasons = [
 ]
 
 export const WhyUseOurTeam = () => (
-  <section className="bg-gray-900 text-white py-20 px-6 md:px-12 lg:px-20">
+  <section className="bg-gray-100 text-black py-20 px-6 md:px-12 lg:px-20 bg-[#99adff]">
     <div className="max-w-5xl mx-auto text-center mb-12">
-      <h2 className="text-4xl md:text-5xl font-bold mb-4">Why Choose Our Development Team?</h2>
+      <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">
+        Why Choose Our Development Team?
+      </h2>
       <p className="text-lg text-gray-600">
         Unlock business growth with software that’s built for scale, security, and lasting impact.
       </p>

@@ -18,7 +18,7 @@ export const HireHero = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight"
+            className="text-2xl sm:text-5xl lg:text-4xl font-extrabold leading-tight"
           >
             Hire Dedicated Developers
             <br />
@@ -55,9 +55,9 @@ export const HireHero = () => {
           className="hidden lg:block w-full max-w-md"
         >
           <img
-            src="/developers-illustration.svg" // Replace with your own asset
+            src="https://www.4cornerresources.com/wp-content/uploads/2023/10/employment-contract-to-hire-agreement.jpg" // Replace with your own asset
             alt="Hire Developers Illustration"
-            className="w-full h-auto"
+            className="w-full h-auto rounded-md"
           />
         </motion.div>
       </div>

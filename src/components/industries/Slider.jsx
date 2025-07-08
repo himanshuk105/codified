@@ -122,7 +122,7 @@ export const Indutryslider = () => {
   }
 
   return (
-    <div className="mt-8 w-screen px-6 md:px-16 min-h-screen flex items-center flex-col justify-center">
+    <div className="w-screen px-6 md:px-16 min-h-screen flex items-center flex-col justify-center bg-[linear-gradient(180deg,_#171624_0%,_#171623_100%)] ">
       <div className="p-10 text-white flex flex-col items-center gap-4">
         <h2 className="text-xl font-extrabold">{'Explore Industries'.toUpperCase()}</h2>
         <p className="font-normal text-2xl md:text-3xl lg:text-4xl text-center">
@@ -138,13 +138,13 @@ export const Indutryslider = () => {
 
       <div
         ref={scrollref}
-        className="lg:w-[76%] w-full flex border-2 snap-mandatory snap-x overflow-hidden items-center h-150"
+        className="lg:w-[76%] w-full flex snap-mandatory snap-x overflow-hidden items-center h-150"
       >
         {[data[data.length - 1], ...data, data[0]].map((d, i) => {
           return (
             <div
               key={i}
-              className={`snap-center flex-none box-border  relative h-120 w-full lg:w-90 flex ${active == i ? 'lg:scale-105 scale-100 z-40 bg-[#333333]' : 'bg-[#808080]'} items-center transition-all duration-150`}
+              className={`snap-center flex-none box-border  relative h-120 w-full lg:w-90 flex ${active == i ? 'lg:scale-105 scale-100 z-40 bg-[#2a5298]' : 'bg-gray-800'} items-center transition-all duration-150`}
             >
               <div
                 className={`relative flex font-bold text-white w-full flex-col p-10 text-4xl transition-all duration-300 transform ${

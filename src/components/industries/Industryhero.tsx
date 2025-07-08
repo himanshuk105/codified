@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export const IndustriesHero = () => {
   return (
-    <section className="relative text-white py-24 px-6 md:px-16 w-full h-screen bg-black overflow-hidden flex items-center justify-center">
+    <section className="relative text-white py-24 px-6 md:px-16 w-full h-screen bg-gray-900 overflow-hidden flex items-center justify-center">
       {/* Animated Glowing Gradient Background */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -21,17 +21,17 @@ export const IndustriesHero = () => {
             repeat: Infinity,
             ease: 'linear',
           }}
-          className="w-full h-full bg-[radial-gradient(circle_at_30%_30%,#8b5cf6_0%,#ec4899_40%,transparent_80%)] bg-[length:200%_200%] opacity-30 blur-2xl"
+          className="w-screen h-screen bg-[linear-gradient(295deg,_rgb(134,179,249)_60%,_rgb(189,218,251)_100%,_rgb(144,195,250)_100%)] opacity-40 blur-2xl"
         />
       </motion.div>
 
       {/* Foreground Content */}
       <div className="relative z-10 max-w-4xl text-center space-y-6">
         <motion.h1
-          initial={{ y: 40, opacity: 0 }}
+          initial={{ y: 40, opacity: 1 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          className="text-4xl md:text-6xl font-extrabold text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-indigo-500 bg-clip-text"
+          className="text-4xl md:text-6xl font-extrabold text-white text-white bg-clip-text"
         >
           Empowering Industries with Innovation
         </motion.h1>

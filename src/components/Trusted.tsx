@@ -206,7 +206,7 @@ export const Trustedby = ({ TrustedBy }: any) => {
   ))
 
   return (
-    <section className="mt-2 bg-white/5 text-white font-sans px-4 py-20 md:px-16 lg:px-32">
+    <section className="mt-2 bg-gray-900 text-white font-sans px-4 py-20 md:px-16 lg:px-32 bg-gray-900">
       <div className="flex flex-col items-center gap-6">
         <h2 className="text-2xl font-extrabold md:text-4xl text-center">{heading}</h2>
         {parsedDescription}
@@ -218,7 +218,7 @@ export const Trustedby = ({ TrustedBy }: any) => {
           {blobcard?.map((item: any) => (
             <li
               key={item.id}
-              className="flex flex-col p-4 bg-white/10 rounded-xl border border-white/10 hover:bg-white/20 transition-all duration-300"
+              className="flex flex-col p-4 bg-gray-800 rounded-xl border border-white/10 hover:bg-white/20 transition-all duration-300"
             >
               <span className="text-3xl md:text-4xl font-bold border-l-2 border-teal-400 pl-2 py-1">
                 {item.label}
@@ -341,7 +341,7 @@ const InfiniteTechScroll: React.FC = () => {
         {[...technologies, ...technologies].map((tech, index) => (
           <div
             key={index}
-            className="min-w-[120px] flex flex-col items-center justify-center p-4 rounded-xl bg-transparent backdrop-blur-sm shadow-md"
+            className="min-w-[120px] flex flex-col items-center justify-center p-4 rounded-xl bg-transparent backdrop-blur-sm shadow-md bg-white"
           >
             <img src={tech.logo} alt={tech.name} className="w-10 h-10 object-contain mb-2" />
           </div>

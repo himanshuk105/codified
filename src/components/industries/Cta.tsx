@@ -35,7 +35,7 @@
 
 export const CTASection = () => {
   return (
-    <section className="bg-black text-white py-20 px-4 md:px-8">
+    <section className="bg-gray-900 text-white py-20 px-4 md:px-8">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-xl font-bold text-blue-400 mb-2">We Care</h2>
         <p className="text-2xl md:text-3xl font-medium text-white mb-12">
