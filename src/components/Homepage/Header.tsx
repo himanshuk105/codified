@@ -105,7 +105,7 @@ export const Header = ({ data }: any) => {
                     animate={{ height: '25rem', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute left-0 top-21 px-20 bg-white text-black py-6 shadow-2xl flex flex-col gap-6 z-50 w-[99vw] h-100 font-normal overflow-hidden rounded-b-xl"
+                    className="absolute left-0 top-21 px-20 bg-white text-black py-6 shadow-2xl flex flex-col gap-2 z-50 w-[100%] font-normal overflow-hidden rounded-b-xl"
                   >
                     <div className="h-20 flex flex-col justify-between">
                       <h2 className="text-3xl font-bold text-gray-900">Name of Menu</h2>
@@ -116,13 +116,13 @@ export const Header = ({ data }: any) => {
 
                     <div className="flex flex-row border-t border-gray-300 h-full gap-8 pt-4">
                       {activeCategory && activeCategory.categoryTitle !== 'Industries' && (
-                        <ul className="relative z-30 flex flex-col gap-1 w-3/12 pr-4 border-r border-gray-200">
+                        <ul className="relative z-30 flex flex-col gap-1 w-4/12 pr-4 border-r border-gray-200 min-h-[150px] max-h-[40vh]">
                           {d.dropdownItems?.map((d: any) => {
                             const isActive = activeCategory?.categoryTitle === d.categoryTitle
                             return (
                               <li
                                 key={d.id}
-                                className={`transition-colors duration-300 cursor-pointer flex items-center rounded-md hover:bg-gray-100 ${
+                                className={`transition-colors duration-300 cursor-pointer flex items-center p-2 rounded-md hover:bg-gray-100 ${
                                   isActive ? 'font-extrabold bg-gray-100 text-blue-600' : ''
                                 }`}
                                 onClick={() => setActiveCategory(d)}
@@ -144,15 +144,17 @@ export const Header = ({ data }: any) => {
                           })}
                         </ul>
                       )}
-
                       <ul
-                        className={`${
-                          activeCategory?.categoryTitle === 'Industries' ? 'w-9/12' : 'w-7/12'
-                        } ${
-                          activeCategory?.subServices.length ? 'overflow-y-scroll' : ''
-                        } grid grid-cols-3 md:grid-cols-2 h-[99%] gap-4 pr-2`}
+                        className={`
+    ${activeCategory?.categoryTitle === 'Industries' ? 'w-12/12 grid-cols-3 auto-rows-min' : 'w-8/12'}
+    ${activeCategory?.subServices?.length ? 'overflow-y-auto' : ''}
+    grid grid-cols-2 auto-rows-min
+    min-h-[150px] max-h-[50vh]
+    gap-2 pr-2
+    bg-white rounded-md 
+  `}
                       >
-                        {activeCategory?.subServices.length === 0 ? (
+                        {activeCategory?.subServices?.length === 0 ? (
                           <li className="mt-2 col-span-3 border h-30 rounded-xl hover:shadow-md flex items-center justify-start gap-4 bg-gray-50 p-4 transition">
                             <div className="size-8 bg-blue-100 text-black flex items-center justify-center rounded-full font-bold">
                               M
@@ -200,12 +202,23 @@ export const Header = ({ data }: any) => {
                         ) : (
                           activeCategory?.subServices.map((d: any) => (
                             <li
-                              className="h-20 hover:bg-gray-100 hover:border-l-4 border-blue-400 transition duration-300 rounded-md"
                               key={d.id}
                               onClick={() => setHoveredMenu(null)}
+                              className="hover:bg-gray-100 hover:border-l-4 border-blue-400 transition duration-300 h-20 rounded-md"
                             >
-                              <Link className="w-full flex items-center p-4 h-full" href={d.link}>
-                                {d?.label}
+                              <Link
+                                className="w-full h-full flex px-4 py-2 text-sm gap-2 items-center"
+                                href={d.link}
+                              >
+                                <span className="size-10 rounded-full flex items-center justify-center border border-gray-700">
+                                  L
+                                </span>
+                                <div className="flex flex-col gap-1">
+                                  <span>{d?.label}</span>
+                                  <span className="text-[10px]">
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                  </span>
+                                </div>
                               </Link>
                             </li>
                           ))

@@ -48,7 +48,7 @@ export const Servicebar = ({ sections }: any) => {
   }, [])
 
   return (
-    <ul className="hidden lg:flex flex-row gap-4 border border-[#222222] items-center justify-between bg-white px-7 py-3 z-50 rounded-2xl lg:sticky top-0">
+    <ul className="hidden lg:flex flex-row gap-4 border border-[#222222] items-center justify-between bg-white px-7 py-3 z-40 rounded-2xl lg:sticky top-0">
       {sections.map((id: any, i: number) => {
         const label = id.replace(/-/g, ' ')
 
