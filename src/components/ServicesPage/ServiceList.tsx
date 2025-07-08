@@ -3,7 +3,7 @@
 import { motion, useAnimate } from 'framer-motion'
 import { useRef } from 'react'
 import Link from 'next/link'
-import { ServiceTestimonials } from './Servicetestimonial'
+// import { ServiceTestimonials } from './Servicetestimonial'
 
 export const ServiceList = ({ block }: any) => {
   const buttonRefs = useRef<(HTMLButtonElement | null)[]>([])
@@ -48,7 +48,7 @@ export const ServiceList = ({ block }: any) => {
   }
 
   return (
-    <section className="box-border text-white bg-gray-900 grid grid-cols-1 gap-12 p-5 py-[80px] md:px-20 overflow-hidden">
+    <section className="box-border text-white bg-gray-900 grid grid-cols-1 gap-12 p-5 pt-[40px] pb-[80px] md:px-20 overflow-hidden ">
       <div id={block.blockName} className="mt-20 px-4 md:px-0 " ref={scope}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left Section */}
@@ -78,7 +78,7 @@ export const ServiceList = ({ block }: any) => {
                   }}
                   onMouseEnter={() => handleHoverStart(i)}
                   onMouseLeave={() => handleHoverEnd(i)}
-                  className="border-2 border-white bg-white text-black px-6 py-3 rounded-xl text-sm font-bold shadow-md flex items-center justify-between w-48 h-14 transition-colors duration-100 text-md"
+                  className="border-2 w-80 border-white  hover:bg-[#3ca9ff] bg-white text-black px-6 py-3 rounded-xl text-sm font-bold shadow-md flex items-center justify-between w-48 h-14 transition-colors duration-100 text-md"
                 >
                   <span className="text-sm">{btn['Button Text']}</span>
                   <motion.span className="arrow text-lg font-bold">&gt;</motion.span>
@@ -87,7 +87,7 @@ export const ServiceList = ({ block }: any) => {
             ))}
           </div>
         </div>
-        <ServiceTestimonials />
+        {/* <ServiceTestimonials /> */}
       </div>
     </section>
   )
