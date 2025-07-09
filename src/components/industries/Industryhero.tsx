@@ -31,7 +31,7 @@ export const IndustriesHero = () => {
           initial={{ y: 40, opacity: 1 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          className="text-4xl md:text-6xl font-extrabold text-white text-white bg-clip-text"
+          className="text-4xl md:text-6xl font-extrabol text-white bg-clip-text"
         >
           Empowering Industries with Innovation
         </motion.h1>
