@@ -19,28 +19,36 @@ interface UseScrollGradientsConfig {
   range?: [number, number]
 }
 
-/**
- * Safely generate multiple scroll-based transforms using `useTransform` in a custom hook.
- */
-export function useScrollGradients(
+export function useFixedScrollGradients(
   scrollYProgress: MotionValue<number>,
   count: number,
-  config: UseScrollGradientsConfig = {},
+  {
+    startOffset = 0.1,
+    step = 0.1,
+    length = 0.12,
+    range = [0, 1400],
+  }: {
+    startOffset?: number
+    step?: number
+    length?: number
+    range?: [number, number]
+  } = {},
 ) {
-  const { startOffset = 0.1, step = 0.1, length = 0.12, range = [0, 1400] } = config
+  // Predeclare a safe upper limit
+  const gradients = [
+    useTransform(scrollYProgress, [0.1, 0.22], range, { clamp: true }),
+    useTransform(scrollYProgress, [0.2, 0.32], range, { clamp: true }),
+    useTransform(scrollYProgress, [0.3, 0.42], range, { clamp: true }),
+    useTransform(scrollYProgress, [0.4, 0.52], range, { clamp: true }),
+    useTransform(scrollYProgress, [0.5, 0.62], range, { clamp: true }),
+    useTransform(scrollYProgress, [0.6, 0.72], range, { clamp: true }),
+    useTransform(scrollYProgress, [0.7, 0.82], range, { clamp: true }),
+    useTransform(scrollYProgress, [0.8, 0.92], range, { clamp: true }),
+    useTransform(scrollYProgress, [0.9, 1.0], range, { clamp: true }),
+  ]
 
-  // Declare a fixed number of hooks manually
-  const gradients = []
-
-  for (let i = 0; i < count; i++) {
-    const start = startOffset + i * step
-    const end = start + length
-    gradients.push(useTransform(scrollYProgress, [start, end], range, { clamp: true }))
-  }
-
-  return gradients
+  return gradients.slice(0, count)
 }
-
 export const Section2 = ({ achievement }: any) => {
   const words = achievement.description.root.children[0].children[0].text
   const word = tochangeinsentence(words)
@@ -50,13 +58,7 @@ export const Section2 = ({ achievement }: any) => {
     offset: ['center end', 'end center'],
   })
 
-  // const gradients = word.map((_, i) => {
-  //   const start = 0.1 + i * 0.1
-  //   const end = start + 0.12
-  //   return useTransform(scrollYProgress, [start, end], [0, 1400], { clamp: true })
-  // })
-
-  const gradients = useScrollGradients(scrollYProgress, word.length)
+  const gradients = useFixedScrollGradients(scrollYProgress, word.length)
   // const gradient = [gradient1, gradient2, gradient3]
 
   return (
@@ -67,10 +69,12 @@ export const Section2 = ({ achievement }: any) => {
             key={i}
             style={{
               backgroundPositionX: gradients[i],
-              backgroundSize: '400%',
-              backgroundRepeat: 'repeat',
+              backgroundSize: '200%',
+              backgroundRepeat: '',
+              backgroundImage: 'linear-gradient(to right, #1f2937, white)',
+              backgroundClip: 'text',
             }}
-            className="text-justify font-bold px-1 inline text-base md:text-3xl bg-gradient-to-r from-gray-800 to-white from bg-clip-text text-white md:text-transparent "
+            className="text-justify font-bold px-1 inline text-base md:text-3xl  text-white md:text-transparent "
           >
             {chunk.join(' ')}
           </motion.span>
