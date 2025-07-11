@@ -1,6 +1,8 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import { BsArrowUpRight } from 'react-icons/bs'
+import { FaChevronLeft } from "react-icons/fa";
+import { FaChevronRight } from "react-icons/fa";
 
 export const Indutryslider = () => {
   const [active, setActive] = useState(1)
@@ -122,7 +124,7 @@ export const Indutryslider = () => {
   }
 
   return (
-    <div className="w-screen px-6 md:px-16 min-h-screen flex items-center flex-col justify-center bg-[linear-gradient(180deg,_#171624_0%,_#171623_100%)] ">
+    <div className="w-screen px-6 py-18 md:px-16 min-h-screen flex items-center flex-col justify-center bg-[linear-gradient(180deg,_#171624_0%,_#171623_100%)] ">
       <div className="p-10 text-white flex flex-col items-center gap-4">
         <h2 className="text-xl font-extrabold">{'Explore Industries'.toUpperCase()}</h2>
         <p className="font-normal text-2xl md:text-3xl lg:text-4xl text-center">
@@ -179,13 +181,13 @@ export const Indutryslider = () => {
           className="p-2 rounded-full size-15 flex items-center justify-center border-2"
           onClick={handleActive}
         >
-          N
+         <FaChevronLeft />
         </span>
         <span
           onClick={handlePrev}
           className="p-2 rounded-full size-15 flex items-center justify-center border-2"
         >
-          P
+        <FaChevronRight />
         </span>
       </div>
     </div>

@@ -30,7 +30,7 @@ export const Section2 = ({ achievement }: any) => {
   // const gradient = [gradient1, gradient2, gradient3]
 
   return (
-    <div className="py-20 h-screen px-3 md:px-20 flex flex-col justify-center w-full">
+    <div className="py-20 h-screen px-3 md:px-20 flex flex-col justify-center w-full bg-section">
       <div ref={divref} className="text-center w-full ">
         {word.map((chunk, i) => (
           <motion.span
@@ -52,10 +52,10 @@ export const Section2 = ({ achievement }: any) => {
           return (
             <div
               key={id}
-              className="md:w-1/4 w-[47%] rounded-xl flex flex-col h-20 p-4 bg-orange-500"
+              className="md:w-1/4 w-[47%] rounded-xl flex flex-col h-32 p-4 bg-[#4994cc] shadow"
             >
-              <span className="font-extrabold text-3xl">{value}</span>
-              <span className="text-[14px]">{label}</span>
+              <span className="font-extrabold text-6xl text-black mb-2">{value}</span>
+              <span className="text-[18px] text-black">{label}</span>
             </div>
           )
         })}

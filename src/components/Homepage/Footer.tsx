@@ -66,7 +66,7 @@ export const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-6 gap-8 backdrop-blur-md  rounded-2xl p-8 border border-white/10"
+          className="grid grid-cols-1 md:grid-cols-6 gap-8 backdrop-blur-md  rounded-2xl p-8 border border-white/10"
         >
           {[
             {
@@ -148,7 +148,7 @@ export const Footer = () => {
 
         {/* Logo + Description */}
         <div className="mt-10 flex flex-col md:flex-row items-center justify-between gap-6 py-6 border-t border-gray/10">
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
             <img src={codified.src} alt="Logo" className="h-24" />
             <p className="text-gray-700 text-sm leading-relaxed max-w-sm">
               Full stack mobile (iOS, Android) and web app design and development agency.
@@ -249,7 +249,7 @@ const Contactform = () => {
   }, [])
 
   return (
-    <div className="bg-[linear-gradient(180deg,_#171624_0%,_#171623_100%)]  text-white flex flex-col md:flex-row gap-6 p-8 rounded-0 border border-white/10 shadow-inner">
+    <div className="bg-[linear-gradient(180deg,_#171624_0%,_#171623_100%)]  text-white flex flex-col md:flex-row gap-6 p-8 rounded-0 border border-white/10 shadow-inner py-18">
       <div className="md:w-1/2 flex flex-col gap-4 justify-center">
         <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
           Our Tech Experts are Change Catalysts

@@ -243,7 +243,11 @@ export const Header = ({ data }: any) => {
         {/* Mobile Hamburger */}
         <div className="block lg:hidden">
           <button onClick={handleMobileChange}>
-            {mobileOpen ? <IoMdClose size={28} /> : <GiHamburgerMenu size={26} />}
+            {mobileOpen ? (
+              <IoMdClose size={28} />
+            ) : (
+              <GiHamburgerMenu className="text-white" size={26} />
+            )}
           </button>
         </div>
       </nav>

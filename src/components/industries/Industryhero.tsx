@@ -1,11 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Waves from '../ServicesPage/Waves' // Adjust the path as needed to where your Waves component is located
 
 export const IndustriesHero = () => {
   return (
-    <section className="relative text-white py-24 px-6 md:px-16 w-full h-screen bg-gray-900 overflow-hidden flex items-center justify-center">
-      {/* Animated Glowing Gradient Background */}
+    <>
+      {/* <section className="relative text-white py-24 px-6 md:px-16 w-full h-screen  overflow-hidden flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -25,7 +26,7 @@ export const IndustriesHero = () => {
         />
       </motion.div>
 
-      {/* Foreground Content */}
+
       <div className="relative z-10 max-w-4xl text-center space-y-6">
         <motion.h1
           initial={{ y: 40, opacity: 1 }}
@@ -56,6 +57,43 @@ export const IndustriesHero = () => {
           </button>
         </motion.div>
       </div>
-    </section>
+    </section> */}
+
+      <section className="relative text-white py-24 px-6 md:px-16 w-full h-screen overflow-hidden flex items-center justify-center">
+        <Waves
+          lineColor="rgba(255, 255, 255, 0.2) "
+          backgroundColor="#101828"
+          waveSpeedX={0.02}
+          waveSpeedY={0.01}
+          waveAmpX={40}
+          waveAmpY={20}
+          friction={0.9}
+          tension={0.01}
+          maxCursorMove={120}
+          xGap={12}
+          yGap={36}
+        />
+
+        {/* Overlay content */}
+        <div className="absolute z-10 text-center flex flex-col items-center justify-center gap-6">
+          <h1 className="text-4xl md:text-6xl font-bold">Transform Your Vision</h1>
+          <p className="text-lg md:text-xl max-w-xl">
+            Discover AI-powered exterior design solutions tailored to your home.
+          </p>
+          <motion.button
+            className="relative px-6 py-2 border-2 text-white font-medium rounded-md overflow-hidden group cursor-pointer"
+            style={{ borderColor: '#4993cd' }}
+          >
+            <span className="relative z-10 group-hover:text-white transition-colors duration-500">
+              Get Started
+            </span>
+            <span
+              className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out transform translate-x-full group-hover:translate-x-0 z-0"
+              style={{ backgroundColor: '#4993cd' }}
+            ></span>
+          </motion.button>
+        </div>
+      </section>
+    </>
   )
 }
