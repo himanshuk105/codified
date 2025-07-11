@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'motion/react'
-import { useRef } from 'react'
+import { useMemo, useRef } from 'react'
 
 function tochangeinsentence(words: string) {
   const arr = words.split(' ')
@@ -21,11 +21,13 @@ export const Section2 = ({ achievement }: any) => {
     offset: ['center end', 'end center'],
   })
 
-  const gradients = word.map((_, i) => {
-    const start = 0.1 + i * 0.1
-    const end = start + 0.12
-    return useTransform(scrollYProgress, [start, end], [0, 1400], { clamp: true })
-  })
+  const gradients = useMemo(() => {
+    return word.map((_, i) => {
+      const start = 0.1 + i * 0.1
+      const end = start + 0.12
+      return useTransform(scrollYProgress, [start, end], [0, 1400], { clamp: true })
+    })
+  }, [word, scrollYProgress])
 
   // const gradient = [gradient1, gradient2, gradient3]
 
