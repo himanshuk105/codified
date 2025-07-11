@@ -16,7 +16,7 @@ export const Techstacks = ({ techstack }: any) => {
   }
 
   return (
-    <section className="w-full sm:px-8 px-6 md:px-16">
+    <section className="w-full sm:px-8 px-6 md:px-16 py-20 bg-gray-900">
       <div className="text-center mb-12 max-w-4xl mx-auto">
         <h2 className="text-4xl p-3 sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
           {techstack.heading}
@@ -27,62 +27,6 @@ export const Techstacks = ({ techstack }: any) => {
             'We use top tools to develop scalable and efficient systems.'}
         </p>
       </div>
-
-      {size.width !== null && size.width >= 640 ? (
-        <div className="flex flex-row border rounded-2xl overflow-hidden shadow-md bg-white">
-          {/* Sidebar */}
-          <div className="w-1/3 border-r divide-y">
-            {techstack.Cards.map((card: any) => (
-              <motion.button
-                layout
-                key={card.id}
-                onClick={() => handleCardClick(card.id)}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.97 }}
-                className={`w-full text-left px-6 py-4 text-lg font-medium transition-all duration-200 cursor-pointer ${
-                  selected?.id === card.id
-                    ? 'bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-900 font-bold'
-                    : 'text-gray-500 hover:bg-gray-50'
-                }`}
-              >
-                {card.heading}
-              </motion.button>
-            ))}
-          </div>
-
-          {/* Content */}
-          <div className="w-2/3 p-6 grid grid-cols-2 sm:grid-cols-3 gap-6 place-items-center bg-gray-50">
-            <AnimatePresence mode="wait">
-              {selected?.['tech-data']?.map((tech: any) => (
-                <motion.div
-                  key={tech.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="flex flex-col items-center justify-center gap-2 p-3 bg-white rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer"
-                >
-                  <div className="w-14 h-14 relative">
-                    <Image
-                      src={`/media/${tech.logo}`}
-                      alt={tech.name}
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <span className="text-sm font-semibold text-gray-800">{tech.name}</span>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-        </div>
-      ) : (
-        <div className="flex flex-col gap-4">
-          {techstack.Cards.map((card: any) => (
-            <MobileTechCard key={card.id} card={card} />
-          ))}
-        </div>
-      )}
     </section>
   )
 }

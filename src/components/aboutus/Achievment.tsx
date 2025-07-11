@@ -64,7 +64,7 @@ export const Card = ({ item }: any) => {
   return (
     <div
       ref={sectionref}
-      className="grid grid-cols-5 grid-rows-7 gap-4 
+      className="grid grid-cols-5 grid-rows-7 gap-4  
                 md:grid-cols-10 md:grid-rows-8 
                 lg:grid-cols-10 lg:grid-rows-8"
     >
@@ -75,7 +75,7 @@ export const Card = ({ item }: any) => {
         col-span-5 row-span-3 col-start-1 row-start-5
         md:col-span-5 md:row-span-4 md:col-start-1 md:row-start-4
         lg:col-span-4 lg:row-span-4 lg:col-start-1 lg:col-end-6 lg:row-start-4 
-        bg-neutral-900 text-white z-20"
+        bg-[#4994cc] text-white z-20"
       >
         <h2 className="text-2xl md:text-3xl font-semibold mb-6">{heading || 'Who We Are'}</h2>
 

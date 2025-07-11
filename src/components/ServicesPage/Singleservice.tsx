@@ -15,8 +15,8 @@ export const Singleserviceheading = ({ hero }: any) => {
     offset: ['start end', 'end start'],
   })
 
-  const imageY = useTransform(scrollYProgress, [0.3, 0.8], [200, -50])
-  const contentY = useTransform(scrollYProgress, [0.3, 0.8], [-40, 60])
+  const imageY = useTransform(scrollYProgress, [0.3, 0.9], [200, -30])
+  const contentY = useTransform(scrollYProgress, [0.3, 0.9], [-40, 40])
 
   const isLargeScreen = size.width !== null && size.width >= 1024
 
@@ -26,9 +26,9 @@ export const Singleserviceheading = ({ hero }: any) => {
       {/* Background Image with Parallax */}
       <motion.img
         style={{ translateY: isLargeScreen ? imageY : 0 }}
-        src="https://images.unsplash.com/photo-1749456289357-4e5cbffe9fb3?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        src="https://rtslabs.com/wp-content/uploads/2024/05/ai-consulting1-AdobeStock_406334103.png"
         alt="Hero Background"
-        className="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-cover "
+        className="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-cover opacity-60"
       />
 
       {/* Overlay for Contrast */}
@@ -39,7 +39,7 @@ export const Singleserviceheading = ({ hero }: any) => {
         style={{ translateY: isLargeScreen ? contentY : 0 }}
         className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center text-white"
       >
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 drop-shadow-md max-w-5xl">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold bg-clip-text text-white drop-shadow-md max-w-5xl">
           {hero.heading}
         </h1>
         <p className="mt-4 text-lg sm:text-xl max-w-2xl text-gray-200 leading-relaxed">

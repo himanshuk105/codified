@@ -166,14 +166,14 @@ export const WhyUs = ({ data }: any) => {
     'We provide unmatched quality, support, and innovation to empower your business.'
 
   return (
-    <section className="w-full px-5 sm:px-8 md:px-16 py-16 bg-gray-900 text-white">
+    <section className="w-full px-5 sm:px-8 md:px-16 py-16 bg-white text-white">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-left sm:text-center mb-14">
           <h2 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 p-2">
             {data?.heading || 'Why Choose Us'}
           </h2>
-          <p className="mt-5 text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="mt-5 text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
             {descriptionText}
           </p>
         </div>
@@ -190,8 +190,8 @@ export const WhyUs = ({ data }: any) => {
                 whileTap={{ scale: 0.98 }}
                 className={`cursor-pointer px-5 py-4 rounded-xl transition-all duration-300 border ${
                   selected?.id === card.id
-                    ? 'bg-gradient-to-r from-white via-gray-200 to-white text-black font-bold shadow-xl'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-900 border-gray-700'
+                    ? ' bg-[#007aff] to-white text-black font-bold shadow-xl text-white border-[#007aff]'
+                    : 'text-gray-700 bg-white hover:text-white hover:bg-[#007aff] border-[#007aff]'
                 }`}
               >
                 {card.heading || 'Untitled Card'}
