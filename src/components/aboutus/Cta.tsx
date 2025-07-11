@@ -1,16 +1,19 @@
 'use client'
 
-export const CoreTeamSection = () => {
+export const CoreTeamSection = ({ cta }: any) => {
+  const heading = cta?.heading || 'Meet the Team'
+  const buttonText = cta?.Button?.[0]?.['Button Text'] || 'Learn More'
+
   return (
     <section className="relative min-h-[400px] md:min-h-[500px] bg-[#3ef4a5] overflow-hidden px-4 py-16 md:py-24">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center h-full">
         {/* Text Content */}
         <div className="z-10 text-center md:text-left">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-black leading-tight mb-6">
-            Want to meet the founding members <br /> and key drivers of our success till now?
+            {heading}
           </h2>
           <button className="mt-4 px-6 py-3 bg-blue-600 hover:bg-blue-700 transition-colors text-white rounded-xl text-lg font-semibold shadow-lg">
-            Meet Our Core Team
+            {buttonText}
           </button>
         </div>
 
