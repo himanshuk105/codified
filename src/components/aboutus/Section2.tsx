@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useScroll, useTransform, MotionValue } from 'motion/react'
-import { useMemo, useRef } from 'react'
+import { useRef } from 'react'
 
 function tochangeinsentence(words: string) {
   const arr = words.split(' ')
@@ -12,25 +12,12 @@ function tochangeinsentence(words: string) {
   return chunks
 }
 
-interface UseScrollGradientsConfig {
-  startOffset?: number
-  step?: number
-  length?: number
-  range?: [number, number]
-}
-
 export function useFixedScrollGradients(
   scrollYProgress: MotionValue<number>,
   count: number,
   {
-    startOffset = 0.1,
-    step = 0.1,
-    length = 0.12,
     range = [0, 1400],
   }: {
-    startOffset?: number
-    step?: number
-    length?: number
     range?: [number, number]
   } = {},
 ) {
@@ -69,7 +56,7 @@ export const Section2 = ({ achievement }: any) => {
             key={i}
             style={{
               backgroundPositionX: gradients[i],
-              backgroundSize: '200%',
+              backgroundSize: '150%',
               backgroundRepeat: '',
               backgroundImage: 'linear-gradient(to right, #1f2937, white)',
               backgroundClip: 'text',

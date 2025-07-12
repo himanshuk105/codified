@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useRef } from 'react'
-import { FaPlay } from 'react-icons/fa'
+// import { FaPlay } from 'react-icons/fa'
 import '../../css/hero3.css'
 
 export const Testimonial = ({ testimonials }: any) => {

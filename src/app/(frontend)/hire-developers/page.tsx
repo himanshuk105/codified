@@ -17,10 +17,6 @@ import { HireHero } from '@/components/Hire Developers/Hirehero'
 import { HireDeveloperSection } from '@/components/Hire Developers/Hiretech'
 import { WhyUseOurTeam } from '@/components/Hire Developers/WhyTeam'
 import { ServicesSection } from '@/components/industries/Research'
-import { SmartAppFramework } from '@/components/industries/SingleIndustries/Miscellenous'
-import { SingleIndustryHeroSection } from '@/components/industries/SingleIndustries/SInduhero'
-import { Strategy } from '@/components/industries/SingleIndustries/Strategy'
-import { WhyUs } from '@/components/ServicesPage/Whyus'
 import { Trustedby } from '@/components/Trusted'
 
 const Hiredevelopers = async () => {

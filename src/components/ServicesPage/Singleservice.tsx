@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { useWindowSize } from '@uidotdev/usehooks'
-import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
 import '../../css/hero3.css'
 

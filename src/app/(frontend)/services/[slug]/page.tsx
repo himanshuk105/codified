@@ -34,7 +34,7 @@ const SingleServicesPage = async ({ params }: any) => {
 
   const blocks = pagedata.docs[0].blocks
   const hero = blocks?.find((block) => block.blockName == 'Hero')
-  const project = blocks?.find((block) => block.blockName == 'Case Study')
+  // const project = blocks?.find((block) => block.blockName == 'Case Study')
   const whyus = blocks?.find((block) => block.blockName == 'Why Us')
   const techstack = blocks?.find((block) => block.blockName == 'Tech Stack')
   const AdvanceTech = blocks?.find((block) => block.blockName == 'Advance Tech')

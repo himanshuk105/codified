@@ -5,8 +5,8 @@ import { motion, useAnimate } from 'framer-motion'
 import Waves from './Waves'
 
 export const HeadingSection = ({ hero1 }: any) => {
-  const heading = hero1?.heading
-  const subheading = hero1?.subheading
+  // const heading = hero1?.heading
+  // const subheading = hero1?.subheading
   const [scope, animate] = useAnimate()
 
   const handleHoverStart = () => {

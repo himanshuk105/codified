@@ -7,7 +7,7 @@ type props = {
   author: string
 }
 
-export const Blogcard = ({ withpopular, image, category, title, para }: props) => {
+export const Blogcard = ({ withpopular }: props) => {
   return (
     <div
       className={`${withpopular ? 'flex flex-col gap-2 md:flex-col md:gap-7' : 'flex flex-col gap-2 md:flex-row md:gap-7'} `}

@@ -40,7 +40,7 @@ const ServicesPage = async () => {
       <HeadingSection hero1={hero1} className=" md:px-16" />
       <Servicebar sections={bar} />
       {blocks &&
-        blocks.map((block: any, idx: number) => {
+        blocks.map((block: any) => {
           return block && block.blockType !== 'hero' && <ServiceList key={block.id} block={block} />
         })}
       {/* </section> */}

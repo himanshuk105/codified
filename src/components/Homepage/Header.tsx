@@ -56,7 +56,7 @@ export const Header = ({ data }: any) => {
     setOpenDropdown((prev) => (prev === key ? null : key))
   }
 
-  const u = /^\/insights\/blog\/[^\/]+$/.test(pathname)
+  // const u = /^\/insights\/blog\/[^\/]+$/.test(pathname)
 
   return (
     <motion.header

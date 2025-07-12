@@ -2,14 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import {
-  FaLinkedinIn,
-  FaFacebookF,
-  FaPhoneAlt,
-  FaEnvelope,
-  FaArrowUp,
-  FaInstagram,
-} from 'react-icons/fa'
+import { FaLinkedinIn, FaFacebookF, FaArrowUp, FaInstagram } from 'react-icons/fa'
 import { FAQSection } from './Faq'
 import { useForm } from 'react-hook-form'
 import codified from '../../../public/codified-logo.png'
@@ -284,7 +277,7 @@ const Contactform = () => {
         )}
         <button
           type="submit"
-          className="border-2 p-3 rounded-lg bg-gradient-to-r from-blue-400 to-purple-500 border border-gray-800 cursor-pointer font-bold hover:bg-gray-100 transition"
+          className=" p-3 rounded-lg bg-gradient-to-r from-blue-400 to-purple-500 border border-gray-800 cursor-pointer font-bold hover:bg-gray-100 transition"
         >
           Get Proposal
         </button>

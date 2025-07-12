@@ -16,10 +16,10 @@ import iconAWS from '../../../public/aws.svg'
 import iconLaravel from '../../../public/icon-laravel.svg'
 import iconMagento from '../../../public/icon-magento.svg'
 import iconJava from '../../../public/icon-java.svg'
-import iconRuby1 from '../../../public/icon-ruby-on-rails (1).svg'
+// import iconRuby1 from '../../../public/icon-ruby-on-rails (1).svg'
 import iconRuby2 from '../../../public/icon-ruby-on-rails.svg'
 import iconDjango from '../../../public/icon-django.svg'
-import iconIOSDev from '../../../public/ios-app-development.svg'
+// import iconIOSDev from '../../../public/ios-app-development.svg'
 
 const skills = [
   { name: 'Android Developers', icon: iconAndroid.src },
