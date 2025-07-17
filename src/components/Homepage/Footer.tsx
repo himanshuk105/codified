@@ -247,7 +247,7 @@ const Contactform = () => {
         <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
           Our Tech Experts are Change Catalysts
         </h2>
-        <h3 className="text-lg text-gray-400">
+        <h3 className="text-md text-gray-400">
           Book a Free Consultation Call with Our Experts Today
         </h3>
       </div>

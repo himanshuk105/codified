@@ -35,7 +35,7 @@ export const Testimonial = ({ testimonials }: any) => {
               we’ve transformed businesses
             </span>
           </h2>
-          <p className="mt-4 text-lg text-gray-300 max-w-3xl">
+          <p className="mt-4 text-md text-gray-300 max-w-3xl">
             with exceptional user experience design, innovative app development, cutting-edge
             product optimization, and dedicated ongoing support
           </p>
