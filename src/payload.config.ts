@@ -10,7 +10,7 @@ import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Page'
-
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { Authors } from './collections/Authors'
 import { Posts } from './collections/Posts'
 import { Tags } from './collections/Tags'
@@ -61,6 +61,12 @@ export default buildConfig({
   plugins: [
     payloadCloudPlugin(),
     formBuilderPlugin({}),
+    vercelBlobStorage({
+      enabled: true,
+      collections: { media: true },
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+      clientUploads: true,
+    }),
     // nestedDocsPlugin({
     //   collections: ['pages'],
     //   generateLabel: (_, doc) => (typeof doc.title === 'string' ? doc.title : 'Untitled'),
