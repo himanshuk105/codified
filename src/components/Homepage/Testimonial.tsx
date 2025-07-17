@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 // import { FaPlay } from 'react-icons/fa'
 import '../../css/hero3.css'
 
@@ -24,6 +24,20 @@ export const Testimonial = ({ testimonials }: any) => {
       behavior: 'smooth',
     })
   }
+
+  const [url, setUrl] = useState('')
+
+  useEffect(() => {
+    const main = async () => {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_WEB_URI}/api/media/68792fbef232f6700af6eef9`,
+      )
+      const d = await res.json()
+      let name = encodeURIComponent(d.filename)
+      setUrl('https://zv4evgvaasyz7hq2.public.blob.vercel-storage.com/' + name)
+    }
+    main()
+  }, [])
 
   return (
     <section className="bg-gray-900 text-white py-20 px-5 md:px-20">
@@ -76,7 +90,9 @@ export const Testimonial = ({ testimonials }: any) => {
                 </div>
               </div>
               <div className="w-[40%] bg-[#222] flex items-center justify-center">
-                <div className="w-full h-full bg-[#333]"></div>
+                {/* <div className="w-full h-full bg-[#333]"> */}
+                <img src={url ? url : 'false'} alt="main" />
+                {/* </div> */}
               </div>
             </motion.div>
           ))}
