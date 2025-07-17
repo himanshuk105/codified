@@ -21,6 +21,14 @@ export const Sidebyside: Block = {
           relationTo: 'media',
         },
         {
+          name: 'blobcard',
+          type: 'array',
+          fields: [
+            { name: 'label', type: 'text' },
+            { name: 'value', type: 'text' },
+          ],
+        },
+        {
           name: 'Button',
           type: 'array',
           fields: [

@@ -237,6 +237,13 @@ export interface Page {
                 [k: string]: unknown;
               } | null;
               Image?: (string | null) | Media;
+              blobcard?:
+                | {
+                    label?: string | null;
+                    value?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
               Button?:
                 | {
                     'Button Text'?: string | null;
@@ -1031,6 +1038,13 @@ export interface PagesSelect<T extends boolean = true> {
                     'Left Heading'?: T;
                     Description?: T;
                     Image?: T;
+                    blobcard?:
+                      | T
+                      | {
+                          label?: T;
+                          value?: T;
+                          id?: T;
+                        };
                     Button?:
                       | T
                       | {

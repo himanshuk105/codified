@@ -13,6 +13,8 @@ export const Hero2 = ({ hero2 }: any) => {
     hero2?.['Side-1']?.Description?.root?.children?.[0]?.children?.[0]?.text || ''
   const buttonText = hero2?.['Side-1']?.Button?.[0]?.['Button Text'] || 'Explore Services'
 
+  const blobCard = hero2?.['Side-1']?.blobcard
+
   const headingRight = hero2?.['Side-2']?.['Right Heading']
   // const descriptionRight =
   //   hero2?.['Side-2']?.Description?.root?.children?.[0]?.children?.[0]?.text || ''
@@ -36,18 +38,14 @@ export const Hero2 = ({ hero2 }: any) => {
         <p className="text-gray-700">{descriptionLeft}</p>
 
         <div className="flex gap-8 text-center">
-          <div>
-            <p className="text-4xl font-bold text-black">5k+</p>
-            <span className="text-sm text-gray-700 font-semibold">Community Members</span>
-          </div>
-          <div>
-            <p className="text-4xl font-bold text-black">5+</p>
-            <span className="text-sm text-gray-700 font-semibold">Events Conducted</span>
-          </div>
-          <div>
-            <p className="text-4xl font-bold text-black">4</p>
-            <span className="text-sm text-gray-700 font-semibold">Years of Experience</span>
-          </div>
+          {blobCard.map((d: any, idx: number) => {
+            return (
+              <div key={idx}>
+                <p className="text-4xl font-bold text-black">{d.label}</p>
+                <span className="text-sm text-gray-700 font-semibold">{d.value}</span>
+              </div>
+            )
+          })}
         </div>
 
         <motion.button
