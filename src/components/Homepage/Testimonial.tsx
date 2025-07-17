@@ -33,7 +33,7 @@ export const Testimonial = ({ testimonials }: any) => {
         `${process.env.NEXT_PUBLIC_WEB_URI}/api/media/68792fbef232f6700af6eef9`,
       )
       const d = await res.json()
-      let name = encodeURIComponent(d.filename)
+      const name = encodeURIComponent(d.filename)
       setUrl('https://zv4evgvaasyz7hq2.public.blob.vercel-storage.com/' + name)
     }
     main()
