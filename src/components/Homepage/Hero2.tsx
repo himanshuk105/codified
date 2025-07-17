@@ -45,7 +45,7 @@ export const Hero2 = ({ hero2 }: any) => {
             <span className="text-sm text-gray-700 font-semibold">Events Conducted</span>
           </div>
           <div>
-            <p className="text-4xl font-bold text-black">4</p>
+            <p className="text-4xl font-bold text-black">14+</p>
             <span className="text-sm text-gray-700 font-semibold">Years of Experience</span>
           </div>
         </div>

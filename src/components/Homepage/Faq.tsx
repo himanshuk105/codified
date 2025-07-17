@@ -37,7 +37,7 @@ export const FAQSection = () => {
   return (
     <section className="w-full px-4 md:px-10 py-16 bg-section text-white bg-white">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-xxl lg:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent leading-tight bg-clip-text mb-6 mx-auto text-center">
+        <h2 className="text-3xl lg:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent leading-tight bg-clip-text mb-6 mx-auto text-center">
           Frequently Asked Questions{' '}
         </h2>
 
@@ -56,7 +56,7 @@ export const FAQSection = () => {
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <ChevronDown className="w-6 h-6 text-cyan-400" />
+                  <ChevronDown className="w-6 h-6 text-blue-700" />
                 </motion.div>
               </button>
 

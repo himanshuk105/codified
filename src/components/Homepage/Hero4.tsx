@@ -18,7 +18,7 @@ export const Hero4 = ({ hero4 }: any) => {
     <section className="bg-white text-white py-20 px-6 md:px-30">
       <div className="max-w-6xl mx-auto text-center">
         <motion.h2
-          className="text-xxl lg:text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent leading-tight bg-clip-text mb-3"
+          className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent leading-tight bg-clip-text mb-3"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -26,7 +26,7 @@ export const Hero4 = ({ hero4 }: any) => {
           {hero4.heading}
         </motion.h2>
         <motion.p
-          className="text-lg text-gray-700 max-w-3xl mx-auto "
+          className="text-gray-700 max-w-3xl mx-auto "
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
