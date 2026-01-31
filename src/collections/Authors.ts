@@ -6,6 +6,7 @@ export const Authors: CollectionConfig = {
     useAsTitle: 'name',
   },
   fields: [
+    
     {
       name: 'name',
       type: 'text',
